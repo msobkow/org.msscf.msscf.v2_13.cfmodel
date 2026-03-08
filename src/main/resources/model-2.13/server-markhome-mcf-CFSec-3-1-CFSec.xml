@@ -35,10 +35,10 @@
 		Name="CFSec"
 		Revision="3.1"
 		Description="Mark's Code Fractal CFSec - Security Services"
-		ProjectRoot="io.github.msobkow.CFSec.3.1" >
-	<Tld Name="io" >
-		<TopDomain Name="github" >
-			<TopProject Name="msobkow" >
+		ProjectRoot="server.markhome.mcf.CFSec.3.1" >
+	<Tld Name="server" >
+		<TopDomain Name="markhome" >
+			<TopProject Name="mcf" >
 				<SubProject Name="CFSec" >
 					<MajorVersion Name="3" >
 						<MinorVersion Name="1" >

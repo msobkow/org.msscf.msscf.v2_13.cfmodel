@@ -35,10 +35,10 @@
 		Name="CFInt"
 		Revision="3.1"
 		Description="Mark's Code Fractal CFInt - Internet Essentials"
-		ProjectRoot="io.github.msobkow.CFInt.3.1" >
-	<Tld Name="io" >
-		<TopDomain Name="github" >
-			<TopProject Name="msobkow" >
+		ProjectRoot="server.markhome.mcf.CFInt.3.1" >
+	<Tld Name="server" >
+		<TopDomain Name="markhome" >
+			<TopProject Name="mcf" >
 				<SubProject Name="CFInt" >
 					<MajorVersion Name="3" >
 						<MinorVersion Name="1" >
@@ -79,8 +79,8 @@ for a commercial license at mark.sobkow@gmail.com
 </CommonLicense>
 
 	<SchemaRef Name="CFSec"
-			RefModelName="io-github-msobkow-CFSec-3-1-CFSec"
-			IncludeRoot="io.github.msobkow.CFSec.3.1.CFSec" />
+			RefModelName="server-markhome-mcf-CFSec-3-1-CFSec"
+			IncludeRoot="server.markhome.mcf.CFSec.3.1.CFSec" />
 
 	<StringType Name="DomNameType"
 			IsNullable="false"
