@@ -184,6 +184,9 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		<EnumTag Name="System" />
 		<EnumTag Name="Cluster" />
 		<EnumTag Name="Tenant" />
+		<EnumTag Name="SystemGroup" />
+		<EnumTag Name="ClusterGroup" />
+		<EnumTag Name="TenantGroup" />
 	</EnumType>
 
 	<DbKeyHash256Gen Name="ValueIdGen"
