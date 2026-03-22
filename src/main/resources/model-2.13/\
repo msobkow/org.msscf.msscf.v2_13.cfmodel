@@ -219,7 +219,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="ISOCcy"
-			TableClassCode="a002"
+			TableClassCode="a003"
 			DbName="iso_ccy"
 			Label="ISO Ccy"
 			Description="ISO Ccy is a global static lookup, replicated to all nodes"
@@ -282,7 +282,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="ISOCtry"
-			TableClassCode="a003"
+			TableClassCode="a004"
 			DbName="iso_cntry"
 			Label="ISO Ctry"
 			Description="ISO Ctry implements the ISO 3166 Codes as a global static lookup, replicated to all nodes"
@@ -335,7 +335,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="ISOCtryCcy"
-			TableClassCode="a004"
+			TableClassCode="a005"
 			DbName="iso_cntryccy"
 			IsInstantiable="true"
 			HasHistory="true"
@@ -380,7 +380,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="ISOCtryLang"
-			TableClassCode="a005"
+			TableClassCode="a006"
 			DbName="iso_cntrylng"
 			IsInstantiable="true"
 			HasHistory="true"
@@ -425,7 +425,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="ISOLang"
-			TableClassCode="a006"
+			TableClassCode="a007"
 			DbName="iso_lang"
 			Label="ISO Lang"
 			Description="ISO Lang is a global static lookup, replicated to all nodes"
@@ -482,7 +482,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="ISOTZone"
-			TableClassCode="a007"
+			TableClassCode="a008"
 			DbName="ISOTz"
 			ShortName="ISOTz"
 			Label="ISO Timezone"
@@ -569,7 +569,7 @@ limitations under the License.
 			BlockSize="1" />
 
 	<Table Name="SecSysGrp"
-			TableClassCode="a008"
+			TableClassCode="a00c"
 			DbName="SecSysGrp"
 			ShortName="SysGrp"
 			Label="System Security Group"
@@ -595,7 +595,8 @@ limitations under the License.
 				Label="Group Scope"
 				IsNullable="false"
 				DbName="sec_scope"
-				DataType="SecScopeEnum" />
+				InitValue="0"
+				DataType="SecScopeEnum"
 		<PrimaryIndex Name="SecSysGrpIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
@@ -632,7 +633,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecSysGrpInc"
-			TableClassCode="a009"
+			TableClassCode="a00e"
 			DbName="SecSysGrpInc"
 			ShortName="SysGrpInc"
 			Label="System Security Group Include"
@@ -641,7 +642,7 @@ limitations under the License.
 			HasHistory="true"
 			HasAuditColumns="true"
 			PageData="true"
-			LookupIndex="SecSysGrpIncIdIdx"
+			AltIndex="SecSysGrpIncUIncludeIdx"
 			LoaderBehaviour="Insert"
 			SecScope="System" >
 		<TableCol Name="SecSysGrpId"
@@ -684,7 +685,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecSysGrpMemb"
-			TableClassCode="a00a"
+			TableClassCode="a00f"
 			DbName="SecSysGrpMemb"
 			ShortName="SysGrpMemb"
 			Label="System Security Group Member"
@@ -739,7 +740,7 @@ limitations under the License.
 			BlockSize="1" />
 
 	<Table Name="SecClusGrp"
-			TableClassCode="a00b"
+			TableClassCode="a016"
 			DbName="SecClusGrp"
 			ShortName="ClusGroup"
 			Label="Cluster Security Group"
@@ -801,7 +802,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecClusGrpInc"
-			TableClassCode="a00c"
+			TableClassCode="a00e"
 			DbName="SecClusGrpInc"
 			ShortName="ClusGrpInc"
 			Label="Cluster Security Group Include"
@@ -810,7 +811,7 @@ limitations under the License.
 			HasHistory="true"
 			HasAuditColumns="true"
 			PageData="true"
-			LookupIndex="SecClusGrpIncIdIdx"
+			LookupIndex="SecClusGrpIdIdx"
 			LoaderBehaviour="Insert"
 			SecScope="Cluster" >
 		<TableCol Name="SecClusGrpId"
@@ -853,7 +854,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecClusGrpMemb"
-			TableClassCode="a00d"
+			TableClassCode="a00f"
 			DbName="SecClusGrpMemb"
 			ShortName="ClusGrpMemb"
 			Label="Cluster Security Group Member"
@@ -908,7 +909,7 @@ limitations under the License.
 			BlockSize="1" />
 
 	<Table Name="SecTentGrp"
-			TableClassCode="a00e"
+			TableClassCode="a016"
 			DbName="SecTentGrp"
 			ShortName="TentGroup"
 			Label="Tenant Security Group"
@@ -970,7 +971,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecTentGrpInc"
-			TableClassCode="a00f"
+			TableClassCode="a00e"
 			DbName="SecTentGrpInc"
 			ShortName="TentGrpInc"
 			Label="Tenant Security Group Include"
@@ -979,7 +980,7 @@ limitations under the License.
 			HasHistory="true"
 			HasAuditColumns="true"
 			PageData="true"
-			LookupIndex="SecTentGrpIncIdIdx"
+			LookupIndex="SecTentGrpIdIdx"
 			LoaderBehaviour="Insert"
 			SecScope="Tenant" >
 		<TableCol Name="SecTentGrpId"
@@ -1022,7 +1023,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecTentGrpMemb"
-			TableClassCode="a010"
+			TableClassCode="a00f"
 			DbName="SecTentGrpMemb"
 			ShortName="TentGrpMemb"
 			Label="Tenant Security Group Member"
@@ -1071,7 +1072,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecSession"
-			TableClassCode="a011"
+			TableClassCode="a010"
 			DbName="SecSess"
 			ShortName="Sess"
 			Label="Security Session"
@@ -1117,6 +1118,15 @@ limitations under the License.
 				Suffix="SecUserIdx" >
 			<IndexCol Name="SecUserId" IsAscending="true" />
 		</Index>
+		<Index Name="SessionSecDevIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="Session_xsecdev"
+				ShortName="SecDev"
+				Suffix="SecDevIdx" >
+			<IndexCol Name="SecUserId" IsAscending="true" />
+			<IndexCol Name="SecDevName" IsAscending="true" />
+		</Index>
 		<Index Name="SessionStartIdx"
 				IsDbMapped="true"
 				IsUnique="true"
@@ -1146,7 +1156,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecUser"
-			TableClassCode="a012"
+			TableClassCode="a011"
 			DbName="SecUser"
 			Label="Security User"
 			Description="Login and security information is global amongst the clusters"
@@ -1237,10 +1247,19 @@ limitations under the License.
 				Suffix="PwdResetIdx" >
 			<IndexCol Name="PasswordResetUuid6" IsAscending="true" />
 		</Index>
+		<Index Name="SecUserDefDevIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecUser_defdevidx"
+				ShortName="DefDevIdx"
+				Suffix="DefDevIdx" >
+			<IndexCol Name="DfltDevUserId" IsAscending="true" />
+			<IndexCol Name="DfltDevName" IsAscending="true" />
+		</Index>
 	</Table>
 
 	<Table Name="SecUserPassword"
-			TableClassCode="a013"
+			TableClassCode="a011"
 			DbName="SecUserPW"
 			Label="Security User Password"
 			Description="Passwords have special security and are not accessible as normal tables"
@@ -1282,7 +1301,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecUserPWHistory"
-			TableClassCode="a014"
+			TableClassCode="a011"
 			DbName="SecUserPWHistory"
 			Label="Security User Password History"
 			Description="Passwords may not be reused until system configured constraints have been met"
@@ -1344,7 +1363,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SysCluster"
-			TableClassCode="a015"
+			TableClassCode="a014"
 			DbName="sysclus"
 			ShortName="SysClus"
 			Label="Cluster"
@@ -1386,7 +1405,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="Tenant"
-			TableClassCode="a016"
+			TableClassCode="a015"
 			DbName="tenant"
 			ShortName="Tenant"
 			Label="Tenant"
@@ -1457,7 +1476,7 @@ limitations under the License.
 				Label="Security Group"
 				Suffix="SecGroup"
 				FromIndex="ClusterIdIdx"
-				ToIndex="SecClusGrp.SecClusGrpClusterIdx"
+				ToIndex="SecGroup.SecGroupClusterIdx"
 				IsRequired="false"
 				IsXsdContainer="true" >
 			<RelationCol Name="Id" ToCol="ClusterId" />
@@ -1589,7 +1608,7 @@ limitations under the License.
 				Label="Members of Group"
 				Suffix="MembByGrp"
 				FromIndex="SecSysGrpIdIdx"
-				ToIndex="SecSysGrpMemb.SecSysGrpMembSysGrpIdx"
+				ToIndex="SecSysGrpInc.SecSysGrpMembSysGrpIdx"
 				IsRequired="false" >
 			<RelationCol Name="SecSysGrpId" ToCol="SecSysGrpId" />
 		</Relation>
@@ -1601,43 +1620,20 @@ limitations under the License.
 				DbName="secsysgrpinc_grp"
 				Label="Group"
 				Suffix="Group"
-				FromIndex="SecSysGrpIncSysGrpIdx"
-				ToIndex="SecSysGrp.SecSysGrpIdIdx"
+				FromIndex="SecSysGrpIncGroupIdx"
+				ToIndex="SecSysGroup.SecSysGroupIdIdx"
 				IsRequired="true" >
-			<RelationCol Name="SecSysGrpId" ToCol="SecSysGrpId" />
+			<RelationCol Name="SecSysGroupId" ToCol="SecSysGroupId" />
 		</Relation>
 		<Relation Name="SecSysGrpIncSubGroup"
 				RelationType="Parent"
 				DbName="secsysgrpinc_subgrp"
 				Label="SubGroup"
 				Suffix="SubGroup"
-				FromIndex="SecSysGrpIncNameIdx"
-				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
+				FromIndex="SecSysGrpIncIncludeIdx"
+				ToIndex="SecSysGroup.SecSysGroupNameIdx"
 				IsRequired="true" >
-			<RelationCol Name="IncName" ToCol="Name" />
-		</Relation>
-	</TableAddendum>
-
-	<TableAddendum FromTable="SecSysGrpMemb">
-		<Relation Name="SecSysGrpMembGroup"
-				RelationType="Container"
-				DbName="secsysgrpmb_grp"
-				Label="Group"
-				Suffix="Group"
-				FromIndex="SecSysGrpMembSysGrpIdx"
-				ToIndex="SecSysGrp.SecSysGrpIdIdx"
-				IsRequired="true" >
-			<RelationCol Name="SecSysGrpId" ToCol="SecSysGrpId" />
-		</Relation>
-		<Relation Name="SecSysGrpMembUser"
-				RelationType="Parent"
-				DbName="secsysgrpmb_user"
-				Label="User"
-				Suffix="User"
-				FromIndex="SecSysGrpMembUserIdx"
-				ToIndex="SecUser.SecUserIdIdx"
-				IsRequired="true" >
-			<RelationCol Name="SecUserId" ToCol="SecUserId" />
+			<RelationCol Name="IncludeGroupId" ToCol="SecGroupId" />
 		</Relation>
 	</TableAddendum>
 
@@ -1647,7 +1643,7 @@ limitations under the License.
 				DbName="secclusgrp_clus"
 				Label="Cluster"
 				Suffix="Cluster"
-				FromIndex="SecClusGrpClusterIdx"
+				FromIndex="SecSysGrpClusterIdx"
 				ToIndex="Cluster.ClusterIdIdx"
 				IsRequired="true" >
 			<RelationCol Name="ClusterId" ToCol="Id" />
@@ -1658,7 +1654,7 @@ limitations under the License.
 				Label="Included by Group"
 				Suffix="IncByGrp"
 				FromIndex="SecClusGrpIdIdx"
-				ToIndex="SecClusGrpInc.SecClusGrpIncClusGrpIdx"
+				ToIndex="SecClusGrpInc.SecClusGrpIncSysGrpIdx"
 				IsRequired="false" >
 			<RelationCol Name="SecClusGrpId" ToCol="SecClusGrpId" />
 		</Relation>
@@ -1668,9 +1664,42 @@ limitations under the License.
 				Label="Members of Group"
 				Suffix="MembByGrp"
 				FromIndex="SecClusGrpIdIdx"
-				ToIndex="SecClusGrpMemb.SecClusGrpMembClusGrpIdx"
+				ToIndex="SecClusGrpInc.SecClusGrpMembSysGrpIdx"
 				IsRequired="false" >
 			<RelationCol Name="SecClusGrpId" ToCol="SecClusGrpId" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="SecGrpMemb">
+		<Relation Name="SecGrpMembCluster"
+				RelationType="Owner"
+				DbName="secgrpmem_clus"
+				Label="Cluster"
+				Suffix="Cluster"
+				FromIndex="SecGrpMembClusterIdx"
+				ToIndex="Cluster.ClusterIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="ClusterId" ToCol="Id" />
+		</Relation>
+		<Relation Name="SecGrpMembGroup"
+				RelationType="Container"
+				DbName="secgrpmem_grp"
+				Label="Group"
+				Suffix="Group"
+				FromIndex="SecGrpMembGroupIdx"
+				ToIndex="SecGroup.SecGroupIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="SecGroupId" ToCol="SecGroupId" />
+		</Relation>
+		<Relation Name="SecGrpMembUser"
+				RelationType="Parent"
+				DbName="secgrpmem_user"
+				Label="User"
+				Suffix="User"
+				FromIndex="SecGrpMembUserIdx"
+				ToIndex="SecUser.SecUserIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="SecUserId" ToCol="SecUserId" />
 		</Relation>
 	</TableAddendum>
 
@@ -1719,15 +1748,71 @@ limitations under the License.
 				IsRequired="false" >
 			<RelationCol Name="SecUserId" ToCol="SecProxyId" />
 		</Relation -->
-		<Relation Name="SecUserSecSysGrpMemb"
+		<Relation Name="SecUserSecGrpMemb"
 				RelationType="Children"
-				DbName="secuser_secsysgrpmb"
-				Label="System Security Group Members"
-				Suffix="SysSecGrpMemb"
+				DbName="secuser_secgrpmemb"
+				Label="Security Group Members"
+				Suffix="SecGrpMemb"
 				FromIndex="SecUserIdIdx"
-				ToIndex="SecSysGrpMemb.SecSysGrpMembUserIdx"
+				ToIndex="SecGrpMemb.SecGrpMembUserIdx"
 				IsRequired="false" >
 			<RelationCol Name="SecUserId" ToCol="SecUserId" />
+		</Relation>
+		<Relation Name="SecUserTSecGrpMemb"
+				RelationType="Children"
+				DbName="secuser_tsecgrpmemb"
+				Label="Tenant Security Group Members"
+				Suffix="TSecGrpMemb"
+				FromIndex="SecUserIdIdx"
+				ToIndex="TSecGrpMemb.TSecGrpMembUserIdx"
+				IsRequired="false" >
+			<RelationCol Name="SecUserId" ToCol="SecUserId" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="Service">
+		<Relation Name="ServiceCluster"
+				RelationType="Owner"
+				DbName="svc_cluster"
+				Label="Cluster"
+				Suffix="Cluster"
+				FromIndex="ServiceClusterIdx"
+				ToIndex="Cluster.ClusterIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="ClusterId" ToCol="Id" />
+		</Relation>
+		<Relation Name="ServiceHost"
+				RelationType="Container"
+				DbName="svs_svchost"
+				Label="Host"
+				Suffix="Host"
+				FromIndex="ServiceHostNodeIdx"
+				ToIndex="HostNode.HostNodeIdIdx"
+				IsRequired="false" >
+			<RelationCol Name="HostNodeId" ToCol="HostNodeId" />
+		</Relation>
+		<Relation Name="ServiceSvcType"
+				RelationType="Parent"
+				DbName="svc_svctyp"
+				Label="Service Type"
+				Suffix="ServiceType"
+				FromIndex="ServiceTypeIdx"
+				ToIndex="ServiceType.ServiceTypeIdIdx"
+				IsRequired="false" >
+			<RelationCol Name="ServiceTypeId" ToCol="ServiceTypeId" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="ServiceType">
+		<Relation Name="ServiceTypeDeployed"
+				RelationType="Children"
+				DbName="svctyp_deployed"
+				Label="Deployed"
+				Suffix="Deployed"
+				FromIndex="ServiceTypeIdIdx"
+				ToIndex="Service.ServiceTypeIdx"
+				IsRequired="false" >
+			<RelationCol Name="ServiceTypeId" ToCol="ServiceTypeId" />
 		</Relation>
 	</TableAddendum>
 
@@ -1744,6 +1829,117 @@ limitations under the License.
 		</Relation>
 	</TableAddendum>
 
+	<TableAddendum FromTable="TSecGroup">
+		<Relation Name="TSecGroupTenant"
+				RelationType="Container"
+				DbName="tsecgrp_tenant"
+				Label="Tenant"
+				Suffix="Tenant"
+				FromIndex="TSecGroupTenantIdx"
+				ToIndex="Tenant.TenantIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="TenantId" ToCol="Id" />
+		</Relation>
+		<Relation Name="TSecGrpInc"
+				RelationType="Components"
+				DbName="tsecgrp_inc"
+				Label="Sub Group"
+				Suffix="Include"
+				FromIndex="TSecGroupIdIdx"
+				ToIndex="TSecGrpInc.TSecGrpIncGroupIdx"
+				IsRequired="false"
+				IsXsdContainer="true" >
+			<RelationCol Name="TSecGroupId" ToCol="TSecGroupId" />
+		</Relation>
+		<Relation Name="TSecGrpMemb"
+				RelationType="Components"
+				DbName="tsecgrp_memb"
+				Label="Group Member"
+				Suffix="Member"
+				FromIndex="TSecGroupIdIdx"
+				ToIndex="TSecGrpMemb.TSecGrpMembGroupIdx"
+				IsRequired="false"
+				IsXsdContainer="true" >
+			<RelationCol Name="TSecGroupId" ToCol="TSecGroupId" />
+		</Relation>
+		<Relation Name="TSecGrpIncByGroup"
+				RelationType="Children"
+				DbName="tsecgrp_incbygrp"
+				Label="Included By Group"
+				Suffix="IncByGroup"
+				FromIndex="TSecGroupIdIdx"
+				ToIndex="TSecGrpInc.TSecGrpIncIncludeIdx"
+				IsRequired="true" >
+			<RelationCol Name="TSecGroupId" ToCol="IncludeGroupId" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="TSecGrpInc">
+		<Relation Name="TSecGrpIncTenant"
+				RelationType="Owner"
+				DbName="tsecgrpinc_tenant"
+				Label="Tenant"
+				Suffix="Tenant"
+				FromIndex="TSecGrpIncTenantIdx"
+				ToIndex="Tenant.TenantIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="TenantId" ToCol="Id" />
+		</Relation>
+		<Relation Name="TSecGrpIncGroup"
+				RelationType="Container"
+				DbName="tsecgrpinc_grp"
+				Label="Group"
+				Suffix="Group"
+				FromIndex="TSecGrpIncGroupIdx"
+				ToIndex="TSecGroup.TSecGroupIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="TSecGroupId" ToCol="TSecGroupId" />
+		</Relation>
+		<Relation Name="TSecGrpIncSubGroup"
+				RelationType="Parent"
+				DbName="tsecgrpinc_subgrp"
+				Label="SubGroup"
+				Suffix="SubGroup"
+				FromIndex="TSecGrpIncIncludeIdx"
+				ToIndex="TSecGroup.TSecGroupIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="IncludeGroupId" ToCol="TSecGroupId" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="TSecGrpMemb">
+		<Relation Name="TSecGrpMembTenant"
+				RelationType="Owner"
+				DbName="tsecgrpmemb_tenant"
+				Label="Tenant"
+				Suffix="Tenant"
+				FromIndex="TSecGrpMembTenantIdx"
+				ToIndex="Tenant.TenantIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="TenantId" ToCol="Id" />
+		</Relation>
+		<Relation Name="TSecGrpMembGroup"
+				RelationType="Container"
+				DbName="tsecgrpmemb_grp"
+				Label="Group"
+				Suffix="Group"
+				FromIndex="TSecGrpMembGroupIdx"
+				ToIndex="TSecGroup.TSecGroupIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="TSecGroupId" ToCol="TSecGroupId" />
+		</Relation>
+		<Relation Name="TSecGrpMembUser"
+				RelationType="Parent"
+				DbName="tsecgrpmemb_user"
+				Label="User"
+				Suffix="User"
+				FromIndex="TSecGrpMembUserIdx"
+				ToIndex="SecUser.SecUserIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="SecUserId" ToCol="SecUserId" />
+		</Relation>
+	</TableAddendum>
+
 	<TableAddendum FromTable="Tenant">
 		<Relation Name="TenantCluster"
 				RelationType="Container"
@@ -1755,24 +1951,34 @@ limitations under the License.
 				IsRequired="true" >
 			<RelationCol Name="ClusterId" ToCol="Id" />
 		</Relation>
-		<Relation Name="TenantSecTentGroup"
+		<Relation Name="TenantSecGroup"
 				RelationType="Components"
-				DbName="tenant_sectentgrp"
+				DbName="tenant_secgrp"
 				Label="Tenant Security Group"
-				Suffix="SecGroup"
+				Suffix="TSecGroup"
 				FromIndex="TenantIdIdx"
-				ToIndex="SecTentGrp.SecTentGrpTenantIdx"
+				ToIndex="TSecGroup.TSecGroupTenantIdx"
 				IsRequired="false"
 				IsXsdContainer="true" >
 			<RelationCol Name="Id" ToCol="TenantId" />
 		</Relation>
 	</TableAddendum>
 
+	<TableAddendum FromTable="SecUser">
+		<ClearDep Name="ClearSecUserDefDev" ClearDepChain="SecUserDefDev" />
+	</TableAddendum>
+
 	<TableAddendum FromTable="Cluster">
+		<DelDep Name="DelHostNodes" DelDepChain="ClusterHostNode" />
 		<DelDep Name="DelTenants" DelDepChain="ClusterTenant" />
 		<DelDep Name="DelSecGroups" DelDepChain="ClusterSecGroup" />
-		<DelDep Name="DelSecGrpIncs" DelDepChain="ClusterSecGroup.SecClusGrpIncByGrp" />
-		<DelDep Name="DelSecGrpMembs" DelDepChain="ClusterSecGroup.SecClusGrpMembByGrp" />
+		<DelDep Name="DelSecGrpIncs" DelDepChain="ClusterSecGroup.SecGrpInc" />
+		<DelDep Name="DelSecGrpMembs" DelDepChain="ClusterSecGroup.SecGrpMemb" />
+		<DelDep Name="DelSecGrpIncByGroup" DelDepChain="ClusterSecGroup.SecGrpIncByGroup" />
+	</TableAddendum>
+
+	<TableAddendum FromTable="HostNode">
+		<DelDep Name="DelServices" DelDepChain="HostNodeService" />
 	</TableAddendum>
 
 	<TableAddendum FromTable="ISOCtry">
@@ -1780,20 +1986,30 @@ limitations under the License.
 		<DelDep Name="DelCtryLangs" DelDepChain="ISOCtryLangs" />
 	</TableAddendum>
 
-	<TableAddendum FromTable="SecSysGrp">
-		<DelDep Name="DelSecGrpIncs" DelDepChain="SecSysGrpIncByGrp" />
-		<DelDep Name="DelSecGrpMembs" DelDepChain="SecSysGrpMembByGrp" />
+	<TableAddendum FromTable="SecGroup">
+		<DelDep Name="DelSecGrpIncs" DelDepChain="SecGrpInc" />
+		<DelDep Name="DelSecGrpMembs" DelDepChain="SecGrpMemb" />
+		<DelDep Name="DelSecGrpIncByGroup" DelDepChain="SecGrpIncByGroup" />
 	</TableAddendum>
 
 	<TableAddendum FromTable="SecUser">
 		<!--DelDep Name="DelSecProxySessions" DelDepChain="SecUserSecProxySession" /-->
 		<!--DelDep Name="DelSecSessions" DelDepChain="SecUserSecSession" /-->
+		<DelDep Name="DelSecGrpMembs" DelDepChain="SecUserSecGrpMemb" />
+		<DelDep Name="DelTSecGrpMembs" DelDepChain="SecUserTSecGrpMemb" />
+	</TableAddendum>
+
+	<TableAddendum FromTable="TSecGroup">
+		<DelDep Name="DelGrpIncs" DelDepChain="TSecGrpInc" />
+		<DelDep Name="DelGrpMembs" DelDepChain="TSecGrpMemb" />
+		<DelDep Name="DelIncludedByGroup" DelDepChain="TSecGrpIncByGroup" />
 	</TableAddendum>
 
 	<TableAddendum FromTable="Tenant">
-		<DelDep Name="DelSecTentGroups" DelDepChain="TenantSecTentGroup" />
-		<!-- DelDep Name="DelTentGrpIncs" DelDepChain="TenantSecTentGroup.SecTentGrpIncByGrp" / -->
-		<!-- DelDep Name="DelTentGrpMembs" DelDepChain="TenantSecTentGroup.SecTentGrpMembByGrp" / -->
+		<DelDep Name="DelTSecGroups" DelDepChain="TenantSecGroup" />
+		<DelDep Name="DelGrpIncs" DelDepChain="TenantSecGroup.TSecGrpInc" />
+		<DelDep Name="DelGrpMembs" DelDepChain="TenantSecGroup.TSecGrpMemb" />
+		<DelDep Name="DelIncludedByGroup" DelDepChain="TenantSecGroup.TSecGrpIncByGroup" />
 	</TableAddendum>
 </SchemaDef>
 						</MinorVersion>
