@@ -71,7 +71,7 @@ limitations under the License.
 		<EnumTag Name="Delete" EnumCode="2" />
 	</EnumType>
 
-	<EnumType Name="SecScopeEnum"
+	<EnumType Name="SecLevelEnum"
 			IsNullable="false"
 			MinValue="0"
 			InitValue="0" >
@@ -591,11 +591,11 @@ limitations under the License.
 				DbName="safe_name"
 				MaxLen="64"
 				InitValue="" />
-		<TableCol Name="SecScope"
-				Label="Group Scope"
+		<TableCol Name="SecLevel"
+				Label="Group Level"
 				IsNullable="false"
-				DbName="sec_scope"
-				DataType="SecScopeEnum" />
+				DbName="sec_level"
+				DataType="SecLevelEnum" />
 		<PrimaryIndex Name="SecSysGrpIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
@@ -612,21 +612,21 @@ limitations under the License.
 				Suffix="UNameIdx" >
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
-		<Index Name="SecSysGrpScopeIdx"
+		<Index Name="SecSysGrpLevelIdx"
 				IsDbMapped="true"
 				IsUnique="true"
-				DbName="SecSysGrp_xscope"
-				ShortName="SecScope"
-				Suffix="SecScopeIdx" >
-			<IndexCol Name="SecScope" IsAscending="true" />
+				DbName="SecSysGrp_xlvl"
+				ShortName="SecLevel"
+				Suffix="SecLevelIdx" >
+			<IndexCol Name="SecLevel" IsAscending="true" />
 		</Index>
-		<Index Name="SecSysGrpScopeNameIdx"
+		<Index Name="SecSysGrpLevelNameIdx"
 				IsDbMapped="true"
 				IsUnique="true"
-				DbName="SecSysGrp_xscopenm"
-				ShortName="SecScopeName"
-				Suffix="SecScopeNmIdx" >
-			<IndexCol Name="SecScope" IsAscending="true" />
+				DbName="SecSysGrp_xlvlnm"
+				ShortName="SecLevelName"
+				Suffix="SecLevelNmIdx" >
+			<IndexCol Name="SecLevel" IsAscending="true" />
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
 	</Table>
