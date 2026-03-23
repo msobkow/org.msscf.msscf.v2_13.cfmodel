@@ -75,9 +75,10 @@ limitations under the License.
 			IsNullable="false"
 			MinValue="0"
 			InitValue="0" >
-		<EnumTag Name="System" EnumCode="0" />
-		<EnumTag Name="Cluster" EnumCode="1" />
-		<EnumTag Name="Tenant" EnumCode="2" />
+		<EnumTag Name="Global" EnumCode="0" />
+		<EnumTag Name="System" EnumCode="1" />
+		<EnumTag Name="Cluster" EnumCode="2" />
+		<EnumTag Name="Tenant" EnumCode="3" />
 	</EnumType>
 
 	<DbKeyHash256Gen Name="ClusterIdGen"
@@ -228,7 +229,7 @@ limitations under the License.
 			HasAuditColumns="true"
 			LookupIndex="ISOCcyCodeIdx"
 			LoaderBehaviour="Update"
-			SecScope="System" >
+			SecScope="Global" >
 		<TableCol Name="ISOCcyId"
 				IsNullable="false"
 				GenerateId="true"
@@ -291,7 +292,7 @@ limitations under the License.
 			HasAuditColumns="true"
 			LookupIndex="ISOCtryCodeIdx"
 			LoaderBehaviour="Update"
-			SecScope="System" >
+			SecScope="Global" >
 		<TableCol Name="ISOCtryId"
 				IsNullable="false"
 				GenerateId="true"
@@ -342,7 +343,7 @@ limitations under the License.
 			HasAuditColumns="true"
 			AltIndex="ISOCtryCcyIdIdx"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="Global" >
 		<TableCol Name="ISOCtryId"
 				IsNullable="false"
 				DataType="ISOCtryIdGen" />
@@ -387,7 +388,7 @@ limitations under the License.
 			HasAuditColumns="true"
 			AltIndex="ISOCtryLangIdIdx"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="Global" >
 		<TableCol Name="ISOCtryId"
 				IsNullable="false"
 				DataType="ISOCtryIdGen" />
@@ -434,7 +435,7 @@ limitations under the License.
 			HasAuditColumns="true"
 			LookupIndex="ISOLang6392Idx"
 			LoaderBehaviour="Update"
-			SecScope="System" >
+			SecScope="Global" >
 		<TableCol Name="ISOLangId"
 				IsNullable="false"
 				GenerateId="true"
@@ -492,7 +493,7 @@ limitations under the License.
 			HasAuditColumns="true"
 			LookupIndex="ISOTZoneUTZNameIdx"
 			LoaderBehaviour="Update"
-			SecScope="System" >
+			SecScope="Global" >
 		<TableCol Name="ISOTZoneId"
 				Label="ISO Timezone Id"
 				IsNullable="false"
@@ -693,7 +694,7 @@ limitations under the License.
 			HasHistory="true"
 			HasAuditColumns="true"
 			PageData="true"
-			AltIndex="SecSysGrpMembIdIdx"
+			LookupIndex="SecSysGrpMembUserIdx"
 			LoaderBehaviour="Insert"
 			SecScope="Cluster" >
 		<TableCol Name="SecSysGrpId"
@@ -1031,7 +1032,7 @@ limitations under the License.
 			HasHistory="true"
 			HasAuditColumns="true"
 			PageData="true"
-			AltIndex="SecTentGrpMembIdIdx"
+			LookupIndex="SecTentGrpMembUserIdx"
 			LoaderBehaviour="Insert"
 			SecScope="Tenant" >
 		<TableCol Name="SecTentGrpId"
