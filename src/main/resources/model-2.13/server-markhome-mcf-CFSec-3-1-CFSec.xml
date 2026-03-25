@@ -120,6 +120,16 @@ limitations under the License.
 			MaxLen="3"
 			InitValue="" />
 
+	<StringType Name="LoginIdType"
+			IsNullable="false"
+			MaxLen="32"
+			InitValue="" />
+
+	<StringType Name="GroupName"
+			IsNullable="false"
+			MaxLen="64"
+			InitValue="" />
+
 	<Id16Gen Name="ISOCtryIdGen"
 			IsNullable="false"
 			DbName="ISOCtryIdGenSeq"
@@ -563,589 +573,6 @@ limitations under the License.
 		</Index>
 	</Table>
 
-	<DbKeyHash256Gen Name="SecSysGrpIdGen"
-			IsNullable="false"
-			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="109"
-			BlockSize="1" />
-
-	<Table Name="SecSysGrp"
-			TableClassCode="a008"
-			DbName="SecSysGrp"
-			ShortName="SysGrp"
-			Label="System Security Group"
-			Description="System security groups apply to global data and lookups, such as the ISO lookups"
-			IsInstantiable="true"
-			HasHistory="true"
-			HasAuditColumns="true"
-			LookupIndex="SecSysGrpUNameIdx"
-			LoaderBehaviour="Insert"
-			SecScope="System" >
-		<TableCol Name="SecSysGrpId"
-				Label="System Security Group Id"
-				IsNullable="false"
-				GenerateId="true"
-				DataType="SecSysGrpIdGen" />
-		<StringCol Name="Name"
-				Label="Name"
-				IsNullable="false"
-				DbName="safe_name"
-				MaxLen="64"
-				InitValue="" />
-		<TableCol Name="SecLevel"
-				Label="Group Level"
-				IsNullable="false"
-				DbName="sec_level"
-				DataType="SecLevelEnum" />
-		<PrimaryIndex Name="SecSysGrpIdIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecSysGrp_pidx"
-				ShortName="PIdx"
-				Suffix="IdIdx" >
-			<IndexCol Name="SecSysGrpId" IsAscending="true" />
-		</PrimaryIndex>
-		<Index Name="SecSysGrpUNameIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecSysGrp_xuname"
-				ShortName="UName"
-				Suffix="UNameIdx" >
-			<IndexCol Name="Name" IsAscending="true" />
-		</Index>
-		<Index Name="SecSysGrpLevelIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecSysGrp_xlvl"
-				ShortName="SecLevel"
-				Suffix="SecLevelIdx" >
-			<IndexCol Name="SecLevel" IsAscending="true" />
-		</Index>
-		<Index Name="SecSysGrpLevelNameIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecSysGrp_xlvlnm"
-				ShortName="SecLevelName"
-				Suffix="SecLevelNmIdx" >
-			<IndexCol Name="SecLevel" IsAscending="true" />
-			<IndexCol Name="Name" IsAscending="true" />
-		</Index>
-	</Table>
-
-	<Table Name="SecSysGrpInc"
-			TableClassCode="a009"
-			DbName="SecSysGrpInc"
-			ShortName="SysGrpInc"
-			Label="System Security Group Include"
-			Description="System security groups can include other system security groups"
-			IsInstantiable="true"
-			HasHistory="true"
-			HasAuditColumns="true"
-			PageData="true"
-			LookupIndex="SecSysGrpIncIdIdx"
-			LoaderBehaviour="Insert"
-			SecScope="System" >
-		<TableCol Name="SecSysGrpId"
-				Label="System Security Group Id"
-				IsNullable="false"
-				GenerateId="false"
-				DbName="SecSysGrpId"
-				DataType="SecSysGrpIdGen" />
-		<StringCol Name="IncName"
-				Label="Include Name"
-				IsNullable="false"
-				DbName="inc_name"
-				MaxLen="64"
-				InitValue="" />
-		<PrimaryIndex Name="SecSysGrpIncIdIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecSysGrpInc_pidx"
-				ShortName="PIdx"
-				Suffix="IdIdx" >
-			<IndexCol Name="SecSysGrpId" IsAscending="true" />
-			<IndexCol Name="IncName" IsAscending="true" />
-		</PrimaryIndex>
-		<Index Name="SecSysGrpIncSysGrpIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecSysGrpInc_xsysgrp"
-				ShortName="SysGrp"
-				Suffix="SysGrpIdx" >
-			<IndexCol Name="SecSysGrpId" IsAscending="true" />
-		</Index>
-		<Index Name="SecSysGrpIncNameIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecSysGrpInc_xname"
-				ShortName="XName"
-				Suffix="NameIdx" >
-			<IndexCol Name="IncName" IsAscending="true" />
-		</Index>
-	</Table>
-
-	<Table Name="SecSysGrpMemb"
-			TableClassCode="a00a"
-			DbName="SecSysGrpMemb"
-			ShortName="SysGrpMemb"
-			Label="System Security Group Member"
-			Description="System security group members tie the SecUser to specific system groups"
-			IsInstantiable="true"
-			HasHistory="true"
-			HasAuditColumns="true"
-			PageData="true"
-			LookupIndex="SecSysGrpMembUserIdx"
-			LoaderBehaviour="Insert"
-			SecScope="Cluster" >
-		<TableCol Name="SecSysGrpId"
-				Label="System Security Group Id"
-				IsNullable="false"
-				GenerateId="false"
-				DataType="SecSysGrpIdGen" />
-		<TableCol Name="SecUserId"
-				Label="Security User Id"
-				IsNullable="false"
-				DataType="SecUserIdGen" />
-		<PrimaryIndex Name="SecSysGrpMembIdIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecSysGrpMemb_pidx"
-				ShortName="PIdx"
-				Suffix="IdIdx" >
-			<IndexCol Name="SecSysGrpId" IsAscending="true" />
-			<IndexCol Name="SecUserId" IsAscending="true" />
-		</PrimaryIndex>
-		<Index Name="SecSysGrpMembSysGrpIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecSysGrpMemb_xsysgrp"
-				ShortName="SysGrp"
-				Suffix="SysGrpIdx" >
-			<IndexCol Name="SecSysGrpId" IsAscending="true" />
-		</Index>
-		<Index Name="SecSysGrpMembUserIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecSysGrpMemb_xuser"
-				ShortName="User"
-				Suffix="UserIdx" >
-			<IndexCol Name="SecUserId" IsAscending="true" />
-		</Index>
-	</Table>
-
-	<DbKeyHash256Gen Name="SecClusGrpIdGen"
-			IsNullable="false"
-			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="117"
-			BlockSize="1" />
-
-	<Table Name="SecClusGrp"
-			TableClassCode="a00b"
-			DbName="SecClusGrp"
-			ShortName="ClusGroup"
-			Label="Cluster Security Group"
-			Description="Cluster Security groups define permissions at the Cluster level"
-			IsInstantiable="true"
-			HasHistory="true"
-			HasAuditColumns="true"
-			LookupIndex="SecClusGrpUNameIdx"
-			LoaderBehaviour="Insert"
-			SecScope="Cluster" >
-		<TableCol Name="SecClusGrpId"
-				Label="Cluster Security Group Id"
-				IsNullable="false"
-				GenerateId="true"
-				DataType="SecClusGrpIdGen" />
-		<TableCol Name="ClusterId"
-				Label="Cluster Id"
-				IsNullable="false"
-				DataType="ClusterIdGen" />
-		<StringCol Name="Name"
-				Label="Name"
-				IsNullable="false"
-				DbName="safe_name"
-				MaxLen="64"
-				InitValue="" />
-		<PrimaryIndex Name="SecClusGrpIdIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecClusGrp_pidx"
-				ShortName="PIdx"
-				Suffix="IdIdx" >
-			<IndexCol Name="SecClusGrpId" IsAscending="true" />
-		</PrimaryIndex>
-		<Index Name="SecClusGrpClusterIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecClusGrp_xcluster"
-				ShortName="Cluster"
-				Suffix="ClusterIdx" >
-			<IndexCol Name="ClusterId" IsAscending="true" />
-		</Index>
-		<Index Name="SecClusGrpNameIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecClusGrp_xname"
-				ShortName="ByName"
-				Suffix="NameIdx" >
-			<IndexCol Name="Name" IsAscending="true" />
-		</Index>
-		<Index Name="SecClusGrpUNameIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecClusGrp_xuname"
-				ShortName="UName"
-				Suffix="UNameIdx" >
-			<IndexCol Name="ClusterId" IsAscending="true" />
-			<IndexCol Name="Name" IsAscending="true" />
-		</Index>
-	</Table>
-
-	<Table Name="SecClusGrpInc"
-			TableClassCode="a00c"
-			DbName="SecClusGrpInc"
-			ShortName="ClusGrpInc"
-			Label="Cluster Security Group Include"
-			Description="Cluster security groups can include other cluster or system security groups"
-			IsInstantiable="true"
-			HasHistory="true"
-			HasAuditColumns="true"
-			PageData="true"
-			LookupIndex="SecClusGrpIncIdIdx"
-			LoaderBehaviour="Insert"
-			SecScope="Cluster" >
-		<TableCol Name="SecClusGrpId"
-				Label="Cluster Security Group Id"
-				IsNullable="false"
-				GenerateId="false"
-				DbName="SecClusGrpId"
-				DataType="SecClusGrpIdGen" />
-		<StringCol Name="IncName"
-				Label="Include Name"
-				IsNullable="false"
-				DbName="inc_name"
-				MaxLen="64"
-				InitValue="" />
-		<PrimaryIndex Name="SecClusGrpIncIdIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecClusGrpInc_pidx"
-				ShortName="PIdx"
-				Suffix="IdIdx" >
-			<IndexCol Name="SecClusGrpId" IsAscending="true" />
-			<IndexCol Name="IncName" IsAscending="true" />
-		</PrimaryIndex>
-		<Index Name="SecClusGrpIncClusGrpIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecClusGrpInc_xclusgrp"
-				ShortName="ClusGrp"
-				Suffix="ClusGrpIdx" >
-			<IndexCol Name="SecClusGrpId" IsAscending="true" />
-		</Index>
-		<Index Name="SecClusGrpIncNameIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecClusGrpInc_xname"
-				ShortName="XName"
-				Suffix="NameIdx" >
-			<IndexCol Name="IncName" IsAscending="true" />
-		</Index>
-	</Table>
-
-	<Table Name="SecClusGrpMemb"
-			TableClassCode="a00d"
-			DbName="SecClusGrpMemb"
-			ShortName="ClusGrpMemb"
-			Label="Cluster Security Group Member"
-			Description="Cluster security group members tie the SecUser to specific cluster groups"
-			IsInstantiable="true"
-			HasHistory="true"
-			HasAuditColumns="true"
-			PageData="true"
-			AltIndex="SecClusGrpMembIdIdx"
-			LoaderBehaviour="Insert"
-			SecScope="Cluster" >
-		<TableCol Name="SecClusGrpId"
-				Label="Cluster Security Group Id"
-				IsNullable="false"
-				GenerateId="false"
-				DataType="SecClusGrpIdGen" />
-		<TableCol Name="SecUserId"
-				Label="Security User Id"
-				IsNullable="false"
-				DataType="SecUserIdGen" />
-		<PrimaryIndex Name="SecClusGrpMembIdIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecClusGrpMemb_pidx"
-				ShortName="PIdx"
-				Suffix="IdIdx" >
-			<IndexCol Name="SecClusGrpId" IsAscending="true" />
-			<IndexCol Name="SecUserId" IsAscending="true" />
-		</PrimaryIndex>
-		<Index Name="SecClusGrpMembClusGrpIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecClusGrpMemb_xclusgrp"
-				ShortName="ClusGrp"
-				Suffix="ClusGrpIdx" >
-			<IndexCol Name="SecClusGrpId" IsAscending="true" />
-		</Index>
-		<Index Name="SecClusGrpMembUserIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecClusGrpMemb_xuser"
-				ShortName="User"
-				Suffix="UserIdx" >
-			<IndexCol Name="SecUserId" IsAscending="true" />
-		</Index>
-	</Table>
-
-	<DbKeyHash256Gen Name="SecTentGrpIdGen"
-			IsNullable="false"
-			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="117"
-			BlockSize="1" />
-
-	<Table Name="SecTentGrp"
-			TableClassCode="a00e"
-			DbName="SecTentGrp"
-			ShortName="TentGroup"
-			Label="Tenant Security Group"
-			Description="Tenant Security groups define permissions at the Tenant level"
-			IsInstantiable="true"
-			HasHistory="true"
-			HasAuditColumns="true"
-			LookupIndex="SecTentGrpUNameIdx"
-			LoaderBehaviour="Insert"
-			SecScope="Tenant" >
-		<TableCol Name="SecTentGrpId"
-				Label="Tenant Security Group Id"
-				IsNullable="false"
-				GenerateId="true"
-				DataType="SecTentGrpIdGen" />
-		<TableCol Name="TenantId"
-				Label="Tenant Id"
-				IsNullable="false"
-				DataType="TenantIdGen" />
-		<StringCol Name="Name"
-				Label="Name"
-				IsNullable="false"
-				DbName="safe_name"
-				MaxLen="64"
-				InitValue="" />
-		<PrimaryIndex Name="SecTentGrpIdIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecTentGrp_pidx"
-				ShortName="PIdx"
-				Suffix="IdIdx" >
-			<IndexCol Name="SecTentGrpId" IsAscending="true" />
-		</PrimaryIndex>
-		<Index Name="SecTentGrpTenantIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecTentGrp_xtenant"
-				ShortName="Tenant"
-				Suffix="TenantIdx" >
-			<IndexCol Name="TenantId" IsAscending="true" />
-		</Index>
-		<Index Name="SecTentGrpNameIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecTentGrp_xname"
-				ShortName="ByName"
-				Suffix="NameIdx" >
-			<IndexCol Name="Name" IsAscending="true" />
-		</Index>
-		<Index Name="SecTentGrpUNameIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecTentGrp_xuname"
-				ShortName="UName"
-				Suffix="UNameIdx" >
-			<IndexCol Name="TenantId" IsAscending="true" />
-			<IndexCol Name="Name" IsAscending="true" />
-		</Index>
-	</Table>
-
-	<Table Name="SecTentGrpInc"
-			TableClassCode="a00f"
-			DbName="SecTentGrpInc"
-			ShortName="TentGrpInc"
-			Label="Tenant Security Group Include"
-			Description="Tenant security groups can include other tenant, cluster or system security groups"
-			IsInstantiable="true"
-			HasHistory="true"
-			HasAuditColumns="true"
-			PageData="true"
-			LookupIndex="SecTentGrpIncIdIdx"
-			LoaderBehaviour="Insert"
-			SecScope="Tenant" >
-		<TableCol Name="SecTentGrpId"
-				Label="Tenant Security Group Id"
-				IsNullable="false"
-				GenerateId="false"
-				DbName="SecTentGrpId"
-				DataType="SecTentGrpIdGen" />
-		<StringCol Name="IncName"
-				Label="Include Name"
-				IsNullable="false"
-				DbName="inc_name"
-				MaxLen="64"
-				InitValue="" />
-		<PrimaryIndex Name="SecTentGrpIncIdIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecTentGrpInc_pidx"
-				ShortName="PIdx"
-				Suffix="IdIdx" >
-			<IndexCol Name="SecTentGrpId" IsAscending="true" />
-			<IndexCol Name="IncName" IsAscending="true" />
-		</PrimaryIndex>
-		<Index Name="SecTentGrpIncTentGrpIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecTentGrpInc_xtentgrp"
-				ShortName="TentGrp"
-				Suffix="TentGrpIdx" >
-			<IndexCol Name="SecTentGrpId" IsAscending="true" />
-		</Index>
-		<Index Name="SecTentGrpIncNameIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecTentGrpInc_xname"
-				ShortName="XName"
-				Suffix="NameIdx" >
-			<IndexCol Name="IncName" IsAscending="true" />
-		</Index>
-	</Table>
-
-	<Table Name="SecTentGrpMemb"
-			TableClassCode="a010"
-			DbName="SecTentGrpMemb"
-			ShortName="TentGrpMemb"
-			Label="Tenant Security Group Member"
-			Description="Tenant security group members tie the SecUser to specific tenant groups"
-			IsInstantiable="true"
-			HasHistory="true"
-			HasAuditColumns="true"
-			PageData="true"
-			LookupIndex="SecTentGrpMembUserIdx"
-			LoaderBehaviour="Insert"
-			SecScope="Tenant" >
-		<TableCol Name="SecTentGrpId"
-				Label="Tenant Security Group Id"
-				IsNullable="false"
-				GenerateId="false"
-				DataType="SecTentGrpIdGen" />
-		<TableCol Name="SecUserId"
-				Label="Security User Id"
-				IsNullable="false"
-				DataType="SecUserIdGen" />
-		<PrimaryIndex Name="SecTentGrpMembIdIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecTentGrpMemb_pidx"
-				ShortName="PIdx"
-				Suffix="IdIdx" >
-			<IndexCol Name="SecTentGrpId" IsAscending="true" />
-			<IndexCol Name="SecUserId" IsAscending="true" />
-		</PrimaryIndex>
-		<Index Name="SecTentGrpMembTentGrpIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecTentGrpMemb_xtentgrp"
-				ShortName="TentGrp"
-				Suffix="TentGrpIdx" >
-			<IndexCol Name="SecTentGrpId" IsAscending="true" />
-		</Index>
-		<Index Name="SecTentGrpMembUserIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecTentGrpMemb_xuser"
-				ShortName="User"
-				Suffix="UserIdx" >
-			<IndexCol Name="SecUserId" IsAscending="true" />
-		</Index>
-	</Table>
-
-	<Table Name="SecSession"
-			TableClassCode="a011"
-			DbName="SecSess"
-			ShortName="Sess"
-			Label="Security Session"
-			Description="Security sessions are valid throughout the cluster"
-			IsInstantiable="true"
-			HasHistory="false"
-			HasAuditColumns="false"
-			PageData="true"
-			LoaderBehaviour="Insert"
-			SecScope="System" >
-		<TableCol Name="SecSessionId"
-				Label="Security Session Id"
-				IsNullable="false"
-				GenerateId="true"
-				DataType="SecSessionIdGen" />
-		<TableCol Name="SecUserId"
-				Label="Security User Id"
-				IsNullable="false"
-				DataType="SecUserIdGen" />
-		<TimestampCol Name="Start"
-				IsNullable="false"
-				DbName="start_ts" />
-		<TimestampCol Name="Finish"
-				IsNullable="true"
-				DbName="finish_ts" />
-		<TableCol Name="SecProxyId"
-				Label="Security Proxy User Id"
-				IsNullable="true"
-				DataType="SecUserIdGen" />
-		<PrimaryIndex Name="SecSessionIdIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="Session_pidx"
-				ShortName="PIdx"
-				Suffix="IdIdx" >
-			<IndexCol Name="SecSessionId" IsAscending="true" />
-		</PrimaryIndex>
-		<Index Name="SessionSecUserIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="Session_xsecuser"
-				ShortName="SecUsr"
-				Suffix="SecUserIdx" >
-			<IndexCol Name="SecUserId" IsAscending="true" />
-		</Index>
-		<Index Name="SessionStartIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="Session_xstart"
-				ShortName="Start"
-				Suffix="StartIdx" >
-			<IndexCol Name="SecUserId" IsAscending="true" />
-			<IndexCol Name="Start" IsAscending="true" />
-		</Index>
-		<Index Name="SessionFinishIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="Session_xfnsh"
-				ShortName="Finish"
-				Suffix="FinishIdx" >
-			<IndexCol Name="SecUserId" IsAscending="true" />
-			<IndexCol Name="Finish" IsAscending="true" />
-		</Index>
-		<Index Name="SessionSecProxyIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="Session_xproxy"
-				ShortName="SecProxy"
-				Suffix="SecProxyIdx" >
-			<IndexCol Name="SecProxyId" IsAscending="true" />
-		</Index>
-	</Table>
-
 	<Table Name="SecUser"
 			TableClassCode="a012"
 			DbName="SecUser"
@@ -1163,12 +590,11 @@ limitations under the License.
 				IsNullable="false"
 				GenerateId="true"
 				DataType="SecUserIdGen" />
-		<StringCol Name="LoginId"
+		<TableCol Name="LoginId"
 				Label="Login Id"
 				IsNullable="false"
 				DbName="login_id"
-				MaxLen="32"
-				InitValue="" />
+				DataType="LoginIdType" />
 		<StringCol Name="DfltSysGrpName"
 				Label="Name"
 				IsNullable="false"
@@ -1341,6 +767,586 @@ limitations under the License.
 				ShortName="ReplacedStampIdx"
 				Suffix="ReplacedStampIdx" >
 			<IndexCol Name="PWReplacedStamp" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<DbKeyHash256Gen Name="SecSysGrpIdGen"
+			IsNullable="false"
+			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
+			Slice="109"
+			BlockSize="1" />
+
+	<Table Name="SecSysGrp"
+			TableClassCode="a008"
+			DbName="SecSysGrp"
+			ShortName="SysGrp"
+			Label="System Security Group"
+			Description="System security groups apply to global data and lookups, such as the ISO lookups"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			LookupIndex="SecSysGrpUNameIdx"
+			LoaderBehaviour="Insert"
+			SecScope="System" >
+		<TableCol Name="SecSysGrpId"
+				Label="System Security Group Id"
+				IsNullable="false"
+				GenerateId="true"
+				DataType="SecSysGrpIdGen" />
+		<TableCol Name="Name"
+				Label="Name"
+				IsNullable="false"
+				DbName="safe_name"
+				DataType="GroupName" />
+		<TableCol Name="SecLevel"
+				Label="Group Level"
+				IsNullable="false"
+				DbName="sec_level"
+				DataType="SecLevelEnum" />
+		<PrimaryIndex Name="SecSysGrpIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="SecSysGrp_pidx"
+				ShortName="PIdx"
+				Suffix="IdIdx" >
+			<IndexCol Name="SecSysGrpId" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="SecSysGrpUNameIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="SecSysGrp_xuname"
+				ShortName="UName"
+				Suffix="UNameIdx" >
+			<IndexCol Name="Name" IsAscending="true" />
+		</Index>
+		<Index Name="SecSysGrpLevelIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="SecSysGrp_xlvl"
+				ShortName="SecLevel"
+				Suffix="SecLevelIdx" >
+			<IndexCol Name="SecLevel" IsAscending="true" />
+		</Index>
+		<Index Name="SecSysGrpLevelNameIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="SecSysGrp_xlvlnm"
+				ShortName="SecLevelName"
+				Suffix="SecLevelNmIdx" >
+			<IndexCol Name="SecLevel" IsAscending="true" />
+			<IndexCol Name="Name" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<Table Name="SecSysGrpInc"
+			TableClassCode="a009"
+			DbName="SecSysGrpInc"
+			ShortName="SysGrpInc"
+			Label="System Security Group Include"
+			Description="System security groups can include other system security groups"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			PageData="true"
+			LookupIndex="SecSysGrpIncIdIdx"
+			LoaderBehaviour="Insert"
+			SecScope="System" >
+		<TableCol Name="SecSysGrpId"
+				Label="System Security Group Id"
+				IsNullable="false"
+				GenerateId="false"
+				DbName="SecSysGrpId"
+				DataType="SecSysGrpIdGen" />
+		<TableCol Name="InclName"
+				Label="Include Name"
+				IsNullable="false"
+				DbName="inc_name"
+				DataType="GroupName" />
+		<PrimaryIndex Name="SecSysGrpIncIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="SecSysGrpInc_pidx"
+				ShortName="PIdx"
+				Suffix="IdIdx" >
+			<IndexCol Name="SecSysGrpId" IsAscending="true" />
+			<IndexCol Name="InclName" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="SecSysGrpIncSysGrpIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecSysGrpInc_xsysgrp"
+				ShortName="SysGrp"
+				Suffix="SysGrpIdx" >
+			<IndexCol Name="SecSysGrpId" IsAscending="true" />
+		</Index>
+		<Index Name="SecSysGrpIncNameIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecSysGrpInc_xname"
+				ShortName="XName"
+				Suffix="NameIdx" >
+			<IndexCol Name="InclName" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<Table Name="SecSysGrpMemb"
+			TableClassCode="a00a"
+			DbName="SecSysGrpMemb"
+			ShortName="SysGrpMemb"
+			Label="System Security Group Member"
+			Description="System security group members tie the SecUser to specific system groups"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			PageData="true"
+			LookupIndex="SecSysGrpMembLoginIdx"
+			LoaderBehaviour="Insert"
+			SecScope="Cluster" >
+		<TableCol Name="SecSysGrpId"
+				Label="System Security Group Id"
+				IsNullable="false"
+				GenerateId="false"
+				DataType="SecSysGrpIdGen" />
+		<TableCol Name="LoginId"
+				Label="Login Id"
+				IsNullable="false"
+				DbName="login_id"
+				DataType="LoginIdType" />
+		<PrimaryIndex Name="SecSysGrpMembIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="SecSysGrpMemb_pidx"
+				ShortName="PIdx"
+				Suffix="IdIdx" >
+			<IndexCol Name="SecSysGrpId" IsAscending="true" />
+			<IndexCol Name="LoginId" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="SecSysGrpMembSysGrpIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecSysGrpMemb_xsysgrp"
+				ShortName="SysGrp"
+				Suffix="SysGrpIdx" >
+			<IndexCol Name="SecSysGrpId" IsAscending="true" />
+		</Index>
+		<Index Name="SecSysGrpMembLoginIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecSysGrpMemb_xlogin"
+				ShortName="Login"
+				Suffix="LoginIdx" >
+			<IndexCol Name="LoginId" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<DbKeyHash256Gen Name="SecClusGrpIdGen"
+			IsNullable="false"
+			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
+			Slice="117"
+			BlockSize="1" />
+
+	<Table Name="SecClusGrp"
+			TableClassCode="a00b"
+			DbName="SecClusGrp"
+			ShortName="ClusGroup"
+			Label="Cluster Security Group"
+			Description="Cluster Security groups define permissions at the Cluster level"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			LookupIndex="SecClusGrpUNameIdx"
+			LoaderBehaviour="Insert"
+			SecScope="Cluster" >
+		<TableCol Name="SecClusGrpId"
+				Label="Cluster Security Group Id"
+				IsNullable="false"
+				GenerateId="true"
+				DataType="SecClusGrpIdGen" />
+		<TableCol Name="ClusterId"
+				Label="Cluster Id"
+				IsNullable="false"
+				DataType="ClusterIdGen" />
+		<TableCol Name="Name"
+				Label="Name"
+				IsNullable="false"
+				DbName="safe_name"
+				DataType="GroupName" />
+		<PrimaryIndex Name="SecClusGrpIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="SecClusGrp_pidx"
+				ShortName="PIdx"
+				Suffix="IdIdx" >
+			<IndexCol Name="SecClusGrpId" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="SecClusGrpClusterIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecClusGrp_xcluster"
+				ShortName="Cluster"
+				Suffix="ClusterIdx" >
+			<IndexCol Name="ClusterId" IsAscending="true" />
+		</Index>
+		<Index Name="SecClusGrpNameIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecClusGrp_xname"
+				ShortName="ByName"
+				Suffix="NameIdx" >
+			<IndexCol Name="Name" IsAscending="true" />
+		</Index>
+		<Index Name="SecClusGrpUNameIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="SecClusGrp_xuname"
+				ShortName="UName"
+				Suffix="UNameIdx" >
+			<IndexCol Name="ClusterId" IsAscending="true" />
+			<IndexCol Name="Name" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<Table Name="SecClusGrpInc"
+			TableClassCode="a00c"
+			DbName="SecClusGrpInc"
+			ShortName="ClusGrpInc"
+			Label="Cluster Security Group Include"
+			Description="Cluster security groups can include other cluster or system security groups"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			PageData="true"
+			LookupIndex="SecClusGrpIncIdIdx"
+			LoaderBehaviour="Insert"
+			SecScope="Cluster" >
+		<TableCol Name="SecClusGrpId"
+				Label="Cluster Security Group Id"
+				IsNullable="false"
+				GenerateId="false"
+				DbName="SecClusGrpId"
+				DataType="SecClusGrpIdGen" />
+		<TableCol Name="InclName"
+				Label="Include Name"
+				IsNullable="false"
+				DbName="inc_name"
+				DataType="GroupName" />
+		<PrimaryIndex Name="SecClusGrpIncIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="SecClusGrpInc_pidx"
+				ShortName="PIdx"
+				Suffix="IdIdx" >
+			<IndexCol Name="SecClusGrpId" IsAscending="true" />
+			<IndexCol Name="InclName" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="SecClusGrpIncClusGrpIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecClusGrpInc_xclusgrp"
+				ShortName="ClusGrp"
+				Suffix="ClusGrpIdx" >
+			<IndexCol Name="SecClusGrpId" IsAscending="true" />
+		</Index>
+		<Index Name="SecClusGrpIncNameIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecClusGrpInc_xname"
+				ShortName="XName"
+				Suffix="NameIdx" >
+			<IndexCol Name="InclName" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<Table Name="SecClusGrpMemb"
+			TableClassCode="a00d"
+			DbName="SecClusGrpMemb"
+			ShortName="ClusGrpMemb"
+			Label="Cluster Security Group Member"
+			Description="Cluster security group members tie the SecUser to specific cluster groups"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			PageData="true"
+			LookupIndex="SecClusGrpMembIdIdx"
+			LoaderBehaviour="Insert"
+			SecScope="Cluster" >
+		<TableCol Name="SecClusGrpId"
+				Label="Cluster Security Group Id"
+				IsNullable="false"
+				GenerateId="false"
+				DataType="SecClusGrpIdGen" />
+		<TableCol Name="LoginId"
+				Label="Login Id"
+				IsNullable="false"
+				DbName="login_id"
+				DataType="LoginIdType" />
+		<PrimaryIndex Name="SecClusGrpMembIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="SecClusGrpMemb_pidx"
+				ShortName="PIdx"
+				Suffix="IdIdx" >
+			<IndexCol Name="SecClusGrpId" IsAscending="true" />
+			<IndexCol Name="LoginId" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="SecClusGrpMembClusGrpIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecClusGrpMemb_xclusgrp"
+				ShortName="ClusGrp"
+				Suffix="ClusGrpIdx" >
+			<IndexCol Name="SecClusGrpId" IsAscending="true" />
+		</Index>
+		<Index Name="SecClusGrpMembLoginIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecClusGrpMemb_xlogin"
+				ShortName="Login"
+				Suffix="LoginIdx" >
+			<IndexCol Name="LoginId" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<DbKeyHash256Gen Name="SecTentGrpIdGen"
+			IsNullable="false"
+			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
+			Slice="117"
+			BlockSize="1" />
+
+	<Table Name="SecTentGrp"
+			TableClassCode="a00e"
+			DbName="SecTentGrp"
+			ShortName="TentGroup"
+			Label="Tenant Security Group"
+			Description="Tenant Security groups define permissions at the Tenant level"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			LookupIndex="SecTentGrpUNameIdx"
+			LoaderBehaviour="Insert"
+			SecScope="Tenant" >
+		<TableCol Name="SecTentGrpId"
+				Label="Tenant Security Group Id"
+				IsNullable="false"
+				GenerateId="true"
+				DataType="SecTentGrpIdGen" />
+		<TableCol Name="TenantId"
+				Label="Tenant Id"
+				IsNullable="false"
+				DataType="TenantIdGen" />
+		<TableCol Name="Name"
+				Label="Name"
+				IsNullable="false"
+				DbName="safe_name"
+				DataType="GroupName" />
+		<PrimaryIndex Name="SecTentGrpIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="SecTentGrp_pidx"
+				ShortName="PIdx"
+				Suffix="IdIdx" >
+			<IndexCol Name="SecTentGrpId" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="SecTentGrpTenantIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecTentGrp_xtenant"
+				ShortName="Tenant"
+				Suffix="TenantIdx" >
+			<IndexCol Name="TenantId" IsAscending="true" />
+		</Index>
+		<Index Name="SecTentGrpNameIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecTentGrp_xname"
+				ShortName="ByName"
+				Suffix="NameIdx" >
+			<IndexCol Name="Name" IsAscending="true" />
+		</Index>
+		<Index Name="SecTentGrpUNameIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="SecTentGrp_xuname"
+				ShortName="UName"
+				Suffix="UNameIdx" >
+			<IndexCol Name="TenantId" IsAscending="true" />
+			<IndexCol Name="Name" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<Table Name="SecTentGrpInc"
+			TableClassCode="a00f"
+			DbName="SecTentGrpInc"
+			ShortName="TentGrpInc"
+			Label="Tenant Security Group Include"
+			Description="Tenant security groups can include other tenant, cluster or system security groups"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			PageData="true"
+			LookupIndex="SecTentGrpIncIdIdx"
+			LoaderBehaviour="Insert"
+			SecScope="Tenant" >
+		<TableCol Name="SecTentGrpId"
+				Label="Tenant Security Group Id"
+				IsNullable="false"
+				GenerateId="false"
+				DbName="SecTentGrpId"
+				DataType="SecTentGrpIdGen" />
+		<TableCol Name="InclName"
+				Label="Include Name"
+				IsNullable="false"
+				DbName="inc_name"
+				DataType="GroupName" />
+		<PrimaryIndex Name="SecTentGrpIncIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="SecTentGrpInc_pidx"
+				ShortName="PIdx"
+				Suffix="IdIdx" >
+			<IndexCol Name="SecTentGrpId" IsAscending="true" />
+			<IndexCol Name="InclName" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="SecTentGrpIncTentGrpIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecTentGrpInc_xtentgrp"
+				ShortName="TentGrp"
+				Suffix="TentGrpIdx" >
+			<IndexCol Name="SecTentGrpId" IsAscending="true" />
+		</Index>
+		<Index Name="SecTentGrpIncNameIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecTentGrpInc_xname"
+				ShortName="XName"
+				Suffix="NameIdx" >
+			<IndexCol Name="InclName" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<Table Name="SecTentGrpMemb"
+			TableClassCode="a010"
+			DbName="SecTentGrpMemb"
+			ShortName="TentGrpMemb"
+			Label="Tenant Security Group Member"
+			Description="Tenant security group members tie the SecUser to specific tenant groups"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			PageData="true"
+			LookupIndex="SecTentGrpMembIdIdx"
+			LoaderBehaviour="Insert"
+			SecScope="Tenant" >
+		<TableCol Name="SecTentGrpId"
+				Label="Tenant Security Group Id"
+				IsNullable="false"
+				GenerateId="false"
+				DataType="SecTentGrpIdGen" />
+		<TableCol Name="LoginId"
+				Label="Login Id"
+				IsNullable="false"
+				DbName="login_id"
+				DataType="LoginIdType" />
+		<PrimaryIndex Name="SecTentGrpMembIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="SecTentGrpMemb_pidx"
+				ShortName="PIdx"
+				Suffix="IdIdx" >
+			<IndexCol Name="SecTentGrpId" IsAscending="true" />
+			<IndexCol Name="LoginId" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="SecTentGrpMembTentGrpIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecTentGrpMemb_xtentgrp"
+				ShortName="TentGrp"
+				Suffix="TentGrpIdx" >
+			<IndexCol Name="SecTentGrpId" IsAscending="true" />
+		</Index>
+		<Index Name="SecTentGrpMembLoginIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="SecTentGrpMemb_xlogin"
+				ShortName="User"
+				Suffix="UserIdx" >
+			<IndexCol Name="LoginId" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<Table Name="SecSession"
+			TableClassCode="a011"
+			DbName="SecSess"
+			ShortName="Sess"
+			Label="Security Session"
+			Description="Security sessions are valid throughout the cluster"
+			IsInstantiable="true"
+			HasHistory="false"
+			HasAuditColumns="false"
+			PageData="true"
+			LoaderBehaviour="Insert"
+			SecScope="System" >
+		<TableCol Name="SecSessionId"
+				Label="Security Session Id"
+				IsNullable="false"
+				GenerateId="true"
+				DataType="SecSessionIdGen" />
+		<TableCol Name="SecUserId"
+				Label="Security User Id"
+				IsNullable="false"
+				DataType="SecUserIdGen" />
+		<TimestampCol Name="Start"
+				IsNullable="false"
+				DbName="start_ts" />
+		<TimestampCol Name="Finish"
+				IsNullable="true"
+				DbName="finish_ts" />
+		<TableCol Name="SecProxyId"
+				Label="Security Proxy User Id"
+				IsNullable="true"
+				DataType="SecUserIdGen" />
+		<PrimaryIndex Name="SecSessionIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="Session_pidx"
+				ShortName="PIdx"
+				Suffix="IdIdx" >
+			<IndexCol Name="SecSessionId" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="SessionSecUserIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="Session_xsecuser"
+				ShortName="SecUsr"
+				Suffix="SecUserIdx" >
+			<IndexCol Name="SecUserId" IsAscending="true" />
+		</Index>
+		<Index Name="SessionStartIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="Session_xstart"
+				ShortName="Start"
+				Suffix="StartIdx" >
+			<IndexCol Name="SecUserId" IsAscending="true" />
+			<IndexCol Name="Start" IsAscending="true" />
+		</Index>
+		<Index Name="SessionFinishIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="Session_xfnsh"
+				ShortName="Finish"
+				Suffix="FinishIdx" >
+			<IndexCol Name="SecUserId" IsAscending="true" />
+			<IndexCol Name="Finish" IsAscending="true" />
+		</Index>
+		<Index Name="SessionSecProxyIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="Session_xproxy"
+				ShortName="SecProxy"
+				Suffix="SecProxyIdx" >
+			<IndexCol Name="SecProxyId" IsAscending="true" />
 		</Index>
 	</Table>
 
@@ -1615,7 +1621,7 @@ limitations under the License.
 				FromIndex="SecSysGrpIncNameIdx"
 				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
 				IsRequired="true" >
-			<RelationCol Name="IncName" ToCol="Name" />
+			<RelationCol Name="InclName" ToCol="Name" />
 		</Relation>
 	</TableAddendum>
 
@@ -1635,10 +1641,10 @@ limitations under the License.
 				DbName="secsysgrpmb_user"
 				Label="User"
 				Suffix="User"
-				FromIndex="SecSysGrpMembUserIdx"
-				ToIndex="SecUser.SecUserIdIdx"
+				FromIndex="SecSysGrpMembLoginIdx"
+				ToIndex="SecUser.SecUserLoginIdx"
 				IsRequired="true" >
-			<RelationCol Name="SecUserId" ToCol="SecUserId" />
+			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
 	</TableAddendum>
 
@@ -1725,10 +1731,10 @@ limitations under the License.
 				DbName="secuser_secsysgrpmb"
 				Label="System Security Group Members"
 				Suffix="SysSecGrpMemb"
-				FromIndex="SecUserIdIdx"
-				ToIndex="SecSysGrpMemb.SecSysGrpMembUserIdx"
+				FromIndex="SecUserLoginIdx"
+				ToIndex="SecSysGrpMemb.SecSysGrpMembLoginIdx"
 				IsRequired="false" >
-			<RelationCol Name="SecUserId" ToCol="SecUserId" />
+			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
 	</TableAddendum>
 
