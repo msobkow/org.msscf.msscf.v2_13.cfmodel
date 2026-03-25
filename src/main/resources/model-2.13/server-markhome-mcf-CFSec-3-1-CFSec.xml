@@ -66,17 +66,18 @@ limitations under the License.
 			IsNullable="false"
 			MinValue="0"
 			InitValue="0" >
-		<EnumTag Name="Create" EnumCode="0" />
-		<EnumTag Name="Update" EnumCode="1" />
-		<EnumTag Name="Delete" EnumCode="2" />
+		<EnumTag Name="Created" EnumCode="0" />
+		<EnumTag Name="Updated" EnumCode="1" />
+		<EnumTag Name="Deleted" EnumCode="2" />
+		<EnumTag Name="Mutated" EnumCode="3" />
 	</EnumType>
 
 	<EnumType Name="SecLevelEnum"
 			IsNullable="false"
 			MinValue="0"
 			InitValue="0" >
-		<EnumTag Name="Global" EnumCode="0" />
-		<EnumTag Name="System" EnumCode="1" />
+		<EnumTag Name="System" EnumCode="0" />
+		<EnumTag Name="Global" EnumCode="1" />
 		<EnumTag Name="Cluster" EnumCode="2" />
 		<EnumTag Name="Tenant" EnumCode="3" />
 	</EnumType>
@@ -84,7 +85,7 @@ limitations under the License.
 	<DbKeyHash256Gen Name="ClusterIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="105"
+			Slice="101"
 			BlockSize="1" />
 
 	<StringType Name="ISO6391LangCode"
@@ -107,7 +108,7 @@ limitations under the License.
 			DbName="ISOCcyIdGenSeq"
 			MinValue="0"
 			InitValue="0"
-			Slice="101"
+			Slice="102"
 			BlockSize="1" />
 
 	<StringType Name="ISOCtryCode"
@@ -135,7 +136,7 @@ limitations under the License.
 			DbName="ISOCtryIdGenSeq"
 			MinValue="0"
 			InitValue="0"
-			Slice="100"
+			Slice="103"
 			BlockSize="1" />
 
 	<Id16Gen Name="ISOLangIdGen"
@@ -143,7 +144,7 @@ limitations under the License.
 			DbName="ISOLangIdGenSeq"
 			MinValue="0"
 			InitValue="0"
-			Slice="102"
+			Slice="104"
 			BlockSize="1" />
 
 	<Id16Gen Name="ISOTZoneIdGen"
@@ -151,26 +152,44 @@ limitations under the License.
 			DbName="ISOTZoneIdGenSeq"
 			MinValue="0"
 			InitValue="0"
-			Slice="103"
+			Slice="105"
 			BlockSize="1" />
 
 	<DbKeyHash256Gen Name="SecSessionIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="113"
+			Slice="106"
 			BlockSize="1" />
 
 	<DbKeyHash256Gen Name="SecUserIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="114"
+			Slice="107"
 			BlockSize="1" />
 
 	<DbKeyHash256Gen Name="TenantIdGen"
 			IsNullable="false"
 			DbName="TenantIdGenSeq"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="106"
+			Slice="108"
+			BlockSize="1" />
+
+	<DbKeyHash256Gen Name="SecSysGrpIdGen"
+			IsNullable="false"
+			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
+			Slice="109"
+			BlockSize="1" />
+
+	<DbKeyHash256Gen Name="SecClusGrpIdGen"
+			IsNullable="false"
+			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
+			Slice="110"
+			BlockSize="1" />
+
+	<DbKeyHash256Gen Name="SecTentGrpIdGen"
+			IsNullable="false"
+			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
+			Slice="111"
 			BlockSize="1" />
 
 	<Table Name="Cluster"
@@ -185,7 +204,7 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="ClusterUDomNameIdx"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="Global" >
 		<TableCol Name="Id"
 				IsNullable="false"
 				GenerateId="true"
@@ -229,8 +248,62 @@ limitations under the License.
 		</Index>
 	</Table>
 
-	<Table Name="ISOCcy"
+	<Table Name="Tenant"
 			TableClassCode="a002"
+			DbName="tenant"
+			ShortName="Tenant"
+			Label="Tenant"
+			Description="A Cluster can have any number of Tenants"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			PageData="true"
+			LookupIndex="TenantUNameIdx"
+			LoaderBehaviour="Insert"
+			SecScope="System" >
+		<TableCol Name="Id"
+				IsNullable="false"
+				GenerateId="true"
+				DataType="TenantIdGen" />
+		<TableCol Name="ClusterId"
+				IsNullable="false"
+				DataType="ClusterIdGen" />
+		<StringCol Name="TenantName"
+				IsNullable="false"
+				MaxLen="192"
+				InitValue="" />
+		<PrimaryIndex Name="TenantIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="tenant_pk"
+				ShortName="PIdx"
+				Suffix="IdIdx"
+				Label="IdIdx" >
+			<IndexCol Name="Id" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="TenantClusterIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="tenant_xcluster"
+				ShortName="Clus"
+				Suffix="ClusterIdx"
+				Label="ClusterIdx" >
+			<IndexCol Name="ClusterId" IsAscending="true" />
+		</Index>
+		<Index Name="TenantUNameIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="tenant_xuname"
+				ShortName="UName"
+				Suffix="UNameIdx"
+				Label="UNameIdx" >
+			<IndexCol Name="ClusterId" IsAscending="true" />
+			<IndexCol Name="TenantName" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<Table Name="ISOCcy"
+			TableClassCode="a003"
 			DbName="iso_ccy"
 			Label="ISO Ccy"
 			Description="ISO Ccy is a global static lookup, replicated to all nodes"
@@ -293,7 +366,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="ISOCtry"
-			TableClassCode="a003"
+			TableClassCode="a004"
 			DbName="iso_cntry"
 			Label="ISO Ctry"
 			Description="ISO Ctry implements the ISO 3166 Codes as a global static lookup, replicated to all nodes"
@@ -346,7 +419,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="ISOCtryCcy"
-			TableClassCode="a004"
+			TableClassCode="a005"
 			DbName="iso_cntryccy"
 			IsInstantiable="true"
 			HasHistory="true"
@@ -391,7 +464,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="ISOCtryLang"
-			TableClassCode="a005"
+			TableClassCode="a006"
 			DbName="iso_cntrylng"
 			IsInstantiable="true"
 			HasHistory="true"
@@ -436,7 +509,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="ISOLang"
-			TableClassCode="a006"
+			TableClassCode="a007"
 			DbName="iso_lang"
 			Label="ISO Lang"
 			Description="ISO Lang is a global static lookup, replicated to all nodes"
@@ -493,7 +566,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="ISOTZone"
-			TableClassCode="a007"
+			TableClassCode="a008"
 			DbName="ISOTz"
 			ShortName="ISOTz"
 			Label="ISO Timezone"
@@ -574,7 +647,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecUser"
-			TableClassCode="a012"
+			TableClassCode="a009"
 			DbName="SecUser"
 			Label="Security User"
 			Description="Login and security information is global amongst the clusters"
@@ -667,7 +740,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecUserPassword"
-			TableClassCode="a013"
+			TableClassCode="a00a"
 			DbName="SecUserPW"
 			Label="Security User Password"
 			Description="Passwords have special security and are not accessible as normal tables"
@@ -676,7 +749,7 @@ limitations under the License.
 			HasAuditColumns="false"
 			PageData="false"
 			LoaderBehaviour="Insert"
-			SecScope="None" >
+			SecScope="System" >
 		<TableCol Name="SecUserId"
 				Label="Security User Id"
 				IsNullable="false"
@@ -709,7 +782,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecUserPWHistory"
-			TableClassCode="a014"
+			TableClassCode="a00b"
 			DbName="SecUserPWHistory"
 			Label="Security User Password History"
 			Description="Passwords may not be reused until system configured constraints have been met"
@@ -718,7 +791,7 @@ limitations under the License.
 			HasAuditColumns="false"
 			PageData="false"
 			LoaderBehaviour="Insert"
-			SecScope="None" >
+			SecScope="System" >
 		<TableCol Name="SecUserId"
 				Label="Security User Id"
 				IsNullable="false"
@@ -770,14 +843,8 @@ limitations under the License.
 		</Index>
 	</Table>
 
-	<DbKeyHash256Gen Name="SecSysGrpIdGen"
-			IsNullable="false"
-			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="109"
-			BlockSize="1" />
-
 	<Table Name="SecSysGrp"
-			TableClassCode="a008"
+			TableClassCode="a00c"
 			DbName="SecSysGrp"
 			ShortName="SysGrp"
 			Label="System Security Group"
@@ -839,7 +906,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecSysGrpInc"
-			TableClassCode="a009"
+			TableClassCode="a00d"
 			DbName="SecSysGrpInc"
 			ShortName="SysGrpInc"
 			Label="System Security Group Include"
@@ -890,7 +957,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecSysGrpMemb"
-			TableClassCode="a00a"
+			TableClassCode="a00e"
 			DbName="SecSysGrpMemb"
 			ShortName="SysGrpMemb"
 			Label="System Security Group Member"
@@ -939,14 +1006,8 @@ limitations under the License.
 		</Index>
 	</Table>
 
-	<DbKeyHash256Gen Name="SecClusGrpIdGen"
-			IsNullable="false"
-			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="117"
-			BlockSize="1" />
-
 	<Table Name="SecClusGrp"
-			TableClassCode="a00b"
+			TableClassCode="a00f"
 			DbName="SecClusGrp"
 			ShortName="ClusGroup"
 			Label="Cluster Security Group"
@@ -1007,7 +1068,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecClusGrpInc"
-			TableClassCode="a00c"
+			TableClassCode="a010"
 			DbName="SecClusGrpInc"
 			ShortName="ClusGrpInc"
 			Label="Cluster Security Group Include"
@@ -1058,7 +1119,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecClusGrpMemb"
-			TableClassCode="a00d"
+			TableClassCode="a011"
 			DbName="SecClusGrpMemb"
 			ShortName="ClusGrpMemb"
 			Label="Cluster Security Group Member"
@@ -1107,14 +1168,8 @@ limitations under the License.
 		</Index>
 	</Table>
 
-	<DbKeyHash256Gen Name="SecTentGrpIdGen"
-			IsNullable="false"
-			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="117"
-			BlockSize="1" />
-
 	<Table Name="SecTentGrp"
-			TableClassCode="a00e"
+			TableClassCode="a012"
 			DbName="SecTentGrp"
 			ShortName="TentGroup"
 			Label="Tenant Security Group"
@@ -1175,7 +1230,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecTentGrpInc"
-			TableClassCode="a00f"
+			TableClassCode="a013"
 			DbName="SecTentGrpInc"
 			ShortName="TentGrpInc"
 			Label="Tenant Security Group Include"
@@ -1226,7 +1281,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecTentGrpMemb"
-			TableClassCode="a010"
+			TableClassCode="a014"
 			DbName="SecTentGrpMemb"
 			ShortName="TentGrpMemb"
 			Label="Tenant Security Group Member"
@@ -1276,7 +1331,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecSession"
-			TableClassCode="a011"
+			TableClassCode="a015"
 			DbName="SecSess"
 			ShortName="Sess"
 			Label="Security Session"
@@ -1351,7 +1406,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SysCluster"
-			TableClassCode="a015"
+			TableClassCode="a016"
 			DbName="sysclus"
 			ShortName="SysClus"
 			Label="Cluster"
@@ -1389,60 +1444,6 @@ limitations under the License.
 				Suffix="ClusterIdx"
 				Label="Cluster Index" >
 			<IndexCol Name="ClusterId" IsAscending="true" />
-		</Index>
-	</Table>
-
-	<Table Name="Tenant"
-			TableClassCode="a016"
-			DbName="tenant"
-			ShortName="Tenant"
-			Label="Tenant"
-			Description="A Cluster can have any number of Tenants"
-			IsInstantiable="true"
-			HasHistory="true"
-			HasAuditColumns="true"
-			PageData="true"
-			LookupIndex="TenantUNameIdx"
-			LoaderBehaviour="Insert"
-			SecScope="System" >
-		<TableCol Name="Id"
-				IsNullable="false"
-				GenerateId="true"
-				DataType="TenantIdGen" />
-		<TableCol Name="ClusterId"
-				IsNullable="false"
-				DataType="ClusterIdGen" />
-		<StringCol Name="TenantName"
-				IsNullable="false"
-				MaxLen="192"
-				InitValue="" />
-		<PrimaryIndex Name="TenantIdIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="tenant_pk"
-				ShortName="PIdx"
-				Suffix="IdIdx"
-				Label="IdIdx" >
-			<IndexCol Name="Id" IsAscending="true" />
-		</PrimaryIndex>
-		<Index Name="TenantClusterIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="tenant_xcluster"
-				ShortName="Clus"
-				Suffix="ClusterIdx"
-				Label="ClusterIdx" >
-			<IndexCol Name="ClusterId" IsAscending="true" />
-		</Index>
-		<Index Name="TenantUNameIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="tenant_xuname"
-				ShortName="UName"
-				Suffix="UNameIdx"
-				Label="UNameIdx" >
-			<IndexCol Name="ClusterId" IsAscending="true" />
-			<IndexCol Name="TenantName" IsAscending="true" />
 		</Index>
 	</Table>
 
