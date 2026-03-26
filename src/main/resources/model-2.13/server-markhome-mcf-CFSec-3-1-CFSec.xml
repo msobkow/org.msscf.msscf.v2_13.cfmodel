@@ -1601,6 +1601,16 @@ limitations under the License.
 				IsRequired="false" >
 			<RelationCol Name="SecSysGrpId" ToCol="SecSysGrpId" />
 		</Relation>
+		<Relation Name="SecSysGrpBySysGrpInclName"
+				RelationType="Children"
+				DbName="secsysgrp_incbygrpname"
+				Label="SysGroup by Name"
+				Suffix="SysGrpByName"
+				FromIndex="SecSysGrpUNameIdx"
+				ToIndex="SecSysGrpInc.SecSysGrpIncNameIdx"
+				IsRequired="false" >
+			<RelationCol Name="Name" ToCol="InclName" />
+		</Relation>
 	</TableAddendum>
 
 	<TableAddendum FromTable="SecSysGrpInc">
