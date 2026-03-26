@@ -773,7 +773,7 @@ limitations under the License.
 		</PrimaryIndex>
 		<Index Name="SecUserSetStampIdx"
 				IsDbMapped="true"
-				IsUnique="true"
+				IsUnique="false"
 				DbName="SecUserPW_xsetstmp"
 				ShortName="XSetStamp"
 				Suffix="SetStampIdx" >
@@ -808,7 +808,7 @@ limitations under the License.
 				IsNullable="false"
 				DbName="pwd_hash"
 				MaxLen="256" />
-		<PrimaryIndex Name="SecUserIdIdx"
+		<PrimaryIndex Name="SecUserPWHistIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
 				DbName="SecUserPWHist_pidx"
@@ -817,7 +817,7 @@ limitations under the License.
 			<IndexCol Name="SecUserId" IsAscending="true" />
 			<IndexCol Name="PWSetStamp" IsAscending="true" />
 		</PrimaryIndex>
-		<Index Name="SecUserUserIdx"
+		<Index Name="SecUserPWHistUserIdx"
 				IsDbMapped="true"
 				IsUnique="true"
 				DbName="SecUserPWHist_xuser"
@@ -825,7 +825,7 @@ limitations under the License.
 				Suffix="UserIdx" >
 			<IndexCol Name="SecUserId" IsAscending="true" />
 		</Index>
-		<Index Name="SecUserSetStampIdx"
+		<Index Name="SecUserPWHistSetStampIdx"
 				IsDbMapped="true"
 				IsUnique="true"
 				DbName="SecUserPWHist_xsetstmp"
@@ -833,7 +833,7 @@ limitations under the License.
 				Suffix="SetStampIdx" >
 			<IndexCol Name="PWSetStamp" IsAscending="true" />
 		</Index>
-		<Index Name="SecUserReplacedStampIdx"
+		<Index Name="SecUserPWHistReplacedStampIdx"
 				IsDbMapped="true"
 				IsUnique="true"
 				DbName="SecUserPWHist_xreplstmp"
