@@ -1611,6 +1611,26 @@ limitations under the License.
 				IsRequired="false" >
 			<RelationCol Name="Name" ToCol="InclName" />
 		</Relation>
+		<Relation Name="SecSysGrpByClusGrpInclName"
+				RelationType="Children"
+				DbName="secsysgrp_incclusgrpname"
+				Label="Cluster Group by Name"
+				Suffix="ClusGrpByName"
+				FromIndex="SecSysGrpUNameIdx"
+				ToIndex="SecClusGrpInc.SecClusGrpIncNameIdx"
+				IsRequired="false" >
+			<RelationCol Name="Name" ToCol="InclName" />
+		</Relation>
+		<Relation Name="SecSysGrpByTentGrpInclName"
+				RelationType="Children"
+				DbName="secsysgrp_inctentgrpname"
+				Label="Tenant Group by Name"
+				Suffix="TentGrpByName"
+				FromIndex="SecSysGrpUNameIdx"
+				ToIndex="SecTentGrpInc.SecTentGrpIncNameIdx"
+				IsRequired="false" >
+			<RelationCol Name="Name" ToCol="InclName" />
+		</Relation>
 	</TableAddendum>
 
 	<TableAddendum FromTable="SecSysGrpInc">
@@ -1692,6 +1712,131 @@ limitations under the License.
 		</Relation>
 	</TableAddendum>
 
+	<TableAddendum FromTable="SecClusGrpInc">
+		<Relation Name="SecClusGrpIncGroup"
+				RelationType="Container"
+				DbName="secclusgrpinc_grp"
+				Label="Group"
+				Suffix="Group"
+				FromIndex="SecClusGrpIncClusGrpIdx"
+				ToIndex="SecClusGrp.SecClusGrpIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="SecClusGrpId" ToCol="SecClusGrpId" />
+		</Relation>
+		<Relation Name="SecClusGrpIncSubGroup"
+				RelationType="Parent"
+				DbName="secclusgrpinc_subgrp"
+				Label="SubGroup"
+				Suffix="SubGroup"
+				FromIndex="SecClusGrpIncNameIdx"
+				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
+				IsRequired="true" >
+			<RelationCol Name="InclName" ToCol="Name" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="SecClusGrpMemb">
+		<Relation Name="SecClusGrpMembGroup"
+				RelationType="Container"
+				DbName="secclusgrpmb_grp"
+				Label="Group"
+				Suffix="Group"
+				FromIndex="SecClusGrpMembClusGrpIdx"
+				ToIndex="SecClusGrp.SecClusGrpIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="SecClusGrpId" ToCol="SecClusGrpId" />
+		</Relation>
+		<Relation Name="SecClusGrpMembUser"
+				RelationType="Parent"
+				DbName="secclusgrpmb_user"
+				Label="User"
+				Suffix="User"
+				FromIndex="SecClusGrpMembLoginIdx"
+				ToIndex="SecUser.SecUserLoginIdx"
+				IsRequired="true" >
+			<RelationCol Name="LoginId" ToCol="LoginId" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="SecTentGrp">
+		<Relation Name="SecTentGrpTenant"
+				RelationType="Owner"
+				DbName="sectentgrp_tent"
+				Label="Tenant"
+				Suffix="Tenant"
+				FromIndex="SecTentGrpTenantIdx"
+				ToIndex="Tenant.TenantIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="TenantId" ToCol="Id" />
+		</Relation>
+		<Relation Name="SecTentGrpIncByGrp"
+				RelationType="Children"
+				DbName="sectentgrp_incbygrp"
+				Label="Included by Group"
+				Suffix="IncByGrp"
+				FromIndex="SecTentGrpIdIdx"
+				ToIndex="SecTentGrpInc.SecTentGrpIncTentGrpIdx"
+				IsRequired="false" >
+			<RelationCol Name="SecTentGrpId" ToCol="SecTentGrpId" />
+		</Relation>
+		<Relation Name="SecTentGrpMembByGrp"
+				RelationType="Children"
+				DbName="sectentgrp_membbygrp"
+				Label="Members of Group"
+				Suffix="MembByGrp"
+				FromIndex="SecTentGrpIdIdx"
+				ToIndex="SecTentGrpMemb.SecTentGrpMembTentGrpIdx"
+				IsRequired="false" >
+			<RelationCol Name="SecTentGrpId" ToCol="SecTentGrpId" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="SecTentGrpInc">
+		<Relation Name="SecTentGrpIncGroup"
+				RelationType="Container"
+				DbName="sectentgrpinc_grp"
+				Label="Group"
+				Suffix="Group"
+				FromIndex="SecTentGrpIncTentGrpIdx"
+				ToIndex="SecTentGrp.SecTentGrpIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="SecTentGrpId" ToCol="SecTentGrpId" />
+		</Relation>
+		<Relation Name="SecTentGrpIncSubGroup"
+				RelationType="Parent"
+				DbName="sectentgrpinc_subgrp"
+				Label="SubGroup"
+				Suffix="SubGroup"
+				FromIndex="SecTentGrpIncNameIdx"
+				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
+				IsRequired="true" >
+			<RelationCol Name="InclName" ToCol="Name" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="SecTentGrpMemb">
+		<Relation Name="SecTentGrpMembGroup"
+				RelationType="Container"
+				DbName="sectentgrpmb_grp"
+				Label="Group"
+				Suffix="Group"
+				FromIndex="SecTentGrpMembTentGrpIdx"
+				ToIndex="SecTentGrp.SecTentGrpIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="SecTentGrpId" ToCol="SecTentGrpId" />
+		</Relation>
+		<Relation Name="SecTentGrpMembUser"
+				RelationType="Parent"
+				DbName="sectentgrpmb_user"
+				Label="User"
+				Suffix="User"
+				FromIndex="SecTentGrpMembLoginIdx"
+				ToIndex="SecUser.SecUserLoginIdx"
+				IsRequired="true" >
+			<RelationCol Name="LoginId" ToCol="LoginId" />
+		</Relation>
+	</TableAddendum>
+
 	<TableAddendum FromTable="SecSession">
 		<!--Relation Name="SecSessionSecUser"
 				RelationType="Container"
@@ -1744,6 +1889,26 @@ limitations under the License.
 				Suffix="SysSecGrpMemb"
 				FromIndex="SecUserLoginIdx"
 				ToIndex="SecSysGrpMemb.SecSysGrpMembLoginIdx"
+				IsRequired="false" >
+			<RelationCol Name="LoginId" ToCol="LoginId" />
+		</Relation>
+		<Relation Name="SecUserSecClusGrpMemb"
+				RelationType="Children"
+				DbName="secuser_secclusgrpmb"
+				Label="Cluster Security Group Members"
+				Suffix="ClusSecGrpMemb"
+				FromIndex="SecUserLoginIdx"
+				ToIndex="SecClusGrpMemb.SecClusGrpMembLoginIdx"
+				IsRequired="false" >
+			<RelationCol Name="LoginId" ToCol="LoginId" />
+		</Relation>
+		<Relation Name="SecUserSecTentGrpMemb"
+				RelationType="Children"
+				DbName="secuser_sectentgrpmb"
+				Label="Tenant Security Group Members"
+				Suffix="TentSecGrpMemb"
+				FromIndex="SecUserLoginIdx"
+				ToIndex="SecTentGrpMemb.SecTentGrpMembLoginIdx"
 				IsRequired="false" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
