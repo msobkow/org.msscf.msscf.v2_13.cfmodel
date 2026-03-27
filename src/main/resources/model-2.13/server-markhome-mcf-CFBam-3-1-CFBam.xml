@@ -156,6 +156,12 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 			Slice="1003"
 			BlockSize="1" />
 
+	<DbKeyHash256Gen Name="TweakIdGen"
+			IsNullable="false"
+			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
+			Slice="1008"
+			BlockSize="1" />
+
 	<EnumType Name="RelationTypeEnum"
 			IsNullable="false"
 			MinValue="0"
@@ -2370,6 +2376,181 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 			virtual std::vector&lt;$CPlusDefNamespace$::I$DefSchemaName$RelationObj*&gt; getInheritedRelations();
 			virtual std::vector&lt;$CPlusDefNamespace$::I$DefSchemaName$RelationObj*&gt; getChildrenRelations();
 </HPlusEditObjImplementation>
+	</Table>
+
+	<Table Name="Tweak"
+			TableClassCode="a88a"
+			DbName="tweakdef"
+			IsInstantiable="false"
+			HasHistory="true"
+			HasAuditColumns="true"
+			LookupIndex="TweakUNameIdx"
+			QualTable="SchemaDef"
+			LoaderBehaviour="Update"
+			SecScope="Tenant" >
+		<TableCol Name="TenantId"
+				Label="Tenant Id"
+				IsNullable="false"
+				DataType="TenantIdGen" />
+		<TableCol Name="ScopeId"
+				Label="Scope Id"
+				IsNullable="false"
+				DataType="ScopeIdGen" />
+		<TableCol Name="Id"
+				IsNullable="false"
+				GenerateId="true"
+				DataType="TweakIdGen" />
+		<TableCol Name="DefSchemaTenantId"
+				Label="Defining Schema Tenant Id"
+				IsNullable="true"
+				DbName="defschtentid"
+				DataType="TenantIdGen" />
+		<TableCol Name="DefSchemaId"
+				Label="Defining Schema Id"
+				IsNullable="true"
+				DbName="defschid"
+				DataType="ScopeIdGen" />
+		<TableCol Name="Name"
+				IsNullable="false"
+				DbName="safe_name"
+				DataType="NameType" />
+		<TextCol Name="TweakGelText"
+				IsNullable="false"
+				DbName="twk_gel_txt"
+				MaxLen="2000000"
+				InitValue="" />
+		<PrimaryIndex Name="TweakIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="tweak_pk"
+				ShortName="PIdx"
+				Suffix="IdIdx"
+				Label="IdIdx" >
+			<IndexCol Name="Id" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="TweakUNameIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="tweak_xuname"
+				ShortName="UName"
+				Suffix="UNameIdx"
+				Label="Unique Name Index" >
+			<IndexCol Name="ScopeId" IsAscending="true" />
+			<IndexCol Name="Name" IsAscending="true" />
+		</Index>
+		<Index Name="TweakTenantIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="tweak_tenantidx"
+				ShortName="Tenant"
+				Suffix="ValTentIdx"
+				Label="TweakTenantIdx" >
+			<IndexCol Name="TenantId" IsAscending="true" />
+		</Index>
+		<Index Name="TweakScopeIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="tweak_scopeidx"
+				ShortName="Scope"
+				Suffix="ScopeIdx"
+				Label="ScopeIdx" >
+			<IndexCol Name="ScopeId" IsAscending="true" />
+		</Index>
+		<Index Name="TweakDefSchemaDefIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="tweak_defschidx"
+				ShortName="DefSchema"
+				Suffix="DefSchemaIdx"
+				Label="Defining Schema Index" >
+			<IndexCol Name="DefSchemaId" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<Table Name="TableTweak"
+			TableClassCode="a88b"
+			DbName="tbltwk"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			QualTable="SchemaDef"
+			LoaderBehaviour="Update"
+			SecScope="Tenant" >
+		<TableCol Name="Id"
+				IsNullable="false"
+				DataType="TweakIdGen" />
+		<TableCol Name="TableId"
+				IsNullable="false"
+				DataType="ScopeIdGen" />
+		<PrimaryIndex Name="TableTweakIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="tbltwk_pk"
+				ShortName="PIdx"
+				Suffix="IdIdx"
+				Label="IdIdx" >
+			<IndexCol Name="Id" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="TableTweakTableIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="tbltwk_xtable"
+				ShortName="TblIdx"
+				Suffix="TableIdx"
+				Label="Table Index" >
+			<IndexCol Name="TableId" IsAscending="true" />
+		</Index>
+		<SuperClassRelation Name="SuperClass"
+				DbName="tbltwk_super"
+				Label="SuperClass"
+				Suffix="SuperClass"
+				FromIndex="TableTweakIdIdx"
+				ToIndex="Tweak.TweakIdIdx" >
+			<RelationCol Name="Id" ToCol="Id" />
+		</SuperClassRelation>
+	</Table>
+
+	<Table Name="SchemaTweak"
+			TableClassCode="a88c"
+			DbName="schtwk"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			QualTable="SchemaDef"
+			LoaderBehaviour="Update"
+			SecScope="Tenant" >
+		<TableCol Name="Id"
+				IsNullable="false"
+				DataType="TweakIdGen" />
+		<TableCol Name="SchemaDefId"
+				IsNullable="false"
+				DataType="ScopeIdGen" />
+		<PrimaryIndex Name="SchemaTweakIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="schtwk_pk"
+				ShortName="PIdx"
+				Suffix="IdIdx"
+				Label="IdIdx" >
+			<IndexCol Name="Id" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="SchemaTweakSchemaIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="schtwk_xschema"
+				ShortName="SchIdx"
+				Suffix="SchemaIdx"
+				Label="Schema Index" >
+			<IndexCol Name="SchemaDefId" IsAscending="true" />
+		</Index>
+		<SuperClassRelation Name="SuperClass"
+				DbName="schtwk_super"
+				Label="SuperClass"
+				Suffix="SuperClass"
+				FromIndex="SchemaTweakIdIdx"
+				ToIndex="Tweak.TweakIdIdx" >
+			<RelationCol Name="Id" ToCol="Id" />
+		</SuperClassRelation>
 	</Table>
 
 	<Table Name="Value"
@@ -13203,6 +13384,17 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 				IsXsdContainer="true" >
 			<RelationCol Name="Id" ToCol="SchemaId" />
 		</Relation>
+		<Relation Name="Tweaks"
+				RelationType="Components"
+				DbName="schdef_tweaks"
+				Label="Schema Tweaks"
+				Suffix="Tweaks"
+				FromIndex="SchemaDefIdIdx"
+				ToIndex="Tweak.TweakScopeIdx"
+				IsRequired="false"
+				IsXsdContainer="true" >
+			<RelationCol Name="Id" ToCol="ScopeId" />
+		</Relation>
 	</TableAddendum>
 
 	<TableAddendum FromTable="SchemaRef">
@@ -13473,6 +13665,17 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 				IsXsdContainer="true" >
 			<RelationCol Name="Id" ToCol="TableId" />
 		</Relation>
+		<Relation Name="Tweaks"
+				RelationType="Components"
+				DbName="table_tweaks"
+				Label="Table Tweaks"
+				Suffix="Tweaks"
+				FromIndex="TableIdIdx"
+				ToIndex="Tweak.TweakScopeIdx"
+				IsRequired="false"
+				IsXsdContainer="true" >
+			<RelationCol Name="Id" ToCol="ScopeId" />
+		</Relation>
 	</TableAddendum>
 
 	<TableAddendum FromTable="Tenant">
@@ -13485,6 +13688,57 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 				ToIndex="SchemaDef.SchemaDefCTenantIdx"
 				IsRequired="false" >
 			<RelationCol Name="Id" ToCol="CTenantId" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="Tweak">
+		<Relation Name="Scope"
+				RelationType="Container"
+				DbName="tweak_scope"
+				Label="Scope Def"
+				Suffix="ScopeDef"
+				FromIndex="TweakScopeIdx"
+				ToIndex="Scope.ScopeIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="ScopeId" ToCol="Id" />
+		</Relation>
+		<Relation Name="DefSchema"
+				RelationType="Lookup"
+				DbName="tweak_defschema"
+				Label="Defining Schema Definition"
+				Suffix="DefSchema"
+				FromIndex="TweakDefSchemaDefIdx"
+				ToIndex="SchemaDef.SchemaDefIdIdx"
+				IsRequired="false" >
+			<RelationCol Name="DefSchemaId" ToCol="Id" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="TableTweak">
+		<Relation Name="Table"
+				RelationType="Container"
+				DbName="tbltwk_tblscp"
+				Label="Table Def"
+				Suffix="TableDef"
+				FromIndex="TableTweakTableIdx"
+				ToIndex="Table.TableIdIdx"
+				IsRequired="true"
+				Narrowed="Tweak.Scope" >
+			<RelationCol Name="TableId" ToCol="Id" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="SchemaTweak">
+		<Relation Name="Schema"
+				RelationType="Container"
+				DbName="schtwk_schscp"
+				Label="Schema Def"
+				Suffix="SchemaDef"
+				FromIndex="SchemaTweakSchemaIdx"
+				ToIndex="SchemaDef.SchemaDefIdIdx"
+				IsRequired="true"
+				Narrowed="Tweak.Scope" >
+			<RelationCol Name="SchemaDefId" ToCol="Id" />
 		</Relation>
 	</TableAddendum>
 
