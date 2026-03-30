@@ -1834,6 +1834,11 @@ limitations under the License.
 		</Relation>
 	</TableAddendum>
 
+	<TableAddendum FromTable="SecClusGrp">
+		<DelDep Name="DelSecGrpIncs" DelDepChain="SecClusGrpIncByGrp" />
+		<DelDep Name="DelSecGrpMembs" DelDepChain="SecClusGrpMembByGrp" />
+	</TableAddendum>
+
 	<TableAddendum FromTable="SecClusGrpInc">
 		<Relation Name="SecClusGrpIncGroup"
 				RelationType="Container"
@@ -2145,8 +2150,6 @@ limitations under the License.
 	<TableAddendum FromTable="Cluster">
 		<DelDep Name="DelTenants" DelDepChain="ClusterTenant" />
 		<DelDep Name="DelSecGroups" DelDepChain="ClusterSecGroup" />
-		<DelDep Name="DelSecGrpIncs" DelDepChain="ClusterSecGroup.SecClusGrpIncByGrp" />
-		<DelDep Name="DelSecGrpMembs" DelDepChain="ClusterSecGroup.SecClusGrpMembByGrp" />
 	</TableAddendum>
 
 	<TableAddendum FromTable="ISOCtry">
@@ -2162,6 +2165,17 @@ limitations under the License.
 	<TableAddendum FromTable="SecUser">
 		<!--DelDep Name="DelSecProxySessions" DelDepChain="SecUserSecProxySession" /-->
 		<!--DelDep Name="DelSecSessions" DelDepChain="SecUserSecSession" /-->
+		<DelDep Name="DelSecEMConf" DelDepChain="SecUserEMConfirmation" />
+		<DelDep Name="DelSecPWReset" DelDepChain="SecUserPasswordReset" />
+		<DelDep Name="DelSecTentGrpMemb" DelDepChain="SecUserSecTentGrpMemb" />
+		<DelDep Name="DelSecClusGrpMemb" DelDepChain="SecUserSecClusGrpMemb" />
+		<DelDep Name="DelSecSysGrpMemb" DelDepChain="SecUserSecSysGrpMemb" />
+		<DelDep Name="DelSecPass" DelDepChain="SecUserPass" />
+	</TableAddendum>
+
+	<TableAddendum FromTable="SecTentGrp">
+		<DelDep Name="DelSecGrpIncs" DelDepChain="SecTentGrpIncByGrp" />
+		<DelDep Name="DelSecGrpMembs" DelDepChain="SecTentGrpMembByGrp" />
 	</TableAddendum>
 
 	<TableAddendum FromTable="Tenant">
