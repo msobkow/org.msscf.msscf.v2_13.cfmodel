@@ -131,6 +131,11 @@ limitations under the License.
 			MaxLen="64"
 			InitValue="" />
 
+	<StringType Name="EMailAddrType"
+			IsNullable="false"
+			MaxLen="512"
+			InitValue="" />
+
 	<Id16Gen Name="ISOCtryIdGen"
 			IsNullable="false"
 			DbName="ISOCtryIdGenSeq"
@@ -668,43 +673,26 @@ limitations under the License.
 				IsNullable="false"
 				DbName="login_id"
 				DataType="LoginIdType" />
-		<StringCol Name="DfltSysGrpName"
-				Label="Name"
-				IsNullable="false"
+		<TableCol Name="DfltSysGrpName"
+				Label="Default System Group Name"
+				IsNullable="true"
 				DbName="dflt_sysgrp_nm"
-				MaxLen="64"
-				InitValue="" />
-		<StringCol Name="DfltClusGrpName"
-				Label="Name"
-				IsNullable="false"
+				DataType="GroupName" />
+		<TableCol Name="DfltClusGrpName"
+				Label="Default Cluster Group Name"
+				IsNullable="true"
 				DbName="dflt_clusgrp_nm"
-				MaxLen="64"
-				InitValue="" />
-		<StringCol Name="DfltTentGrpName"
-				Label="Name"
-				IsNullable="false"
+				DataType="GroupName" />
+		<TableCol Name="DfltTentGrpName"
+				Label="Default Tenant Group Name"
+				IsNullable="true"
 				DbName="dflt_tentgrp_nm"
-				MaxLen="64"
-				InitValue="" />
-		<StringCol Name="EMailAddress"
+				DataType="GroupName" />
+		<TableCol Name="EMailAddress"
 				Label="EMail Address"
 				IsNullable="false"
 				DbName="email_addr"
-				MaxLen="512"
-				InitValue="" />
-		<Uuid6Col Name="EMailConfirmUuid6"
-				Label="EMail Confirm UUID6"
-				IsNullable="true"
-				DbName="em_confuuid6" />
-		<StringCol Name="PasswordHash"
-				Label="Password Hash"
-				IsNullable="false"
-				DbName="pwd_hash"
-				MaxLen="256" />
-		<Uuid6Col Name="PasswordResetUuid6"
-				Label="Password Reset UUID6"
-				IsNullable="true"
-				DbName="pwdrstuuid6" />
+				DataType="EMailAddrType" />
 		<PrimaryIndex Name="SecUserIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
@@ -721,21 +709,13 @@ limitations under the License.
 				Suffix="ULoginIdx" >
 			<IndexCol Name="LoginId" IsAscending="true" />
 		</Index>
-		<Index Name="SecUserUEMailConfirmIdx"
+		<Index Name="SecUserUEMailAddrIdx"
 				IsDbMapped="true"
 				IsUnique="false"
 				DbName="SecUser_xemconf"
-				ShortName="EMailConf"
-				Suffix="EMConfIdx" >
-			<IndexCol Name="EMailConfirmUuid6" IsAscending="true" />
-		</Index>
-		<Index Name="SecUserPasswordResetIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecUser_xpwdrst"
-				ShortName="PwdReset"
-				Suffix="PwdResetIdx" >
-			<IndexCol Name="PasswordResetUuid6" IsAscending="true" />
+				ShortName="EMailAddr"
+				Suffix="EMAddrIdx" >
+			<IndexCol Name="EMailAddress" IsAscending="true" />
 		</Index>
 	</Table>
 
@@ -763,7 +743,7 @@ limitations under the License.
 				IsNullable="false"
 				DbName="pwd_hash"
 				MaxLen="256" />
-		<PrimaryIndex Name="SecUserIdIdx"
+		<PrimaryIndex Name="SecUserPasswordIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
 				DbName="SecUserPW_pidx"
@@ -771,7 +751,7 @@ limitations under the License.
 				Suffix="IdIdx" >
 			<IndexCol Name="SecUserId" IsAscending="true" />
 		</PrimaryIndex>
-		<Index Name="SecUserSetStampIdx"
+		<Index Name="SecUserPasswordSetStampIdx"
 				IsDbMapped="true"
 				IsUnique="false"
 				DbName="SecUserPW_xsetstmp"
@@ -781,15 +761,157 @@ limitations under the License.
 		</Index>
 	</Table>
 
-	<Table Name="SecUserPWHistory"
+	<Table Name="SecUserEMConf"
 			TableClassCode="a00b"
+			DbName="secusremcnf"
+			Label="Email confirmation"
+			Description="Confirmation of newly requested email address for user"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			PageData="true"
+			LookupIndex="SecUserEMConfUuid6Idx"
+			LoaderBehaviour="Insert"
+			SecScope="System" >
+		<TableCol Name="SecUserId"
+				Label="Security User Id"
+				IsNullable="false"
+				GenerateId="false"
+				DataType="SecUserIdGen" />
+		<TableCol Name="ConfirmEMailAddr"
+				Label="Confirm EMail Address"
+				IsNullable="false"
+				DbName="conf_emailaddr"
+				DataType="EMailAddrType" />
+		<TimestampCol Name="EMailSentStamp"
+				Label="Confirmation EMail Sent At"
+				DbName="conf_sent"
+				IsNullable="false" />
+		<Uuid6Col Name="EMConfirmationUuid6"
+				Label="EMail Confirmation UUID6"
+				IsNullable="false"
+				DbName="conf_uuid6" />
+		<BoolCol Name="NewAccount"
+				Label="Confirmation email is for new account?"
+				IsNullable="false"
+				DbName="conf_newacct"
+				InitValue="false" />
+		<PrimaryIndex Name="SecUserEMConfIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="secusremcnf_pidx"
+				ShortName="PIdx"
+				Suffix="IdIdx" >
+			<IndexCol Name="SecUserId" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="SecUserEMConfUuid6Idx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="secusremcnf_xuuid6"
+				ShortName="UUuid6"
+				Suffix="UUuid6Idx" >
+			<IndexCol Name="EMConfirmationUuid6" IsAscending="true" />
+		</Index>
+		<Index Name="SecUserEMConfConfirmingAddrIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="secusremcnf_xcnfemailaddr"
+				ShortName="ConfEMailAddr"
+				Suffix="ConfEMAddrIdx" >
+			<IndexCol Name="ConfirmEMailAddr" IsAscending="true" />
+		</Index>
+		<Index Name="SecUserEMConfSentStampIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="secusremcnf_xsntstmp"
+				ShortName="SentStamp"
+				Suffix="SentStampIdx" >
+			<IndexCol Name="EMailSentStamp" IsAscending="true" />
+		</Index>
+		<Index Name="SecUserEMConfNewAcctIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="secusremcnf_xnewacct"
+				ShortName="NewAcct"
+				Suffix="NewAcctIdx" >
+			<IndexCol Name="NewAccount" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<Table Name="SecUserPWReset"
+			TableClassCode="a00c"
+			DbName="secusrpwrst"
+			Label="Password Reset"
+			Description="Currently active password reset request for user"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			PageData="true"
+			LookupIndex="SecUserPWResetUuid6Idx"
+			LoaderBehaviour="Insert"
+			SecScope="System" >
+		<TableCol Name="SecUserId"
+				Label="Security User Id"
+				IsNullable="false"
+				GenerateId="false"
+				DataType="SecUserIdGen" />
+		<TableCol Name="SentToEMailAddr"
+				Label="Sent To EMail Address"
+				IsNullable="false"
+				DbName="sent_emailaddr"
+				DataType="EMailAddrType" />
+		<Uuid6Col Name="PasswordResetUuid6"
+				Label="Password Reset UUID6"
+				IsNullable="false"
+				DbName="pwdrstuuid6" />
+		<BoolCol Name="NewAccount"
+				Label="Password reset is for new account?"
+				IsNullable="false"
+				DbName="newacct"
+				InitValue="false" />
+		<PrimaryIndex Name="SecUserPWResetIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="secusrpwrst_pidx"
+				ShortName="PIdx"
+				Suffix="IdIdx" >
+			<IndexCol Name="SecUserId" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="SecUserPWResetUuid6Idx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="secusrpwrst_xuuid6"
+				ShortName="UUuid6"
+				Suffix="UUuid6Idx" >
+			<IndexCol Name="PasswordResetUuid6" IsAscending="true" />
+		</Index>
+		<Index Name="SecUserPWResetSentToEMailAddrIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="secusrpwrst_xsntemailaddr"
+				ShortName="SentEMailAddr"
+				Suffix="SentEMAddrIdx" >
+			<IndexCol Name="SentToEMailAddr" IsAscending="true" />
+		</Index>
+		<Index Name="SecUserPWResetNewAcctIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="secusrpwrst_xnewacct"
+				ShortName="NewAcct"
+				Suffix="NewAcctIdx" >
+			<IndexCol Name="NewAccount" IsAscending="true" />
+		</Index>
+	</Table>
+
+	<Table Name="SecUserPWHistory"
+			TableClassCode="a00d"
 			DbName="SecUserPWHistory"
 			Label="Security User Password History"
 			Description="Passwords may not be reused until system configured constraints have been met"
 			IsInstantiable="true"
 			HasHistory="false"
 			HasAuditColumns="false"
-			PageData="false"
+			PageData="true"
 			LoaderBehaviour="Insert"
 			SecScope="System" >
 		<TableCol Name="SecUserId"
@@ -844,7 +966,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecSysGrp"
-			TableClassCode="a00c"
+			TableClassCode="a00e"
 			DbName="SecSysGrp"
 			ShortName="SysGrp"
 			Label="System Security Group"
@@ -906,7 +1028,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecSysGrpInc"
-			TableClassCode="a00d"
+			TableClassCode="a00f"
 			DbName="SecSysGrpInc"
 			ShortName="SysGrpInc"
 			Label="System Security Group Include"
@@ -957,7 +1079,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecSysGrpMemb"
-			TableClassCode="a00e"
+			TableClassCode="a010"
 			DbName="SecSysGrpMemb"
 			ShortName="SysGrpMemb"
 			Label="System Security Group Member"
@@ -1007,7 +1129,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecClusGrp"
-			TableClassCode="a00f"
+			TableClassCode="a011"
 			DbName="SecClusGrp"
 			ShortName="ClusGroup"
 			Label="Cluster Security Group"
@@ -1068,7 +1190,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecClusGrpInc"
-			TableClassCode="a010"
+			TableClassCode="a012"
 			DbName="SecClusGrpInc"
 			ShortName="ClusGrpInc"
 			Label="Cluster Security Group Include"
@@ -1119,7 +1241,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecClusGrpMemb"
-			TableClassCode="a011"
+			TableClassCode="a013"
 			DbName="SecClusGrpMemb"
 			ShortName="ClusGrpMemb"
 			Label="Cluster Security Group Member"
@@ -1169,7 +1291,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecTentGrp"
-			TableClassCode="a012"
+			TableClassCode="a014"
 			DbName="SecTentGrp"
 			ShortName="TentGroup"
 			Label="Tenant Security Group"
@@ -1230,7 +1352,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecTentGrpInc"
-			TableClassCode="a013"
+			TableClassCode="a015"
 			DbName="SecTentGrpInc"
 			ShortName="TentGrpInc"
 			Label="Tenant Security Group Include"
@@ -1281,7 +1403,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecTentGrpMemb"
-			TableClassCode="a014"
+			TableClassCode="a016"
 			DbName="SecTentGrpMemb"
 			ShortName="TentGrpMemb"
 			Label="Tenant Security Group Member"
@@ -1331,7 +1453,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SecSession"
-			TableClassCode="a015"
+			TableClassCode="a017"
 			DbName="SecSess"
 			ShortName="Sess"
 			Label="Security Session"
@@ -1406,7 +1528,7 @@ limitations under the License.
 	</Table>
 
 	<Table Name="SysCluster"
-			TableClassCode="a016"
+			TableClassCode="a018"
 			DbName="sysclus"
 			ShortName="SysClus"
 			Label="Cluster"
@@ -1882,6 +2004,36 @@ limitations under the License.
 				IsRequired="false" >
 			<RelationCol Name="SecUserId" ToCol="SecProxyId" />
 		</Relation -->
+		<Relation Name="SecUserPass"
+				RelationType="Components"
+				DbName="secuser_refpassword"
+				Label="Password Singleton"
+				Suffix="Password"
+				FromIndex="SecUserIdIdx"
+				ToIndex="SecUserPassword.SecUserPasswordIdIdx"
+				IsRequired="false" >
+			<RelationCol Name="SecUserId" ToCol="SecUserId" />
+		</Relation>
+		<Relation Name="SecUserEMConfirmation"
+				RelationType="Components"
+				DbName="secuser_emconfirmation"
+				Label="EMail Confirmation Singleton"
+				Suffix="EMConf"
+				FromIndex="SecUserIdIdx"
+				ToIndex="SecUserEMConf.SecUserEMConfIdIdx"
+				IsRequired="false" >
+			<RelationCol Name="SecUserId" ToCol="SecUserId" />
+		</Relation>
+		<Relation Name="SecUserPasswordReset"
+				RelationType="Components"
+				DbName="secuser_passwordreset"
+				Label="Password Reset Singleton"
+				Suffix="PWReset"
+				FromIndex="SecUserIdIdx"
+				ToIndex="SecUserPWReset.SecUserPWResetIdIdx"
+				IsRequired="false" >
+			<RelationCol Name="SecUserId" ToCol="SecUserId" />
+		</Relation>
 		<Relation Name="SecUserSecSysGrpMemb"
 				RelationType="Children"
 				DbName="secuser_secsysgrpmb"
@@ -1911,6 +2063,45 @@ limitations under the License.
 				ToIndex="SecTentGrpMemb.SecTentGrpMembLoginIdx"
 				IsRequired="false" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="SecUserPassword">
+		<Relation Name="SecUser"
+				RelationType="Container"
+				DbName="secuserpassword_secuser"
+				Label="Password For User"
+				Suffix="User"
+				FromIndex="SecUserPasswordIdIdx"
+				ToIndex="SecUser.SecUserIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="SecUserId" ToCol="SecUserId" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="SecUserEMConf">
+		<Relation Name="SecUser"
+				RelationType="Container"
+				DbName="secusremcnf_secuser"
+				Label="EMail Confirmation For User"
+				Suffix="User"
+				FromIndex="SecUserEMConfIdIdx"
+				ToIndex="SecUser.SecUserIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="SecUserId" ToCol="SecUserId" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="SecUserPWReset">
+		<Relation Name="SecUser"
+				RelationType="Container"
+				DbName="secusrpwrst_secuser"
+				Label="Password Reset Request For User"
+				Suffix="User"
+				FromIndex="SecUserPWResetIdIdx"
+				ToIndex="SecUser.SecUserIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="SecUserId" ToCol="SecUserId" />
 		</Relation>
 	</TableAddendum>
 
