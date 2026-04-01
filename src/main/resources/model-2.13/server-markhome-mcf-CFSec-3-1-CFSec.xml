@@ -2016,7 +2016,8 @@ limitations under the License.
 				Suffix="Password"
 				FromIndex="SecUserIdIdx"
 				ToIndex="SecUserPassword.SecUserPasswordIdIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="true" >
 			<RelationCol Name="SecUserId" ToCol="SecUserId" />
 		</Relation>
 		<Relation Name="SecUserEMConfirmation"
@@ -2026,7 +2027,8 @@ limitations under the License.
 				Suffix="EMConf"
 				FromIndex="SecUserIdIdx"
 				ToIndex="SecUserEMConf.SecUserEMConfIdIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="true" >
 			<RelationCol Name="SecUserId" ToCol="SecUserId" />
 		</Relation>
 		<Relation Name="SecUserPasswordReset"
@@ -2036,7 +2038,8 @@ limitations under the License.
 				Suffix="PWReset"
 				FromIndex="SecUserIdIdx"
 				ToIndex="SecUserPWReset.SecUserPWResetIdIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="true" >
 			<RelationCol Name="SecUserId" ToCol="SecUserId" />
 		</Relation>
 		<Relation Name="SecUserSecSysGrpMemb"
