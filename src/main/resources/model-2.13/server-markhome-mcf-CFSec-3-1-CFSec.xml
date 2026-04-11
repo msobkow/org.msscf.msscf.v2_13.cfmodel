@@ -1569,7 +1569,12 @@ limitations under the License.
 		</Index>
 	</Table>
 
+	<SchemaTweak name="JpaSchemaServiceCustomServices">
+		// Customized schematweak [CFSec::$SchemaName$].JpaSchemaServiceCustomServices</SchemaTweak>
+
 	<TableAddendum FromTable="Cluster">
+		<TableTweak Name="JpaTableServiceCustomServices">
+		// Customized tabletweak [CFSec::$SchemaName$].[Cluster::$TableName$].JpaTableServiceCustomServices</TableTweak>
 		<Relation Name="ClusterTenant"
 				RelationType="Components"
 				DbName="clus_tenant"
