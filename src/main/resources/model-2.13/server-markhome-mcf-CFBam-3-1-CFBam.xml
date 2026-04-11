@@ -2414,11 +2414,17 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 				IsNullable="false"
 				DbName="safe_name"
 				DataType="NameType" />
+		<BoolCol Name="ReplacesInherited"
+				IsNullable="false"
+				DbName="repl_inh"
+				InitValue="false"
+				Label="Replaces Inherited" />
 		<TextCol Name="TweakGelText"
 				IsNullable="false"
 				DbName="twk_gel_txt"
 				MaxLen="2000000"
-				InitValue="" />
+				InitValue=""
+				Label="GEL Text" />
 		<PrimaryIndex Name="TweakIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
@@ -2464,6 +2470,19 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 				Suffix="DefSchemaIdx"
 				Label="Defining Schema Index" >
 			<IndexCol Name="DefSchemaId" IsAscending="true" />
+		</Index>
+		<Index Name="TweakUDefIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="tweak_xudef"
+				ShortName="UDef"
+				Suffix="UDefIdx"
+				Label="Unique Definition Index" >
+			<IndexCol Name="TenantId" IsAscending="true" />
+			<IndexCol Name="ScopeId" IsAscending="true" />
+			<IndexCol Name="DefSchemaTenantId" IsAscending="true" />
+			<IndexCol Name="DefSchemaId" IsAscending="true" />
+			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
 	</Table>
 
