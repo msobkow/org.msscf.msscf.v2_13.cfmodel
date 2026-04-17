@@ -1090,7 +1090,7 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="SecSysGrpMembLoginIdx"
 			LoaderBehaviour="Insert"
-			SecScope="Cluster" >
+			SecScope="System" >
 		<TableCol Name="SecSysGrpId"
 				Label="System Security Group Id"
 				IsNullable="false"
