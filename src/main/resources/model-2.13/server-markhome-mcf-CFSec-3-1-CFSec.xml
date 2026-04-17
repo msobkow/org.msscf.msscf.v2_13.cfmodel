@@ -82,6 +82,18 @@ limitations under the License.
 		<EnumTag Name="Tenant" EnumCode="3" />
 	</EnumType>
 
+	<EnumType Name="SecAccountStatusEnum"
+			IsNullable="false"
+			MinValue="0"
+			InitValue="5" >
+		<EnumTag Name="System" EnumCode="0" />
+		<EnumTag Name="VerifyingEmail" EnumCode="1" />
+		<EnumTag Name="CreatingDevKey" EnumCode="2" />
+		<EnumTag Name="NormalUser" EnumCode="3" />
+		<EnumTag Name="ResettingPassword" EnumCode="4" />
+		<EnumTag Name="Locked" EnumCode="5" />
+	</EnumType>
+
 	<DbKeyHash256Gen Name="ClusterIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
@@ -673,6 +685,11 @@ limitations under the License.
 				IsNullable="false"
 				DbName="login_id"
 				DataType="LoginIdType" />
+		<TableCol Name="AccountStatus"
+				Label="Account Status"
+				IsNullable="false"
+				DbName="acct_status"
+				DataType="SecAccountStatusEnum" />
 		<TableCol Name="DfltSysGrpName"
 				Label="Default System Group Name"
 				IsNullable="true"
@@ -1010,20 +1027,11 @@ limitations under the License.
 		</Index>
 		<Index Name="SecSysGrpLevelIdx"
 				IsDbMapped="true"
-				IsUnique="true"
+				IsUnique="false"
 				DbName="SecSysGrp_xlvl"
 				ShortName="SecLevel"
 				Suffix="SecLevelIdx" >
 			<IndexCol Name="SecLevel" IsAscending="true" />
-		</Index>
-		<Index Name="SecSysGrpLevelNameIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecSysGrp_xlvlnm"
-				ShortName="SecLevelName"
-				Suffix="SecLevelNmIdx" >
-			<IndexCol Name="SecLevel" IsAscending="true" />
-			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
 	</Table>
 
@@ -2054,7 +2062,8 @@ limitations under the License.
 				Suffix="SysSecGrpMemb"
 				FromIndex="SecUserLoginIdx"
 				ToIndex="SecSysGrpMemb.SecSysGrpMembLoginIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="false" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
 		<Relation Name="SecUserSecClusGrpMemb"
@@ -2064,7 +2073,8 @@ limitations under the License.
 				Suffix="ClusSecGrpMemb"
 				FromIndex="SecUserLoginIdx"
 				ToIndex="SecClusGrpMemb.SecClusGrpMembLoginIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="false" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
 		<Relation Name="SecUserSecTentGrpMemb"
@@ -2074,7 +2084,8 @@ limitations under the License.
 				Suffix="TentSecGrpMemb"
 				FromIndex="SecUserLoginIdx"
 				ToIndex="SecTentGrpMemb.SecTentGrpMembLoginIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="false" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
 	</TableAddendum>
