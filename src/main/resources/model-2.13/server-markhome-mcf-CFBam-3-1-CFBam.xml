@@ -2572,6 +2572,49 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		</SuperClassRelation>
 	</Table>
 
+	<Table Name="IndexTweak"
+			TableClassCode="a88d"
+			DbName="idxtwk"
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="true"
+			QualTable="SchemaDef"
+			LoaderBehaviour="Update"
+			SecScope="Tenant" >
+		<TableCol Name="Id"
+				IsNullable="false"
+				DataType="TweakIdGen" />
+		<TableCol Name="IndexId"
+				IsNullable="false"
+				DataType="ScopeIdGen" />
+		<PrimaryIndex Name="IndexTweakIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="idxtwk_pk"
+				ShortName="PIdx"
+				Suffix="IdIdx"
+				Label="IdIdx" >
+			<IndexCol Name="Id" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="IndexTweakIndexIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="idxtwk_xindex"
+				ShortName="IdxIdx"
+				Suffix="IndexIdx"
+				Label="Index Index" >
+			<IndexCol Name="IndexId" IsAscending="true" />
+		</Index>
+		<SuperClassRelation Name="SuperClass"
+				DbName="idxtwk_super"
+				Label="SuperClass"
+				Suffix="SuperClass"
+				FromIndex="IndexTweakIdIdx"
+				ToIndex="Tweak.TweakIdIdx" >
+			<RelationCol Name="Id" ToCol="Id" />
+		</SuperClassRelation>
+	</Table>
+
 	<Table Name="Value"
 			TableClassCode="a809"
 			DbName="valdef"
@@ -13041,6 +13084,17 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 				IsXsdContainer="true" >
 			<RelationCol Name="Id" ToCol="IndexId" />
 		</Relation>
+		<Relation Name="Tweaks"
+				RelationType="Components"
+				DbName="index_tweaks"
+				Label="Index Tweaks"
+				Suffix="Tweaks"
+				FromIndex="IndexIdIdx"
+				ToIndex="IndexTweak.IndexTweakIndexIdx"
+				IsRequired="false"
+				IsXsdContainer="true" >
+			<RelationCol Name="Id" ToCol="IndexId" />
+		</Relation>
 	</TableAddendum>
 
 	<TableAddendum FromTable="IndexCol">
@@ -13758,6 +13812,20 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 				IsRequired="true"
 				Narrowed="Tweak.Scope" >
 			<RelationCol Name="SchemaDefId" ToCol="Id" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="IndexTweak">
+		<Relation Name="Index"
+				RelationType="Container"
+				DbName="idxtwk_idxscp"
+				Label="Index Def"
+				Suffix="IndexDef"
+				FromIndex="IndexTweakIndexIdx"
+				ToIndex="Index.IndexIdIdx"
+				IsRequired="true"
+				Narrowed="Tweak.Scope" >
+			<RelationCol Name="IndexId" ToCol="Id" />
 		</Relation>
 	</TableAddendum>
 
