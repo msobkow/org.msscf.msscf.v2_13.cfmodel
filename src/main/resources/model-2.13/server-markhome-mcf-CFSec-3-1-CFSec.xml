@@ -2779,6 +2779,8 @@ limitations under the License.
 		<!-- DelDep Name="DelTentGrpIncs" DelDepChain="TenantSecTentGroup.SecTentGrpIncByGrp" / -->
 		<!-- DelDep Name="DelTentGrpMembs" DelDepChain="TenantSecTentGroup.SecTentGrpMembByGrp" / -->
 	</TableAddendum>
+
+	<SchemaRole Name="secuser" MembershipString="readcluster readtenant" />
 </SchemaDef>
 						</MinorVersion>
 					</MajorVersion>
