@@ -266,6 +266,10 @@ limitations under the License.
 				Suffix="UDomNameIdx"
 				Label="UDomNameIdx" >
 			<IndexCol Name="FullDomName" IsAscending="true" />
+			<IndexTweak Name="CafePreReadIndexSecurityCheck">
+		if (!permissionGranted &amp;&amp; "system".equals(argFullDomName)) {
+			permissionGranted = true;
+		}</IndexTweak>
 		</Index>
 		<Index Name="ClusterUDescrNameIdx"
 				IsDbMapped="true"
@@ -329,6 +333,10 @@ limitations under the License.
 				Label="UNameIdx" >
 			<IndexCol Name="ClusterId" IsAscending="true" />
 			<IndexCol Name="TenantName" IsAscending="true" />
+			<IndexTweak Name="CafePreReadIndexSecurityCheck">
+		if (!permissionGranted &amp;&amp; "system".equals(argTenantName)) {
+			permissionGranted = true;
+		}</IndexTweak>
 		</Index>
 	</Table>
 
@@ -738,6 +746,10 @@ limitations under the License.
 				ShortName="ULogin"
 				Suffix="ULoginIdx" >
 			<IndexCol Name="LoginId" IsAscending="true" />
+			<IndexTweak Name="CafePreReadIndexSecurityCheck">
+		if (!permissionGranted &amp;&amp; "system".equals(argLoginId)) {
+			permissionGranted = true;
+		}</IndexTweak>
 		</Index>
 		<Index Name="SecUserUEMailAddrIdx"
 				IsDbMapped="true"
