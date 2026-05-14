@@ -2357,6 +2357,52 @@ limitations under the License.
 		</Relation>
 	</TableAddendum>
 
+	<TableAddendum FromTable="SecClusRole">
+		<Relation Name="SecClusRoleCluster"
+				RelationType="Owner"
+				DbName="secclusrole_clus"
+				Label="Cluster"
+				Suffix="Cluster"
+				FromIndex="SecClusRoleClusterIdx"
+				ToIndex="Cluster.ClusterIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="ClusterId" ToCol="Id" />
+		</Relation>
+		<Relation Name="SecClusRoleMembByGrp"
+				RelationType="Children"
+				DbName="secclusrole_membbygrp"
+				Label="Members of Group"
+				Suffix="MembByGrp"
+				FromIndex="SecClusRoleIdIdx"
+				ToIndex="SecClusRoleMemb.SecClusRoleMembClusRoleIdx"
+				IsRequired="false" >
+			<RelationCol Name="SecClusRoleId" ToCol="SecClusRoleId" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="SecClusRoleMemb">
+		<Relation Name="SecClusRoleMembRole"
+				RelationType="Container"
+				DbName="secclusrolemb_role"
+				Label="Role"
+				Suffix="Role"
+				FromIndex="SecClusRoleMembClusRoleIdx"
+				ToIndex="SecClusRole.SecClusRoleIdIdx"
+				IsRequired="true" >
+			<RelationCol Name="SecClusRoleId" ToCol="SecClusRoleId" />
+		</Relation>
+		<Relation Name="SecClusRoleMembUser"
+				RelationType="Parent"
+				DbName="secclusrolemb_user"
+				Label="User"
+				Suffix="User"
+				FromIndex="SecClusRoleMembLoginIdx"
+				ToIndex="SecUser.SecUserLoginIdx"
+				IsRequired="true" >
+			<RelationCol Name="LoginId" ToCol="LoginId" />
+		</Relation>
+	</TableAddendum>
+
 	<TableAddendum FromTable="SecTentGrp">
 		<Relation Name="SecTentGrpTenant"
 				RelationType="Owner"
