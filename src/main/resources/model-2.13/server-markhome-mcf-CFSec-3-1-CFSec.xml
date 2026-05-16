@@ -2284,6 +2284,16 @@ limitations under the License.
 				IsRequired="true" >
 			<RelationCol Name="ClusterId" ToCol="Id" />
 		</Relation>
+		<Relation Name="SecClusGrpRefSysGrp"
+				RelationType="Parent"
+				DbName="secclusgrp_refsysgrp"
+				Label="Reference system group"
+				Suffix="SysGrp"
+				FromIndex="SecClusGrpNameIdx"
+				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
+				IsRequired="true" >
+			<RelationCol Name="Name" ToCol="Name" />
+		</Relation>
 		<Relation Name="SecClusGrpIncByGrp"
 				RelationType="Children"
 				DbName="secclusgrp_incbygrp"
@@ -2413,6 +2423,16 @@ limitations under the License.
 				ToIndex="Tenant.TenantIdIdx"
 				IsRequired="true" >
 			<RelationCol Name="TenantId" ToCol="Id" />
+		</Relation>
+		<Relation Name="SecTentGrpRefSysGrp"
+				RelationType="Parent"
+				DbName="sectentgrp_refsysgrp"
+				Label="Reference system group"
+				Suffix="SysGrp"
+				FromIndex="SecTentGrpNameIdx"
+				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
+				IsRequired="true" >
+			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecTentGrpIncByGrp"
 				RelationType="Children"
