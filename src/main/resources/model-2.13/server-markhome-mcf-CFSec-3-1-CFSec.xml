@@ -80,7 +80,9 @@ limitations under the License.
 		<EnumTag Name="Global" EnumCode="1" />
 		<EnumTag Name="Cluster" EnumCode="2" />
 		<EnumTag Name="Tenant" EnumCode="3" />
-		<EnumTag Name="Role" EnumCode="4" />
+		<EnumTag Name="SystemRole" EnumCode="4" />
+		<EnumTag Name="ClusterRole" EnumCode="4" />
+		<EnumTag Name="TenantRole" EnumCode="4" />
 	</EnumType>
 
 	<EnumType Name="SecAccountStatusEnum"
@@ -1222,57 +1224,6 @@ limitations under the License.
 		</Index>
 	</Table>
 
-	<Table Name="SecClusGrpInc"
-			TableClassCode="a012"
-			DbName="SecClusGrpInc"
-			ShortName="ClusGrpInc"
-			Label="Cluster Security Group Include"
-			Description="Cluster security groups can include other cluster or system security groups"
-			IsInstantiable="true"
-			HasHistory="true"
-			HasAuditColumns="true"
-			PageData="true"
-			LookupIndex="SecClusGrpIncIdIdx"
-			LoaderBehaviour="Insert"
-			SecScope="Cluster" >
-		<TableCol Name="SecClusGrpId"
-				Label="Cluster Security Group Id"
-				IsNullable="false"
-				GenerateId="false"
-				DbName="SecClusGrpId"
-				DataType="SecClusGrpIdGen" />
-		<TableCol Name="InclName"
-				Label="Include Name"
-				IsNullable="false"
-				DbName="inc_name"
-				DataType="GroupName" />
-		<PrimaryIndex Name="SecClusGrpIncIdIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecClusGrpInc_pidx"
-				ShortName="PIdx"
-				Suffix="IdIdx" >
-			<IndexCol Name="SecClusGrpId" IsAscending="true" />
-			<IndexCol Name="InclName" IsAscending="true" />
-		</PrimaryIndex>
-		<Index Name="SecClusGrpIncClusGrpIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecClusGrpInc_xclusgrp"
-				ShortName="ClusGrp"
-				Suffix="ClusGrpIdx" >
-			<IndexCol Name="SecClusGrpId" IsAscending="true" />
-		</Index>
-		<Index Name="SecClusGrpIncNameIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecClusGrpInc_xname"
-				ShortName="XName"
-				Suffix="NameIdx" >
-			<IndexCol Name="InclName" IsAscending="true" />
-		</Index>
-	</Table>
-
 	<Table Name="SecClusGrpMemb"
 			TableClassCode="a013"
 			DbName="SecClusGrpMemb"
@@ -1384,57 +1335,6 @@ limitations under the License.
 		</Index>
 	</Table>
 
-	<Table Name="SecTentGrpInc"
-			TableClassCode="a015"
-			DbName="SecTentGrpInc"
-			ShortName="TentGrpInc"
-			Label="Tenant Security Group Include"
-			Description="Tenant security groups can include other tenant, cluster or system security groups"
-			IsInstantiable="true"
-			HasHistory="true"
-			HasAuditColumns="true"
-			PageData="true"
-			LookupIndex="SecTentGrpIncIdIdx"
-			LoaderBehaviour="Insert"
-			SecScope="Tenant" >
-		<TableCol Name="SecTentGrpId"
-				Label="Tenant Security Group Id"
-				IsNullable="false"
-				GenerateId="false"
-				DbName="SecTentGrpId"
-				DataType="SecTentGrpIdGen" />
-		<TableCol Name="InclName"
-				Label="Include Name"
-				IsNullable="false"
-				DbName="inc_name"
-				DataType="GroupName" />
-		<PrimaryIndex Name="SecTentGrpIncIdIdx"
-				IsDbMapped="true"
-				IsUnique="true"
-				DbName="SecTentGrpInc_pidx"
-				ShortName="PIdx"
-				Suffix="IdIdx" >
-			<IndexCol Name="SecTentGrpId" IsAscending="true" />
-			<IndexCol Name="InclName" IsAscending="true" />
-		</PrimaryIndex>
-		<Index Name="SecTentGrpIncTentGrpIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecTentGrpInc_xtentgrp"
-				ShortName="TentGrp"
-				Suffix="TentGrpIdx" >
-			<IndexCol Name="SecTentGrpId" IsAscending="true" />
-		</Index>
-		<Index Name="SecTentGrpIncNameIdx"
-				IsDbMapped="true"
-				IsUnique="false"
-				DbName="SecTentGrpInc_xname"
-				ShortName="XName"
-				Suffix="NameIdx" >
-			<IndexCol Name="InclName" IsAscending="true" />
-		</Index>
-	</Table>
-
 	<Table Name="SecTentGrpMemb"
 			TableClassCode="a016"
 			DbName="SecTentGrpMemb"
@@ -1485,20 +1385,20 @@ limitations under the License.
 		</Index>
 	</Table>
 
-	<Table Name="SecRole"
+	<Table Name="SecSysRole"
 			TableClassCode="a017"
-			DbName="SecRole"
-			ShortName="SecRole"
-			Label="Security Role"
-			Description="Security roles define collections of security groups to be enabled for the role"
+			DbName="SecSysRole"
+			ShortName="SecSysRole"
+			Label="Security System Role"
+			Description="Security system roles define collections of security groups to be enabled for the role"
 			IsInstantiable="true"
 			HasHistory="true"
 			HasAuditColumns="true"
-			LookupIndex="SecRoleUNameIdx"
+			LookupIndex="SecSysRoleUNameIdx"
 			LoaderBehaviour="Insert"
 			SecScope="System" >
-		<TableCol Name="SecRoleId"
-				Label="Security Role Id"
+		<TableCol Name="SecSysRoleId"
+				Label="Security System Role Id"
 				IsNullable="false"
 				GenerateId="true"
 				DataType="SecSysGrpIdGen" />
@@ -1507,90 +1407,90 @@ limitations under the License.
 				IsNullable="false"
 				DbName="safe_name"
 				DataType="GroupName" />
-		<PrimaryIndex Name="SecRoleIdIdx"
+		<PrimaryIndex Name="SecSysRoleIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
-				DbName="SecRole_pidx"
+				DbName="SecSysRole_pidx"
 				ShortName="PIdx"
 				Suffix="IdIdx" >
-			<IndexCol Name="SecRoleId" IsAscending="true" />
+			<IndexCol Name="SecSysRoleId" IsAscending="true" />
 		</PrimaryIndex>
-		<Index Name="SecRoleUNameIdx"
+		<Index Name="SecSysRoleUNameIdx"
 				IsDbMapped="true"
 				IsUnique="true"
-				DbName="SecRole_xuname"
+				DbName="SecSysRole_xuname"
 				ShortName="UName"
 				Suffix="UNameIdx" >
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
 	</Table>
 
-	<Table Name="SecRoleEnables"
+	<Table Name="SecSysRoleEnables"
 			TableClassCode="a018"
-			DbName="SecRoleEnables"
-			ShortName="RoleEnables"
-			Label="Security Role Enables Group"
-			Description="Security roles define the security groups to be enabled when the role is assigned"
+			DbName="SecSysRoleEnables"
+			ShortName="SysRoleEnables"
+			Label="Security System Role Enables Group"
+			Description="Security system roles define the security groups to be enabled when the role is assigned"
 			IsInstantiable="true"
 			HasHistory="true"
 			HasAuditColumns="true"
 			PageData="true"
-			LookupIndex="SecRoleEnablesIdIdx"
+			LookupIndex="SecSysRoleEnablesIdIdx"
 			LoaderBehaviour="Insert"
 			SecScope="System" >
-		<TableCol Name="SecRoleId"
-				Label="Security Role Id"
+		<TableCol Name="SecSysRoleId"
+				Label="Security System Role Id"
 				IsNullable="false"
 				GenerateId="false"
-				DbName="SecRoleId"
+				DbName="SecSysRoleId"
 				DataType="SecSysGrpIdGen" />
 		<TableCol Name="EnableName"
 				Label="Enable Group Name"
 				IsNullable="false"
 				DbName="enable_name"
 				DataType="GroupName" />
-		<PrimaryIndex Name="SecRoleEnablesIdIdx"
+		<PrimaryIndex Name="SecSysRoleEnablesIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
-				DbName="SecRoleEnables_pidx"
+				DbName="SecSysRoleEnables_pidx"
 				ShortName="PIdx"
 				Suffix="IdIdx" >
-			<IndexCol Name="SecRoleId" IsAscending="true" />
+			<IndexCol Name="SecSysRoleId" IsAscending="true" />
 			<IndexCol Name="EnableName" IsAscending="true" />
 		</PrimaryIndex>
-		<Index Name="SecRoleEnablesRoleIdx"
+		<Index Name="SecSysRoleEnablesRoleIdx"
 				IsDbMapped="true"
 				IsUnique="false"
-				DbName="SecRoleEnables_xrole"
+				DbName="SecSysRoleEnables_xrole"
 				ShortName="XRole"
-				Suffix="RoleIdx" >
-			<IndexCol Name="SecRoleId" IsAscending="true" />
+				Suffix="SysRoleIdx" >
+			<IndexCol Name="SecSysRoleId" IsAscending="true" />
 		</Index>
-		<Index Name="SecRoleEnableNameIdx"
+		<Index Name="SecSysRoleEnableNameIdx"
 				IsDbMapped="true"
 				IsUnique="false"
-				DbName="SecRoleEnables_xname"
+				DbName="SecSysRoleEnables_xname"
 				ShortName="XName"
 				Suffix="NameIdx" >
 			<IndexCol Name="EnableName" IsAscending="true" />
 		</Index>
 	</Table>
 
-	<Table Name="SecRoleMemb"
+	<Table Name="SecSysRoleMemb"
 			TableClassCode="a019"
-			DbName="SecRoleMemb"
+			DbName="SecSysRoleMemb"
 			ShortName="RoleMemb"
-			Label="Security Role Member"
-			Description="Security role members tie the SecUser to specific application security roles"
+			Label="Security System Role Member"
+			Description="Security system role members tie the SecUser to specific application security roles"
 			IsInstantiable="true"
 			HasHistory="true"
 			HasAuditColumns="true"
 			PageData="true"
-			LookupIndex="SecRoleMembIdIdx"
+			LookupIndex="SecSysRoleMembIdIdx"
 			LoaderBehaviour="Insert"
 			SecScope="System" >
-		<TableCol Name="SecRoleId"
-				Label="Security Role Id"
+		<TableCol Name="SecSysRoleId"
+				Label="Security System Role Id"
 				IsNullable="false"
 				GenerateId="false"
 				DataType="SecSysGrpIdGen" />
@@ -1599,27 +1499,27 @@ limitations under the License.
 				IsNullable="false"
 				DbName="login_id"
 				DataType="LoginIdType" />
-		<PrimaryIndex Name="SecRoleMembIdIdx"
+		<PrimaryIndex Name="SecSysRoleMembIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
-				DbName="SecRoleMemb_pidx"
+				DbName="SecSysRoleMemb_pidx"
 				ShortName="PIdx"
 				Suffix="IdIdx" >
-			<IndexCol Name="SecRoleId" IsAscending="true" />
+			<IndexCol Name="SecSysRoleId" IsAscending="true" />
 			<IndexCol Name="LoginId" IsAscending="true" />
 		</PrimaryIndex>
-		<Index Name="SecRoleMembRoleIdx"
+		<Index Name="SecSysRoleMembSysRoleIdx"
 				IsDbMapped="true"
 				IsUnique="false"
-				DbName="SecRoleMemb_xrole"
-				ShortName="Role"
-				Suffix="RoleIdx" >
-			<IndexCol Name="SecRoleId" IsAscending="true" />
+				DbName="SecSysRoleMemb_xrole"
+				ShortName="SysRole"
+				Suffix="SysRoleIdx" >
+			<IndexCol Name="SecSysRoleId" IsAscending="true" />
 		</Index>
-		<Index Name="SecRoleMembLoginIdx"
+		<Index Name="SecSysRoleMembLoginIdx"
 				IsDbMapped="true"
 				IsUnique="false"
-				DbName="SecRoleMemb_xlogin"
+				DbName="SecSysRoleMemb_xlogin"
 				ShortName="Login"
 				Suffix="LoginIdx" >
 			<IndexCol Name="LoginId" IsAscending="true" />
@@ -2155,15 +2055,15 @@ limitations under the License.
 				IsRequired="false" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
-		<Relation Name="SecSysGrpImplRole"
+		<Relation Name="SecSysGrpImplSysRole"
 				RelationType="Children"
-				DbName="secsysgrp_implrole"
+				DbName="secsysgrp_implsysrole"
 				Label="Implements role"
-				Suffix="ImplRole"
+				Suffix="ImplSysRole"
 				FromIndex="SecSysGrpIdIdx"
-				ToIndex="SecRole.SecRoleIdIdx"
+				ToIndex="SecSysRole.SecSysRoleIdIdx"
 				IsRequired="false" >
-			<RelationCol Name="SecSysGrpId" ToCol="SecRoleId" />
+			<RelationCol Name="SecSysGrpId" ToCol="SecSysRoleId" />
 		</Relation>
 		<Relation Name="SecSysGrpImplClusRole"
 				RelationType="Children"
@@ -2195,33 +2095,13 @@ limitations under the License.
 				IsRequired="false" >
 			<RelationCol Name="Name" ToCol="InclName" />
 		</Relation>
-		<Relation Name="SecSysGrpByClusGrpInclName"
+		<Relation Name="SecSysGrpBySysRoleEnableName"
 				RelationType="Children"
-				DbName="secsysgrp_incclusgrpname"
-				Label="Cluster Group by Name"
-				Suffix="ClusGrpByName"
-				FromIndex="SecSysGrpUNameIdx"
-				ToIndex="SecClusGrpInc.SecClusGrpIncNameIdx"
-				IsRequired="false" >
-			<RelationCol Name="Name" ToCol="InclName" />
-		</Relation>
-		<Relation Name="SecSysGrpByTentGrpInclName"
-				RelationType="Children"
-				DbName="secsysgrp_inctentgrpname"
-				Label="Tenant Group by Name"
-				Suffix="TentGrpByName"
-				FromIndex="SecSysGrpUNameIdx"
-				ToIndex="SecTentGrpInc.SecTentGrpIncNameIdx"
-				IsRequired="false" >
-			<RelationCol Name="Name" ToCol="InclName" />
-		</Relation>
-		<Relation Name="SecSysGrpByRoleEnableName"
-				RelationType="Children"
-				DbName="secsysgrp_rolenblnm"
-				Label="Role by Name"
+				DbName="secsysgrp_sysrolenblnm"
+				Label="System Role by Name"
 				Suffix="RoleByEnableName"
 				FromIndex="SecSysGrpUNameIdx"
-				ToIndex="SecRoleEnables.SecRoleEnableNameIdx"
+				ToIndex="SecSysRoleEnables.SecSysRoleEnableNameIdx"
 				IsRequired="false" >
 			<RelationCol Name="Name" ToCol="EnableName" />
 		</Relation>
@@ -2294,16 +2174,6 @@ limitations under the License.
 				IsRequired="true" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
-		<Relation Name="SecClusGrpIncByGrp"
-				RelationType="Children"
-				DbName="secclusgrp_incbygrp"
-				Label="Included by Group"
-				Suffix="IncByGrp"
-				FromIndex="SecClusGrpIdIdx"
-				ToIndex="SecClusGrpInc.SecClusGrpIncClusGrpIdx"
-				IsRequired="false" >
-			<RelationCol Name="SecClusGrpId" ToCol="SecClusGrpId" />
-		</Relation>
 		<Relation Name="SecClusGrpMembByGrp"
 				RelationType="Children"
 				DbName="secclusgrp_membbygrp"
@@ -2317,31 +2187,7 @@ limitations under the License.
 	</TableAddendum>
 
 	<TableAddendum FromTable="SecClusGrp">
-		<DelDep Name="DelSecGrpIncs" DelDepChain="SecClusGrpIncByGrp" />
 		<DelDep Name="DelSecGrpMembs" DelDepChain="SecClusGrpMembByGrp" />
-	</TableAddendum>
-
-	<TableAddendum FromTable="SecClusGrpInc">
-		<Relation Name="SecClusGrpIncGroup"
-				RelationType="Container"
-				DbName="secclusgrpinc_grp"
-				Label="Group"
-				Suffix="Group"
-				FromIndex="SecClusGrpIncClusGrpIdx"
-				ToIndex="SecClusGrp.SecClusGrpIdIdx"
-				IsRequired="true" >
-			<RelationCol Name="SecClusGrpId" ToCol="SecClusGrpId" />
-		</Relation>
-		<Relation Name="SecClusGrpIncSubGroup"
-				RelationType="Parent"
-				DbName="secclusgrpinc_subgrp"
-				Label="SubGroup"
-				Suffix="SubGroup"
-				FromIndex="SecClusGrpIncNameIdx"
-				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
-				IsRequired="true" >
-			<RelationCol Name="InclName" ToCol="Name" />
-		</Relation>
 	</TableAddendum>
 
 	<TableAddendum FromTable="SecClusGrpMemb">
@@ -2377,6 +2223,16 @@ limitations under the License.
 				ToIndex="Cluster.ClusterIdIdx"
 				IsRequired="true" >
 			<RelationCol Name="ClusterId" ToCol="Id" />
+		</Relation>
+		<Relation Name="SecClusRoleMembSysRol"
+				RelationType="Container"
+				DbName="secclusgrpmb_sysrole"
+				Label="System Role"
+				Suffix="SysRole"
+				FromIndex="SecClusRoleNameIdx"
+				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
+				IsRequired="true" >
+			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecClusRoleMembByGrp"
 				RelationType="Children"
@@ -2434,16 +2290,6 @@ limitations under the License.
 				IsRequired="true" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
-		<Relation Name="SecTentGrpIncByGrp"
-				RelationType="Children"
-				DbName="sectentgrp_incbygrp"
-				Label="Included by Group"
-				Suffix="IncByGrp"
-				FromIndex="SecTentGrpIdIdx"
-				ToIndex="SecTentGrpInc.SecTentGrpIncTentGrpIdx"
-				IsRequired="false" >
-			<RelationCol Name="SecTentGrpId" ToCol="SecTentGrpId" />
-		</Relation>
 		<Relation Name="SecTentGrpMembByGrp"
 				RelationType="Children"
 				DbName="sectentgrp_membbygrp"
@@ -2453,29 +2299,6 @@ limitations under the License.
 				ToIndex="SecTentGrpMemb.SecTentGrpMembTentGrpIdx"
 				IsRequired="false" >
 			<RelationCol Name="SecTentGrpId" ToCol="SecTentGrpId" />
-		</Relation>
-	</TableAddendum>
-
-	<TableAddendum FromTable="SecTentGrpInc">
-		<Relation Name="SecTentGrpIncGroup"
-				RelationType="Container"
-				DbName="sectentgrpinc_grp"
-				Label="Group"
-				Suffix="Group"
-				FromIndex="SecTentGrpIncTentGrpIdx"
-				ToIndex="SecTentGrp.SecTentGrpIdIdx"
-				IsRequired="true" >
-			<RelationCol Name="SecTentGrpId" ToCol="SecTentGrpId" />
-		</Relation>
-		<Relation Name="SecTentGrpIncSubGroup"
-				RelationType="Parent"
-				DbName="sectentgrpinc_subgrp"
-				Label="SubGroup"
-				Suffix="SubGroup"
-				FromIndex="SecTentGrpIncNameIdx"
-				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
-				IsRequired="true" >
-			<RelationCol Name="InclName" ToCol="Name" />
 		</Relation>
 	</TableAddendum>
 
@@ -2502,69 +2325,69 @@ limitations under the License.
 		</Relation>
 	</TableAddendum>
 
-	<TableAddendum FromTable="SecRole">
-		<Relation Name="SecRoleEnabledByRole"
+	<TableAddendum FromTable="SecSysRole">
+		<Relation Name="SecSysRoleEnabledBySysRole"
 				RelationType="Children"
-				DbName="secrole_enabledbyrole"
+				DbName="secsysrole_enabledbyrole"
 				Label="Enabled by Role"
 				Suffix="EnabledByRole"
-				FromIndex="SecRoleIdIdx"
-				ToIndex="SecRoleEnables.SecRoleEnablesRoleIdx"
+				FromIndex="SecSysRoleIdIdx"
+				ToIndex="SecSysRoleEnables.SecSysRoleEnablesRoleIdx"
 				IsRequired="false" >
-			<RelationCol Name="SecRoleId" ToCol="SecRoleId" />
+			<RelationCol Name="SecSysRoleId" ToCol="SecSysRoleId" />
 		</Relation>
-		<Relation Name="SecRoleMembByRole"
+		<Relation Name="SecSysRoleMembByRole"
 				RelationType="Children"
-				DbName="secrole_membbyrole"
-				Label="Members of Role"
+				DbName="secsysrole_membbyrole"
+				Label="Members of System Role"
 				Suffix="MembByRole"
-				FromIndex="SecRoleIdIdx"
-				ToIndex="SecRoleMemb.SecRoleMembRoleIdx"
+				FromIndex="SecSysRoleIdIdx"
+				ToIndex="SecSysRoleMemb.SecSysRoleMembSysRoleIdx"
 				IsRequired="false" >
-			<RelationCol Name="SecRoleId" ToCol="SecRoleId" />
+			<RelationCol Name="SecSysRoleId" ToCol="SecSysRoleId" />
 		</Relation>
 	</TableAddendum>
 
-	<TableAddendum FromTable="SecRoleEnables">
-		<Relation Name="SecRoleEnablesRole"
+	<TableAddendum FromTable="SecSysRoleEnables">
+		<Relation Name="SecSysRoleEnablesSysRole"
 				RelationType="Container"
-				DbName="secrolenbl_role"
-				Label="Role"
-				Suffix="Role"
-				FromIndex="SecRoleEnablesRoleIdx"
-				ToIndex="SecRole.SecRoleIdIdx"
+				DbName="secsysrolenbl_role"
+				Label="SysRole"
+				Suffix="SysRole"
+				FromIndex="SecSysRoleEnablesRoleIdx"
+				ToIndex="SecSysRole.SecSysRoleIdIdx"
 				IsRequired="true" >
-			<RelationCol Name="SecRoleId" ToCol="SecRoleId" />
+			<RelationCol Name="SecSysRoleId" ToCol="SecSysRoleId" />
 		</Relation>
-		<Relation Name="SecRoleEnablesGroup"
+		<Relation Name="SecSysRoleEnablesGroup"
 				RelationType="Parent"
-				DbName="secrolenbl_nblgrp"
+				DbName="secsysrolenbl_nblgrp"
 				Label="Enable Group"
 				Suffix="EnableGroup"
-				FromIndex="SecRoleEnableNameIdx"
+				FromIndex="SecSysRoleEnableNameIdx"
 				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
 				IsRequired="true" >
 			<RelationCol Name="EnableName" ToCol="Name" />
 		</Relation>
 	</TableAddendum>
 
-	<TableAddendum FromTable="SecRoleMemb">
-		<Relation Name="SecRoleMembRole"
+	<TableAddendum FromTable="SecSysRoleMemb">
+		<Relation Name="SecSysRoleMembSysRole"
 				RelationType="Container"
-				DbName="secrolemb_role"
-				Label="Role"
-				Suffix="Role"
-				FromIndex="SecRoleMembRoleIdx"
-				ToIndex="SecRole.SecRoleIdIdx"
+				DbName="secsysrolemb_role"
+				Label="System Role"
+				Suffix="SysRole"
+				FromIndex="SecSysRoleMembSysRoleIdx"
+				ToIndex="SecSysRole.SecSysRoleIdIdx"
 				IsRequired="true" >
-			<RelationCol Name="SecRoleId" ToCol="SecRoleId" />
+			<RelationCol Name="SecSysRoleId" ToCol="SecSysRoleId" />
 		</Relation>
-		<Relation Name="SecRoleMembUser"
+		<Relation Name="SecSysRoleMembUser"
 				RelationType="Parent"
-				DbName="secrolemb_user"
+				DbName="secsysrolemb_user"
 				Label="User"
 				Suffix="User"
-				FromIndex="SecRoleMembLoginIdx"
+				FromIndex="SecSysRoleMembLoginIdx"
 				ToIndex="SecUser.SecUserLoginIdx"
 				IsRequired="true" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
@@ -2572,16 +2395,6 @@ limitations under the License.
 	</TableAddendum>
 
 	<TableAddendum FromTable="SecTentRole">
-		<Relation Name="SecTentRoleRole"
-				RelationType="Container"
-				DbName="sectentrole_role"
-				Label="Role"
-				Suffix="Role"
-				FromIndex="SecTentRoleNameIdx"
-				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
-				IsRequired="true" >
-			<RelationCol Name="Name" ToCol="Name" />
-		</Relation>
 		<Relation Name="SecTentRoleTenant"
 				RelationType="Owner"
 				DbName="sectentrole_tent"
@@ -2591,6 +2404,16 @@ limitations under the License.
 				ToIndex="Tenant.TenantIdIdx"
 				IsRequired="true" >
 			<RelationCol Name="TenantId" ToCol="Id" />
+		</Relation>
+		<Relation Name="SecTentRoleSysRole"
+				RelationType="Container"
+				DbName="sectentrole_sysrole"
+				Label="System Role"
+				Suffix="SysRole"
+				FromIndex="SecTentRoleNameIdx"
+				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
+				IsRequired="true" >
+			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecTentRoleMembByRole"
 				RelationType="Children"
@@ -2826,9 +2649,9 @@ limitations under the License.
 		<DelDep Name="DelCtryLangs" DelDepChain="ISOCtryLangs" />
 	</TableAddendum>
 
-	<TableAddendum FromTable="SecRole">
-		<DelDep Name="DelSecRoleEnables" DelDepChain="SecRoleEnabledByRole" />
-		<DelDep Name="DelSecRoleMembs" DelDepChain="SecRoleMembByRole" />
+	<TableAddendum FromTable="SecSysRole">
+		<DelDep Name="DelSecSysRoleEnables" DelDepChain="SecSysRoleEnabledBySysRole" />
+		<DelDep Name="DelSecSysRoleMembs" DelDepChain="SecSysRoleMembByRole" />
 	</TableAddendum>
 
 	<TableAddendum FromTable="SecSysGrp">
@@ -2848,13 +2671,11 @@ limitations under the License.
 	</TableAddendum>
 
 	<TableAddendum FromTable="SecTentGrp">
-		<DelDep Name="DelSecGrpIncs" DelDepChain="SecTentGrpIncByGrp" />
 		<DelDep Name="DelSecGrpMembs" DelDepChain="SecTentGrpMembByGrp" />
 	</TableAddendum>
 
 	<TableAddendum FromTable="Tenant">
 		<DelDep Name="DelSecTentGroups" DelDepChain="TenantSecTentGroup" />
-		<!-- DelDep Name="DelTentGrpIncs" DelDepChain="TenantSecTentGroup.SecTentGrpIncByGrp" / -->
 		<!-- DelDep Name="DelTentGrpMembs" DelDepChain="TenantSecTentGroup.SecTentGrpMembByGrp" / -->
 	</TableAddendum>
 
