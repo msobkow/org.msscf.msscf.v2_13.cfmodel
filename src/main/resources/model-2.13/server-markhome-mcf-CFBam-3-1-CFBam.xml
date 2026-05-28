@@ -195,6 +195,15 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		<EnumTag Name="TenantGroup" />
 	</EnumType>
 
+	<EnumType Name="RoleScopeEnum"
+			IsNullable="false"
+			MinValue="0"
+			InitValue="0" >
+		<EnumTag Name="SysRole" />
+		<EnumTag Name="ClusRole" />
+		<EnumTag Name="TentRole" />
+	</EnumType>
+
 	<DbKeyHash256Gen Name="ValueIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
@@ -12800,6 +12809,11 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		<TableCol Name="SchemaDefId"
 				IsNullable="false"
 				DataType="ScopeIdGen" />
+		<TableCol Name="RoleScope"
+				Label="Role Scope"
+				IsNullable="false"
+				DbName="RoleScopeId"
+				DataType="RoleScopeEnum" />
 		<PrimaryIndex Name="SchemaRoleIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
@@ -12817,6 +12831,25 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 				Suffix="SchemaIdx"
 				Label="Schema Index" >
 			<IndexCol Name="SchemaDefId" IsAscending="true" />
+		</Index>
+		<Index Name="SchemaRoleRoleScpIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="schrole_xrolscp"
+				ShortName="RolScpIdx"
+				Suffix="RoleScopeIdx"
+				Label="Role Scope Index" >
+			<IndexCol Name="RoleScope" IsAscending="true" />
+		</Index>
+		<Index Name="SchemaRoleSchScpIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="schrole_xschscp"
+				ShortName="SchScpIdx"
+				Suffix="SchRoleScpIdx"
+				Label="Schema Role Scope Index" >
+			<IndexCol Name="SchemaDefId" IsAscending="true" />
+			<IndexCol Name="RoleScope" IsAscending="true" />
 		</Index>
 		<SuperClassRelation Name="SuperClass"
 				DbName="schrole_super"
