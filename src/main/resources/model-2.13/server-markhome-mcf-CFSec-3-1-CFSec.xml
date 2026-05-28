@@ -80,9 +80,9 @@ limitations under the License.
 		<EnumTag Name="Global" EnumCode="1" />
 		<EnumTag Name="Cluster" EnumCode="2" />
 		<EnumTag Name="Tenant" EnumCode="3" />
-		<EnumTag Name="SystemRole" EnumCode="4" />
-		<EnumTag Name="ClusterRole" EnumCode="4" />
-		<EnumTag Name="TenantRole" EnumCode="4" />
+		<EnumTag Name="SysRole" EnumCode="4" />
+		<EnumTag Name="ClusRole" EnumCode="4" />
+		<EnumTag Name="TentRole" EnumCode="4" />
 	</EnumType>
 
 	<EnumType Name="SecAccountStatusEnum"
@@ -2215,7 +2215,7 @@ limitations under the License.
 
 	<TableAddendum FromTable="SecClusRole">
 		<Relation Name="SecClusRoleCluster"
-				RelationType="Owner"
+				RelationType="Container"
 				DbName="secclusrole_clus"
 				Label="Cluster"
 				Suffix="Cluster"
@@ -2225,7 +2225,7 @@ limitations under the License.
 			<RelationCol Name="ClusterId" ToCol="Id" />
 		</Relation>
 		<Relation Name="SecClusRoleMembSysRol"
-				RelationType="Container"
+				RelationType="Parent"
 				DbName="secclusgrpmb_sysrole"
 				Label="System Role"
 				Suffix="SysRole"
@@ -2271,7 +2271,7 @@ limitations under the License.
 
 	<TableAddendum FromTable="SecTentGrp">
 		<Relation Name="SecTentGrpTenant"
-				RelationType="Owner"
+				RelationType="Container"
 				DbName="sectentgrp_tent"
 				Label="Tenant"
 				Suffix="Tenant"
@@ -2396,7 +2396,7 @@ limitations under the License.
 
 	<TableAddendum FromTable="SecTentRole">
 		<Relation Name="SecTentRoleTenant"
-				RelationType="Owner"
+				RelationType="Container"
 				DbName="sectentrole_tent"
 				Label="Tenant"
 				Suffix="Tenant"
@@ -2406,7 +2406,7 @@ limitations under the License.
 			<RelationCol Name="TenantId" ToCol="Id" />
 		</Relation>
 		<Relation Name="SecTentRoleSysRole"
-				RelationType="Container"
+				RelationType="Parent"
 				DbName="sectentrole_sysrole"
 				Label="System Role"
 				Suffix="SysRole"
@@ -2637,11 +2637,23 @@ limitations under the License.
 				IsXsdContainer="true" >
 			<RelationCol Name="Id" ToCol="TenantId" />
 		</Relation>
+		<Relation Name="TenantSecRole"
+				RelationType="Components"
+				DbName="tenant_secrole"
+				Label="Security Role"
+				Suffix="SecRole"
+				FromIndex="TenantIdIdx"
+				ToIndex="SecTentRole.SecTentRoleTenantIdx"
+				IsRequired="false"
+				IsXsdContainer="true" >
+			<RelationCol Name="Id" ToCol="TenantId" />
+		</Relation>
 	</TableAddendum>
 
 	<TableAddendum FromTable="Cluster">
 		<DelDep Name="DelTenants" DelDepChain="ClusterTenant" />
 		<DelDep Name="DelSecGroups" DelDepChain="ClusterSecGroup" />
+		<DelDep Name="DelSecRoles" DelDepChain="ClusterSecRole" />
 	</TableAddendum>
 
 	<TableAddendum FromTable="ISOCtry">
@@ -2676,7 +2688,8 @@ limitations under the License.
 
 	<TableAddendum FromTable="Tenant">
 		<DelDep Name="DelSecTentGroups" DelDepChain="TenantSecTentGroup" />
-		<!-- DelDep Name="DelTentGrpMembs" DelDepChain="TenantSecTentGroup.SecTentGrpMembByGrp" / -->
+		<DelDep Name="DelTentGrpMembs" DelDepChain="TenantSecTentGroup.SecTentGrpMembByGrp" />
+		<DelDep Name="DelSecRoles" DelDepChain="TenantSecRole" />
 	</TableAddendum>
 
 	<SchemaRole Name="secuser" MembershipString="readcluster readtenant" />
