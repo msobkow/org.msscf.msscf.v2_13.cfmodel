@@ -2692,7 +2692,13 @@ limitations under the License.
 		<DelDep Name="DelSecRoles" DelDepChain="TenantSecRole" />
 	</TableAddendum>
 
-	<SchemaRole Name="secuser" MembershipString="readcluster readtenant" />
+	<SchemaRole Name="secuser" RoleScope="SysRole" MembershipString="readcluster readtenant readsecsysgrp readsecsysinc readsecsysmemb readsecsysrole readsecsysinc readsecsysroleenable readsecsysrolememb readsecclusgrp readsecclusmemb readsecclusrole readsecclusrolememb readsectentgrp readsectentmemb readsectentrole readsectentrolememb" />
+	<SchemaRole Name="secsysadmin" RoleScope="SysRole" MembershipString="sectentadmin secclusadmin secsysmanager updatecluster deletecluster updatetenant deletetenant createsecsysgrp updatesecsysgrp deletesecsysgrp createsecsysrole updatesecsysrole deletesecsysrole createsecsysinc updatesecsysinc deletesecsysinc " />
+	<SchemaRole Name="secsysmanager" RoleScope="SysRole" MembershipString="secuser secclusmanager createsecsysmemb updatesecsysmemb deletesecsysmemb create secsysrolememb updatesecsysrolememb deletesecsysrolememb" />
+	<SchemaRole Name="secclusadmin" RoleScope="ClusRole" MembershipString="secclusmanager createsecclusgrp updatesecclusgrp deletesecclusgrp readsecclusrole updatesecclusrole createsecclusrole deletesecclusrole" />
+	<SchemaRole Name="secclusmanager" RoleScope="ClusRole" MembershipString="sectentmanager createsecclusmemb updatesecclusmemb deletesecclusmemb createsecclusrolememb updatesecclusrolememb deletesecclusrolememb" />
+	<SchemaRole Name="sectentadmin" RoleScope="TentRole" MembershipString="sectentmanager createsectentgrp updatesectentgrp deletesectentgrp createsectentrole updatesectentrole deletesectentrole" />
+	<SchemaRole Name="sectentmanager" RoleScope="TentRole" MembershipString="secuser createsectentmemb updatesectentmemb deletesectentmemb createsectentrolememb updatesectentrolememb deletesectentrolememb" />
 </SchemaDef>
 						</MinorVersion>
 					</MajorVersion>
