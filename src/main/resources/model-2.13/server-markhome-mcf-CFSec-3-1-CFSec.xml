@@ -1890,7 +1890,7 @@ limitations under the License.
 				FromIndex="ClusterIdIdx"
 				ToIndex="SecClusGrp.SecClusGrpClusterIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="false" >
 			<RelationCol Name="Id" ToCol="ClusterId" />
 		</Relation>
 		<Relation Name="ClusterSecRole"
@@ -1901,7 +1901,7 @@ limitations under the License.
 				FromIndex="ClusterIdIdx"
 				ToIndex="SecClusRole.SecClusRoleClusterIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="false" >
 			<RelationCol Name="Id" ToCol="ClusterId" />
 		</Relation>
 		<Relation Name="ClusterSysCluster"
@@ -1912,7 +1912,7 @@ limitations under the License.
 				FromIndex="ClusterIdIdx"
 				ToIndex="SysCluster.SysClusterClusterIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="false" >
 			<RelationCol Name="Id" ToCol="ClusterId" />
 		</Relation>
 	</TableAddendum>
@@ -2016,13 +2016,14 @@ limitations under the License.
 
 	<TableAddendum FromTable="SecSysGrp">
 		<Relation Name="SecSysGrpIncByGrp"
-				RelationType="Children"
+				RelationType="Components"
 				DbName="secsysgrp_incbygrp"
 				Label="Included by Group"
 				Suffix="IncByGrp"
 				FromIndex="SecSysGrpIdIdx"
 				ToIndex="SecSysGrpInc.SecSysGrpIncSysGrpIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="true" >
 			<RelationCol Name="SecSysGrpId" ToCol="SecSysGrpId" />
 		</Relation>
 		<Relation Name="SecSysGrpMembByGrp"
@@ -2032,57 +2033,63 @@ limitations under the License.
 				Suffix="MembByGrp"
 				FromIndex="SecSysGrpIdIdx"
 				ToIndex="SecSysGrpMemb.SecSysGrpMembSysGrpIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="false" >
 			<RelationCol Name="SecSysGrpId" ToCol="SecSysGrpId" />
 		</Relation>
 		<Relation Name="SecSysGrpImplClusGrp"
-				RelationType="Children"
+				RelationType="Components"
 				DbName="secsysgrp_implclusgrp"
 				Label="Implements cluster group"
 				Suffix="ImplClusGrp"
 				FromIndex="SecSysGrpUNameIdx"
 				ToIndex="SecClusGrp.SecClusGrpNameIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="true" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecSysGrpImplTentGrp"
-				RelationType="Children"
+				RelationType="Components"
 				DbName="secsysgrp_impltentgrp"
 				Label="Implements tenant group"
 				Suffix="ImplTentGrp"
 				FromIndex="SecSysGrpUNameIdx"
 				ToIndex="SecTentGrp.SecTentGrpNameIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="true" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecSysGrpImplSysRole"
-				RelationType="Children"
+				RelationType="Components"
 				DbName="secsysgrp_implsysrole"
 				Label="Implements role"
 				Suffix="ImplSysRole"
 				FromIndex="SecSysGrpIdIdx"
 				ToIndex="SecSysRole.SecSysRoleIdIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="true" >
 			<RelationCol Name="SecSysGrpId" ToCol="SecSysRoleId" />
 		</Relation>
 		<Relation Name="SecSysGrpImplClusRole"
-				RelationType="Children"
+				RelationType="Components"
 				DbName="secsysgrp_implclusrole"
 				Label="Implements cluster role"
 				Suffix="ImplClusRole"
 				FromIndex="SecSysGrpUNameIdx"
 				ToIndex="SecClusRole.SecClusRoleNameIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="true" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecSysGrpImplTentRole"
-				RelationType="Children"
+				RelationType="Components"
 				DbName="secsysgrp_impltentrole"
 				Label="Implements tenant role"
 				Suffix="ImplTentRole"
 				FromIndex="SecSysGrpUNameIdx"
 				ToIndex="SecTentRole.SecTentRoleNameIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="true" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecSysGrpBySysGrpInclName"
@@ -2165,7 +2172,7 @@ limitations under the License.
 			<RelationCol Name="ClusterId" ToCol="Id" />
 		</Relation>
 		<Relation Name="SecClusGrpRefSysGrp"
-				RelationType="Parent"
+				RelationType="Container"
 				DbName="secclusgrp_refsysgrp"
 				Label="Reference system group"
 				Suffix="SysGrp"
@@ -2181,7 +2188,8 @@ limitations under the License.
 				Suffix="MembByGrp"
 				FromIndex="SecClusGrpIdIdx"
 				ToIndex="SecClusGrpMemb.SecClusGrpMembClusGrpIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="false" >
 			<RelationCol Name="SecClusGrpId" ToCol="SecClusGrpId" />
 		</Relation>
 	</TableAddendum>
@@ -2215,7 +2223,7 @@ limitations under the License.
 
 	<TableAddendum FromTable="SecClusRole">
 		<Relation Name="SecClusRoleCluster"
-				RelationType="Container"
+				RelationType="Owner"
 				DbName="secclusrole_clus"
 				Label="Cluster"
 				Suffix="Cluster"
@@ -2225,7 +2233,7 @@ limitations under the License.
 			<RelationCol Name="ClusterId" ToCol="Id" />
 		</Relation>
 		<Relation Name="SecClusRoleMembSysRol"
-				RelationType="Parent"
+				RelationType="Container"
 				DbName="secclusgrpmb_sysrole"
 				Label="System Role"
 				Suffix="SysRole"
@@ -2241,7 +2249,8 @@ limitations under the License.
 				Suffix="MembByGrp"
 				FromIndex="SecClusRoleIdIdx"
 				ToIndex="SecClusRoleMemb.SecClusRoleMembClusRoleIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="false" >
 			<RelationCol Name="SecClusRoleId" ToCol="SecClusRoleId" />
 		</Relation>
 	</TableAddendum>
@@ -2271,7 +2280,7 @@ limitations under the License.
 
 	<TableAddendum FromTable="SecTentGrp">
 		<Relation Name="SecTentGrpTenant"
-				RelationType="Container"
+				RelationType="Owner"
 				DbName="sectentgrp_tent"
 				Label="Tenant"
 				Suffix="Tenant"
@@ -2281,7 +2290,7 @@ limitations under the License.
 			<RelationCol Name="TenantId" ToCol="Id" />
 		</Relation>
 		<Relation Name="SecTentGrpRefSysGrp"
-				RelationType="Parent"
+				RelationType="Container"
 				DbName="sectentgrp_refsysgrp"
 				Label="Reference system group"
 				Suffix="SysGrp"
@@ -2297,7 +2306,8 @@ limitations under the License.
 				Suffix="MembByGrp"
 				FromIndex="SecTentGrpIdIdx"
 				ToIndex="SecTentGrpMemb.SecTentGrpMembTentGrpIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="false" >
 			<RelationCol Name="SecTentGrpId" ToCol="SecTentGrpId" />
 		</Relation>
 	</TableAddendum>
@@ -2327,13 +2337,14 @@ limitations under the License.
 
 	<TableAddendum FromTable="SecSysRole">
 		<Relation Name="SecSysRoleEnabledBySysRole"
-				RelationType="Children"
+				RelationType="Components"
 				DbName="secsysrole_enabledbyrole"
 				Label="Enabled by Role"
 				Suffix="EnabledByRole"
 				FromIndex="SecSysRoleIdIdx"
 				ToIndex="SecSysRoleEnables.SecSysRoleEnablesRoleIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="true" >
 			<RelationCol Name="SecSysRoleId" ToCol="SecSysRoleId" />
 		</Relation>
 		<Relation Name="SecSysRoleMembByRole"
@@ -2343,7 +2354,8 @@ limitations under the License.
 				Suffix="MembByRole"
 				FromIndex="SecSysRoleIdIdx"
 				ToIndex="SecSysRoleMemb.SecSysRoleMembSysRoleIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="false" >
 			<RelationCol Name="SecSysRoleId" ToCol="SecSysRoleId" />
 		</Relation>
 	</TableAddendum>
@@ -2396,7 +2408,7 @@ limitations under the License.
 
 	<TableAddendum FromTable="SecTentRole">
 		<Relation Name="SecTentRoleTenant"
-				RelationType="Container"
+				RelationType="Owner"
 				DbName="sectentrole_tent"
 				Label="Tenant"
 				Suffix="Tenant"
@@ -2406,7 +2418,7 @@ limitations under the License.
 			<RelationCol Name="TenantId" ToCol="Id" />
 		</Relation>
 		<Relation Name="SecTentRoleSysRole"
-				RelationType="Parent"
+				RelationType="Container"
 				DbName="sectentrole_sysrole"
 				Label="System Role"
 				Suffix="SysRole"
@@ -2422,7 +2434,8 @@ limitations under the License.
 				Suffix="MembByRole"
 				FromIndex="SecTentRoleIdIdx"
 				ToIndex="SecTentRoleMemb.SecTentRoleMembTentRoleIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="false" >
 			<RelationCol Name="SecTentRoleId" ToCol="SecTentRoleId" />
 		</Relation>
 	</TableAddendum>
