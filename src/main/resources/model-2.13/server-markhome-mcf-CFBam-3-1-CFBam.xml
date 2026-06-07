@@ -5977,9 +5977,9 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 				IsDbMapped="true"
 				IsUnique="false"
 				DbName="idxdef_tblcdvisidx"
-				ShortName="TableCodeVis"
-				Suffix="IdxTableCodeVisIdx"
-				Label="TableCodeVisIdx" >
+				ShortName="TblCodeVis"
+				Suffix="IdxTblCdVisX"
+				Label="TblCodeVisIdx" >
 			<IndexCol Name="TableId" IsAscending="true" />
 			<IndexCol Name="CodeVis" IsAscending="true" />
 		</Index>
@@ -7221,7 +7221,7 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 				IsUnique="false"
 				DbName="reldef_tblcdvisidx"
 				ShortName="TableCodeVis"
-				Suffix="RelTableCodeVisIdx"
+				Suffix="RelTableCodeVisX"
 				Label="TableCodeVisIdx" >
 			<IndexCol Name="TableId" IsAscending="true" />
 			<IndexCol Name="CodeVis" IsAscending="true" />
