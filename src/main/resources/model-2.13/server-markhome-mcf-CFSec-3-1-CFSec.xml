@@ -236,7 +236,8 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="ClusterUDomNameIdx"
 			LoaderBehaviour="Insert"
-			SecScope="Global" >
+			SecScope="Global"
+			CodeVis="Public" >
 		<TableCol Name="Id"
 				IsNullable="false"
 				GenerateId="true"
@@ -257,7 +258,8 @@ limitations under the License.
 				DbName="cluster_pk"
 				ShortName="PIdx"
 				Suffix="IdIdx"
-				Label="IdIdx" >
+				Label="IdIdx"
+				CodeVis="Public" >
 			<IndexCol Name="Id" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="ClusterUDomNameIdx"
@@ -266,7 +268,8 @@ limitations under the License.
 				DbName="cluster_xufdname"
 				ShortName="UDom"
 				Suffix="UDomNameIdx"
-				Label="UDomNameIdx" >
+				Label="UDomNameIdx"
+				CodeVis="Public" >
 			<IndexCol Name="FullDomName" IsAscending="true" />
 			<IndexTweak Name="CafePreReadIndexSecurityCheck">
 		if (!permissionGranted &amp;&amp; "system".equals(argFullDomName)) {
@@ -279,7 +282,8 @@ limitations under the License.
 				DbName="cluster_xudescr"
 				ShortName="UDescr"
 				Suffix="UDescrIdx"
-				Label="UDescrIdx" >
+				Label="UDescrIdx"
+				CodeVis="Public" >
 			<IndexCol Name="Description" IsAscending="true" />
 		</Index>
 	</Table>
@@ -296,7 +300,8 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="TenantUNameIdx"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="System"
+			CodeVis="Public" >
 		<TableCol Name="Id"
 				IsNullable="false"
 				GenerateId="true"
@@ -314,7 +319,8 @@ limitations under the License.
 				DbName="tenant_pk"
 				ShortName="PIdx"
 				Suffix="IdIdx"
-				Label="IdIdx" >
+				Label="IdIdx"
+				CodeVis="Public" >
 			<IndexCol Name="Id" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="TenantClusterIdx"
@@ -323,7 +329,8 @@ limitations under the License.
 				DbName="tenant_xcluster"
 				ShortName="Clus"
 				Suffix="ClusterIdx"
-				Label="ClusterIdx" >
+				Label="ClusterIdx"
+				CodeVis="Public" >
 			<IndexCol Name="ClusterId" IsAscending="true" />
 		</Index>
 		<Index Name="TenantUNameIdx"
@@ -332,7 +339,8 @@ limitations under the License.
 				DbName="tenant_xuname"
 				ShortName="UName"
 				Suffix="UNameIdx"
-				Label="UNameIdx" >
+				Label="UNameIdx"
+				CodeVis="Public" >
 			<IndexCol Name="ClusterId" IsAscending="true" />
 			<IndexCol Name="TenantName" IsAscending="true" />
 			<IndexTweak Name="CafePreReadIndexSecurityCheck">
@@ -352,7 +360,8 @@ limitations under the License.
 			HasAuditColumns="true"
 			LookupIndex="ISOCcyCodeIdx"
 			LoaderBehaviour="Update"
-			SecScope="Global" >
+			SecScope="Global"
+			CodeVis="Public" >
 		<TableCol Name="ISOCcyId"
 				IsNullable="false"
 				GenerateId="true"
@@ -382,7 +391,8 @@ limitations under the License.
 				DbName="isocurrency_pk"
 				ShortName="PIdx"
 				Suffix="IdIdx"
-				Label="Ccy Id Index" >
+				Label="Ccy Id Index"
+				CodeVis="Public" >
 			<IndexCol Name="ISOCcyId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="ISOCcyCodeIdx"
@@ -391,7 +401,8 @@ limitations under the License.
 				DbName="isocurrency_xcode"
 				ShortName="CcyCd"
 				Suffix="CcyCdIdx"
-				Label="Ccy Code Index" >
+				Label="Ccy Code Index"
+				CodeVis="Public" >
 			<IndexCol Name="ISOCode" IsAscending="true" />
 		</Index>
 		<Index Name="ISOCcyNameIdx"
@@ -400,7 +411,8 @@ limitations under the License.
 				DbName="isocurrency_xuname"
 				ShortName="NameIdx"
 				Suffix="CcyNmIdx"
-				Label="Ccy Name Index" >
+				Label="Ccy Name Index"
+				CodeVis="Public" >
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
 	</Table>
@@ -415,7 +427,8 @@ limitations under the License.
 			HasAuditColumns="true"
 			LookupIndex="ISOCtryCodeIdx"
 			LoaderBehaviour="Update"
-			SecScope="Global" >
+			SecScope="Global"
+			CodeVis="Public" >
 		<TableCol Name="ISOCtryId"
 				IsNullable="false"
 				GenerateId="true"
@@ -435,7 +448,8 @@ limitations under the License.
 				DbName="isocountry_pk"
 				ShortName="PIdx"
 				Suffix="IdIdx"
-				Label="CtryIdx" >
+				Label="CtryIdx"
+				CodeVis="Public" >
 			<IndexCol Name="ISOCtryId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="ISOCtryCodeIdx"
@@ -444,7 +458,8 @@ limitations under the License.
 				DbName="isocountry_xcode"
 				ShortName="ISOCode"
 				Suffix="ISOCodeIdx"
-				Label="ISOCodeIdx" >
+				Label="ISOCodeIdx"
+				CodeVis="Public" >
 			<IndexCol Name="ISOCode" IsAscending="true" />
 		</Index>
 		<Index Name="ISOCtryNameIdx"
@@ -453,7 +468,8 @@ limitations under the License.
 				DbName="isocountry_xuname"
 				ShortName="NameIdx"
 				Suffix="NameIdx"
-				Label="Name Index" >
+				Label="Name Index"
+				CodeVis="Public" >
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
 	</Table>
@@ -466,7 +482,8 @@ limitations under the License.
 			HasAuditColumns="true"
 			AltIndex="ISOCtryCcyIdIdx"
 			LoaderBehaviour="Insert"
-			SecScope="Global" >
+			SecScope="Global"
+			CodeVis="Public" >
 		<TableCol Name="ISOCtryId"
 				IsNullable="false"
 				DataType="ISOCtryIdGen" />
@@ -479,7 +496,8 @@ limitations under the License.
 				DbName="isocountryccy_pk"
 				ShortName="PIdx"
 				Suffix="IdIdx"
-				Label="CtryCcyIdx" >
+				Label="CtryCcyIdx"
+				CodeVis="Public" >
 			<IndexCol Name="ISOCtryId" IsAscending="true" />
 			<IndexCol Name="ISOCcyId" IsAscending="true" />
 		</PrimaryIndex>
@@ -489,7 +507,8 @@ limitations under the License.
 				DbName="isocountryccy_xcountry"
 				ShortName="Ctry"
 				Suffix="CtryIdx"
-				Label="CtryIdx" >
+				Label="CtryIdx"
+				CodeVis="Public" >
 			<IndexCol Name="ISOCtryId" IsAscending="true" />
 		</Index>
 		<Index Name="ISOCtryCcyCcyIdx"
@@ -498,7 +517,8 @@ limitations under the License.
 				DbName="isocountryccy_xccy"
 				ShortName="Ccy"
 				Suffix="CcyIdx"
-				Label="CcyIdx" >
+				Label="CcyIdx"
+				CodeVis="Public" >
 			<IndexCol Name="ISOCcyId" IsAscending="true" />
 		</Index>
 	</Table>
@@ -511,7 +531,8 @@ limitations under the License.
 			HasAuditColumns="true"
 			AltIndex="ISOCtryLangIdIdx"
 			LoaderBehaviour="Insert"
-			SecScope="Global" >
+			SecScope="Global"
+			CodeVis="Public" >
 		<TableCol Name="ISOCtryId"
 				IsNullable="false"
 				DataType="ISOCtryIdGen" />
@@ -524,7 +545,8 @@ limitations under the License.
 				DbName="isocountrylang_pk"
 				ShortName="PIdx"
 				Suffix="IdIdx"
-				Label="CtryLangIdx" >
+				Label="CtryLangIdx"
+				CodeVis="Public" >
 			<IndexCol Name="ISOCtryId" IsAscending="true" />
 			<IndexCol Name="ISOLangId" IsAscending="true" />
 		</PrimaryIndex>
@@ -534,7 +556,8 @@ limitations under the License.
 				DbName="isocountrylang_xcountry"
 				ShortName="Ctry"
 				Suffix="CtryIdx"
-				Label="CtryIdx" >
+				Label="CtryIdx"
+				CodeVis="Public" >
 			<IndexCol Name="ISOCtryId" IsAscending="true" />
 		</Index>
 		<Index Name="ISOCtryLangLangIdx"
@@ -543,7 +566,8 @@ limitations under the License.
 				DbName="isocountrylang_xlang"
 				ShortName="Lang"
 				Suffix="LangIdx"
-				Label="LangIdx" >
+				Label="LangIdx"
+				CodeVis="Public" >
 			<IndexCol Name="ISOLangId" IsAscending="true" />
 		</Index>
 	</Table>
@@ -558,7 +582,8 @@ limitations under the License.
 			HasAuditColumns="true"
 			LookupIndex="ISOLang6392Idx"
 			LoaderBehaviour="Update"
-			SecScope="Global" >
+			SecScope="Global"
+			CodeVis="Public" >
 		<TableCol Name="ISOLangId"
 				IsNullable="false"
 				GenerateId="true"
@@ -582,7 +607,8 @@ limitations under the License.
 				DbName="isolang_pk"
 				ShortName="PIdx"
 				Suffix="IdIdx"
-				Label="LangIdIdx" >
+				Label="LangIdIdx"
+				CodeVis="Public" >
 			<IndexCol Name="ISOLangId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="ISOLang6392Idx"
@@ -591,7 +617,8 @@ limitations under the License.
 				DbName="isolang_x6392"
 				ShortName="Code3"
 				Suffix="Code3Idx"
-				Label="ISO 639-2 Index" >
+				Label="ISO 639-2 Index"
+				CodeVis="Public" >
 			<IndexCol Name="ISO6392Code" IsAscending="true" />
 		</Index>
 		<Index Name="ISOLang6391Idx"
@@ -600,7 +627,8 @@ limitations under the License.
 				DbName="isolang_x6391"
 				ShortName="Code2"
 				Suffix="Code2Idx"
-				Label="ISO 639-1 Index" >
+				Label="ISO 639-1 Index"
+				CodeVis="Public" >
 			<IndexCol Name="ISO6391Code" IsAscending="true" />
 		</Index>
 	</Table>
@@ -616,7 +644,8 @@ limitations under the License.
 			HasAuditColumns="true"
 			LookupIndex="ISOTZoneUTZNameIdx"
 			LoaderBehaviour="Update"
-			SecScope="Global" >
+			SecScope="Global"
+			CodeVis="Public" >
 		<TableCol Name="ISOTZoneId"
 				Label="ISO Timezone Id"
 				IsNullable="false"
@@ -656,7 +685,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="ITz_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Public" >
 			<IndexCol Name="ISOTZoneId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="ISOTZoneOffsetIdx"
@@ -664,7 +694,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="ITz_xoffset"
 				ShortName="Offset"
-				Suffix="OffsetIdx" >
+				Suffix="OffsetIdx"
+				CodeVis="Public" >
 			<IndexCol Name="TZHourOffset" IsAscending="true" />
 			<IndexCol Name="TZMinOffset" IsAscending="true" />
 		</Index>
@@ -673,7 +704,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="ITz_xuname"
 				ShortName="TZName"
-				Suffix="UTZNameIdx" >
+				Suffix="UTZNameIdx"
+				CodeVis="Public" >
 			<IndexCol Name="TZName" IsAscending="true" />
 		</Index>
 		<Index Name="ISOTZoneIso8601Idx"
@@ -681,7 +713,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="ITz_xiso"
 				ShortName="Iso8601"
-				Suffix="Iso8601Idx" >
+				Suffix="Iso8601Idx"
+				CodeVis="Public" >
 			<IndexCol Name="Iso8601" IsAscending="true" />
 		</Index>
 	</Table>
@@ -697,7 +730,8 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="SecUserLoginIdx"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="System"
+			CodeVis="Public" >
 		<TableCol Name="SecUserId"
 				Label="Security User Id"
 				IsNullable="false"
@@ -738,7 +772,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecUser_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Public" >
 			<IndexCol Name="SecUserId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="SecUserLoginIdx"
@@ -746,7 +781,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecUser_xulogin"
 				ShortName="ULogin"
-				Suffix="ULoginIdx" >
+				Suffix="ULoginIdx"
+				CodeVis="Public" >
 			<IndexCol Name="LoginId" IsAscending="true" />
 			<IndexTweak Name="CafePreReadIndexSecurityCheck">
 		if (!permissionGranted &amp;&amp; "system".equals(argLoginId)) {
@@ -758,7 +794,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecUser_xemconf"
 				ShortName="EMailAddr"
-				Suffix="EMAddrIdx" >
+				Suffix="EMAddrIdx"
+				CodeVis="Public" >
 			<IndexCol Name="EMailAddress" IsAscending="true" />
 		</Index>
 	</Table>
@@ -773,7 +810,8 @@ limitations under the License.
 			HasAuditColumns="false"
 			PageData="false"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="System"
+			CodeVis="Protected" >
 		<TableCol Name="SecUserId"
 				Label="Security User Id"
 				IsNullable="false"
@@ -792,7 +830,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecUserPW_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecUserId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="SecUserPasswordSetStampIdx"
@@ -800,7 +839,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecUserPW_xsetstmp"
 				ShortName="XSetStamp"
-				Suffix="SetStampIdx" >
+				Suffix="SetStampIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="PWSetStamp" IsAscending="true" />
 		</Index>
 	</Table>
@@ -816,7 +856,8 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="SecUserEMConfUuid6Idx"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="System"
+			CodeVis="Protected" >
 		<TableCol Name="SecUserId"
 				Label="Security User Id"
 				IsNullable="false"
@@ -845,7 +886,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="secusremcnf_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecUserId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="SecUserEMConfUuid6Idx"
@@ -853,7 +895,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="secusremcnf_xuuid6"
 				ShortName="UUuid6"
-				Suffix="UUuid6Idx" >
+				Suffix="UUuid6Idx"
+				CodeVis="Protected" >
 			<IndexCol Name="EMConfirmationUuid6" IsAscending="true" />
 		</Index>
 		<Index Name="SecUserEMConfConfirmingAddrIdx"
@@ -861,7 +904,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="secusremcnf_xcnfemailaddr"
 				ShortName="ConfEMailAddr"
-				Suffix="ConfEMAddrIdx" >
+				Suffix="ConfEMAddrIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="ConfirmEMailAddr" IsAscending="true" />
 		</Index>
 		<Index Name="SecUserEMConfSentStampIdx"
@@ -869,7 +913,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="secusremcnf_xsntstmp"
 				ShortName="SentStamp"
-				Suffix="SentStampIdx" >
+				Suffix="SentStampIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="EMailSentStamp" IsAscending="true" />
 		</Index>
 		<Index Name="SecUserEMConfNewAcctIdx"
@@ -877,7 +922,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="secusremcnf_xnewacct"
 				ShortName="NewAcct"
-				Suffix="NewAcctIdx" >
+				Suffix="NewAcctIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="NewAccount" IsAscending="true" />
 		</Index>
 	</Table>
@@ -893,7 +939,8 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="SecUserPWResetUuid6Idx"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="System"
+			CodeVis="Protected" >
 		<TableCol Name="SecUserId"
 				Label="Security User Id"
 				IsNullable="false"
@@ -918,7 +965,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="secusrpwrst_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecUserId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="SecUserPWResetUuid6Idx"
@@ -926,7 +974,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="secusrpwrst_xuuid6"
 				ShortName="UUuid6"
-				Suffix="UUuid6Idx" >
+				Suffix="UUuid6Idx"
+				CodeVis="Protected" >
 			<IndexCol Name="PasswordResetUuid6" IsAscending="true" />
 		</Index>
 		<Index Name="SecUserPWResetSentToEMailAddrIdx"
@@ -934,7 +983,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="secusrpwrst_xsntemailaddr"
 				ShortName="SentEMailAddr"
-				Suffix="SentEMAddrIdx" >
+				Suffix="SentEMAddrIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SentToEMailAddr" IsAscending="true" />
 		</Index>
 		<Index Name="SecUserPWResetNewAcctIdx"
@@ -942,7 +992,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="secusrpwrst_xnewacct"
 				ShortName="NewAcct"
-				Suffix="NewAcctIdx" >
+				Suffix="NewAcctIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="NewAccount" IsAscending="true" />
 		</Index>
 	</Table>
@@ -957,7 +1008,8 @@ limitations under the License.
 			HasAuditColumns="false"
 			PageData="true"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="System"
+			CodeVis="Protected" >
 		<TableCol Name="SecUserId"
 				Label="Security User Id"
 				IsNullable="false"
@@ -979,7 +1031,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecUserPWHist_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecUserId" IsAscending="true" />
 			<IndexCol Name="PWSetStamp" IsAscending="true" />
 		</PrimaryIndex>
@@ -988,7 +1041,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecUserPWHist_xuser"
 				ShortName="UserIdx"
-				Suffix="UserIdx" >
+				Suffix="UserIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecUserId" IsAscending="true" />
 		</Index>
 		<Index Name="SecUserPWHistSetStampIdx"
@@ -996,7 +1050,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecUserPWHist_xsetstmp"
 				ShortName="SetStampIdx"
-				Suffix="SetStampIdx" >
+				Suffix="SetStampIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="PWSetStamp" IsAscending="true" />
 		</Index>
 		<Index Name="SecUserPWHistReplacedStampIdx"
@@ -1004,7 +1059,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecUserPWHist_xreplstmp"
 				ShortName="ReplacedStampIdx"
-				Suffix="ReplacedStampIdx" >
+				Suffix="ReplacedStampIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="PWReplacedStamp" IsAscending="true" />
 		</Index>
 	</Table>
@@ -1020,7 +1076,8 @@ limitations under the License.
 			HasAuditColumns="true"
 			LookupIndex="SecSysGrpUNameIdx"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="System"
+			CodeVis="Protected" >
 		<TableCol Name="SecSysGrpId"
 				Label="System Security Group Id"
 				IsNullable="false"
@@ -1041,7 +1098,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecSysGrp_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecSysGrpId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="SecSysGrpUNameIdx"
@@ -1049,7 +1107,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecSysGrp_xuname"
 				ShortName="UName"
-				Suffix="UNameIdx" >
+				Suffix="UNameIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
 		<Index Name="SecSysGrpLevelIdx"
@@ -1057,7 +1116,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecSysGrp_xlvl"
 				ShortName="SecLevel"
-				Suffix="SecLevelIdx" >
+				Suffix="SecLevelIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecLevel" IsAscending="true" />
 		</Index>
 	</Table>
@@ -1074,7 +1134,8 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="SecSysGrpIncIdIdx"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="System"
+			CodeVis="Protected" >
 		<TableCol Name="SecSysGrpId"
 				Label="System Security Group Id"
 				IsNullable="false"
@@ -1091,7 +1152,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecSysGrpInc_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecSysGrpId" IsAscending="true" />
 			<IndexCol Name="InclName" IsAscending="true" />
 		</PrimaryIndex>
@@ -1100,7 +1162,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecSysGrpInc_xsysgrp"
 				ShortName="SysGrp"
-				Suffix="SysGrpIdx" >
+				Suffix="SysGrpIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecSysGrpId" IsAscending="true" />
 		</Index>
 		<Index Name="SecSysGrpIncNameIdx"
@@ -1108,7 +1171,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecSysGrpInc_xname"
 				ShortName="XName"
-				Suffix="NameIdx" >
+				Suffix="NameIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="InclName" IsAscending="true" />
 		</Index>
 	</Table>
@@ -1125,7 +1189,8 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="SecSysGrpMembLoginIdx"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="System"
+			CodeVis="Protected" >
 		<TableCol Name="SecSysGrpId"
 				Label="System Security Group Id"
 				IsNullable="false"
@@ -1141,7 +1206,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecSysGrpMemb_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecSysGrpId" IsAscending="true" />
 			<IndexCol Name="LoginId" IsAscending="true" />
 		</PrimaryIndex>
@@ -1150,7 +1216,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecSysGrpMemb_xsysgrp"
 				ShortName="SysGrp"
-				Suffix="SysGrpIdx" >
+				Suffix="SysGrpIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecSysGrpId" IsAscending="true" />
 		</Index>
 		<Index Name="SecSysGrpMembLoginIdx"
@@ -1158,7 +1225,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecSysGrpMemb_xlogin"
 				ShortName="Login"
-				Suffix="LoginIdx" >
+				Suffix="LoginIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="LoginId" IsAscending="true" />
 		</Index>
 	</Table>
@@ -1174,7 +1242,8 @@ limitations under the License.
 			HasAuditColumns="true"
 			LookupIndex="SecClusGrpUNameIdx"
 			LoaderBehaviour="Insert"
-			SecScope="Cluster" >
+			SecScope="Cluster"
+			CodeVis="Protected" >
 		<TableCol Name="SecClusGrpId"
 				Label="Cluster Security Group Id"
 				IsNullable="false"
@@ -1194,7 +1263,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecClusGrp_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecClusGrpId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="SecClusGrpClusterIdx"
@@ -1202,7 +1272,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecClusGrp_xcluster"
 				ShortName="Cluster"
-				Suffix="ClusterIdx" >
+				Suffix="ClusterIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="ClusterId" IsAscending="true" />
 		</Index>
 		<Index Name="SecClusGrpNameIdx"
@@ -1210,7 +1281,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecClusGrp_xname"
 				ShortName="ByName"
-				Suffix="NameIdx" >
+				Suffix="NameIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
 		<Index Name="SecClusGrpUNameIdx"
@@ -1218,7 +1290,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecClusGrp_xuname"
 				ShortName="UName"
-				Suffix="UNameIdx" >
+				Suffix="UNameIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="ClusterId" IsAscending="true" />
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
@@ -1236,7 +1309,8 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="SecClusGrpMembIdIdx"
 			LoaderBehaviour="Insert"
-			SecScope="Cluster" >
+			SecScope="Cluster"
+			CodeVis="Protected" >
 		<TableCol Name="SecClusGrpId"
 				Label="Cluster Security Group Id"
 				IsNullable="false"
@@ -1252,7 +1326,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecClusGrpMemb_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecClusGrpId" IsAscending="true" />
 			<IndexCol Name="LoginId" IsAscending="true" />
 		</PrimaryIndex>
@@ -1261,7 +1336,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecClusGrpMemb_xclusgrp"
 				ShortName="ClusGrp"
-				Suffix="ClusGrpIdx" >
+				Suffix="ClusGrpIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecClusGrpId" IsAscending="true" />
 		</Index>
 		<Index Name="SecClusGrpMembLoginIdx"
@@ -1269,7 +1345,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecClusGrpMemb_xlogin"
 				ShortName="Login"
-				Suffix="LoginIdx" >
+				Suffix="LoginIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="LoginId" IsAscending="true" />
 		</Index>
 	</Table>
@@ -1285,7 +1362,8 @@ limitations under the License.
 			HasAuditColumns="true"
 			LookupIndex="SecTentGrpUNameIdx"
 			LoaderBehaviour="Insert"
-			SecScope="Tenant" >
+			SecScope="Tenant"
+			CodeVis="Protected" >
 		<TableCol Name="SecTentGrpId"
 				Label="Tenant Security Group Id"
 				IsNullable="false"
@@ -1305,7 +1383,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecTentGrp_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecTentGrpId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="SecTentGrpTenantIdx"
@@ -1313,7 +1392,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecTentGrp_xtenant"
 				ShortName="Tenant"
-				Suffix="TenantIdx" >
+				Suffix="TenantIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="TenantId" IsAscending="true" />
 		</Index>
 		<Index Name="SecTentGrpNameIdx"
@@ -1321,7 +1401,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecTentGrp_xname"
 				ShortName="ByName"
-				Suffix="NameIdx" >
+				Suffix="NameIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
 		<Index Name="SecTentGrpUNameIdx"
@@ -1329,7 +1410,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecTentGrp_xuname"
 				ShortName="UName"
-				Suffix="UNameIdx" >
+				Suffix="UNameIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="TenantId" IsAscending="true" />
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
@@ -1347,7 +1429,8 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="SecTentGrpMembIdIdx"
 			LoaderBehaviour="Insert"
-			SecScope="Tenant" >
+			SecScope="Tenant"
+			CodeVis="Protected" >
 		<TableCol Name="SecTentGrpId"
 				Label="Tenant Security Group Id"
 				IsNullable="false"
@@ -1363,7 +1446,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecTentGrpMemb_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecTentGrpId" IsAscending="true" />
 			<IndexCol Name="LoginId" IsAscending="true" />
 		</PrimaryIndex>
@@ -1372,7 +1456,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecTentGrpMemb_xtentgrp"
 				ShortName="TentGrp"
-				Suffix="TentGrpIdx" >
+				Suffix="TentGrpIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecTentGrpId" IsAscending="true" />
 		</Index>
 		<Index Name="SecTentGrpMembLoginIdx"
@@ -1380,7 +1465,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecTentGrpMemb_xlogin"
 				ShortName="User"
-				Suffix="UserIdx" >
+				Suffix="UserIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="LoginId" IsAscending="true" />
 		</Index>
 	</Table>
@@ -1396,7 +1482,8 @@ limitations under the License.
 			HasAuditColumns="true"
 			LookupIndex="SecSysRoleUNameIdx"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="System"
+			CodeVis="Protected" >
 		<TableCol Name="SecSysRoleId"
 				Label="Security System Role Id"
 				IsNullable="false"
@@ -1412,7 +1499,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecSysRole_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecSysRoleId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="SecSysRoleUNameIdx"
@@ -1420,7 +1508,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecSysRole_xuname"
 				ShortName="UName"
-				Suffix="UNameIdx" >
+				Suffix="UNameIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
 	</Table>
@@ -1437,7 +1526,8 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="SecSysRoleEnablesIdIdx"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="System"
+			CodeVis="Protected" >
 		<TableCol Name="SecSysRoleId"
 				Label="Security System Role Id"
 				IsNullable="false"
@@ -1454,7 +1544,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecSysRoleEnables_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecSysRoleId" IsAscending="true" />
 			<IndexCol Name="EnableName" IsAscending="true" />
 		</PrimaryIndex>
@@ -1463,7 +1554,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecSysRoleEnables_xrole"
 				ShortName="XRole"
-				Suffix="SysRoleIdx" >
+				Suffix="SysRoleIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecSysRoleId" IsAscending="true" />
 		</Index>
 		<Index Name="SecSysRoleEnableNameIdx"
@@ -1471,7 +1563,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecSysRoleEnables_xname"
 				ShortName="XName"
-				Suffix="NameIdx" >
+				Suffix="NameIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="EnableName" IsAscending="true" />
 		</Index>
 	</Table>
@@ -1488,7 +1581,8 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="SecSysRoleMembIdIdx"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="System"
+			CodeVis="Protected" >
 		<TableCol Name="SecSysRoleId"
 				Label="Security System Role Id"
 				IsNullable="false"
@@ -1504,7 +1598,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecSysRoleMemb_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecSysRoleId" IsAscending="true" />
 			<IndexCol Name="LoginId" IsAscending="true" />
 		</PrimaryIndex>
@@ -1513,7 +1608,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecSysRoleMemb_xrole"
 				ShortName="SysRole"
-				Suffix="SysRoleIdx" >
+				Suffix="SysRoleIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecSysRoleId" IsAscending="true" />
 		</Index>
 		<Index Name="SecSysRoleMembLoginIdx"
@@ -1521,7 +1617,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecSysRoleMemb_xlogin"
 				ShortName="Login"
-				Suffix="LoginIdx" >
+				Suffix="LoginIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="LoginId" IsAscending="true" />
 		</Index>
 	</Table>
@@ -1537,7 +1634,8 @@ limitations under the License.
 			HasAuditColumns="true"
 			LookupIndex="SecClusRoleUNameIdx"
 			LoaderBehaviour="Insert"
-			SecScope="Cluster" >
+			SecScope="Cluster"
+			CodeVis="Protected" >
 		<TableCol Name="SecClusRoleId"
 				Label="Cluster Security Role Id"
 				IsNullable="false"
@@ -1557,7 +1655,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecClusRole_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecClusRoleId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="SecClusRoleClusterIdx"
@@ -1565,7 +1664,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecClusRole_xcluster"
 				ShortName="Cluster"
-				Suffix="ClusterIdx" >
+				Suffix="ClusterIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="ClusterId" IsAscending="true" />
 		</Index>
 		<Index Name="SecClusRoleNameIdx"
@@ -1573,7 +1673,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecClusRole_xname"
 				ShortName="ByName"
-				Suffix="NameIdx" >
+				Suffix="NameIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
 		<Index Name="SecClusRoleUNameIdx"
@@ -1581,7 +1682,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecClusRole_xuname"
 				ShortName="UName"
-				Suffix="UNameIdx" >
+				Suffix="UNameIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="ClusterId" IsAscending="true" />
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
@@ -1599,7 +1701,8 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="SecClusRoleMembIdIdx"
 			LoaderBehaviour="Insert"
-			SecScope="Cluster" >
+			SecScope="Cluster"
+			CodeVis="Protected" >
 		<TableCol Name="SecClusRoleId"
 				Label="Cluster Security Role Id"
 				IsNullable="false"
@@ -1615,7 +1718,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecClusRoleMemb_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecClusRoleId" IsAscending="true" />
 			<IndexCol Name="LoginId" IsAscending="true" />
 		</PrimaryIndex>
@@ -1624,7 +1728,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecClusRoleMemb_xclusrole"
 				ShortName="ClusRole"
-				Suffix="ClusRoleIdx" >
+				Suffix="ClusRoleIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecClusRoleId" IsAscending="true" />
 		</Index>
 		<Index Name="SecClusRoleMembLoginIdx"
@@ -1632,7 +1737,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecClusRoleMemb_xlogin"
 				ShortName="Login"
-				Suffix="LoginIdx" >
+				Suffix="LoginIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="LoginId" IsAscending="true" />
 		</Index>
 	</Table>
@@ -1648,7 +1754,8 @@ limitations under the License.
 			HasAuditColumns="true"
 			LookupIndex="SecTentRoleUNameIdx"
 			LoaderBehaviour="Insert"
-			SecScope="Tenant" >
+			SecScope="Tenant"
+			CodeVis="Protected" >
 		<TableCol Name="SecTentRoleId"
 				Label="Tenant Security Role Id"
 				IsNullable="false"
@@ -1668,7 +1775,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecTentRole_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecTentRoleId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="SecTentRoleTenantIdx"
@@ -1676,7 +1784,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecTentRole_xtenant"
 				ShortName="Tenant"
-				Suffix="TenantIdx" >
+				Suffix="TenantIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="TenantId" IsAscending="true" />
 		</Index>
 		<Index Name="SecTentRoleNameIdx"
@@ -1684,7 +1793,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecTentRole_xname"
 				ShortName="ByName"
-				Suffix="NameIdx" >
+				Suffix="NameIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
 		<Index Name="SecTentRoleUNameIdx"
@@ -1692,7 +1802,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecTentRole_xuname"
 				ShortName="UName"
-				Suffix="UNameIdx" >
+				Suffix="UNameIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="TenantId" IsAscending="true" />
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
@@ -1710,7 +1821,8 @@ limitations under the License.
 			PageData="true"
 			LookupIndex="SecTentRoleMembIdIdx"
 			LoaderBehaviour="Insert"
-			SecScope="Tenant" >
+			SecScope="Tenant"
+			CodeVis="Protected" >
 		<TableCol Name="SecTentRoleId"
 				Label="Tenant Security Role Id"
 				IsNullable="false"
@@ -1726,7 +1838,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="SecTentRoleMemb_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecTentRoleId" IsAscending="true" />
 			<IndexCol Name="LoginId" IsAscending="true" />
 		</PrimaryIndex>
@@ -1735,7 +1848,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecTentRoleMemb_xtentrole"
 				ShortName="TentRole"
-				Suffix="TentRoleIdx" >
+				Suffix="TentRoleIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecTentRoleId" IsAscending="true" />
 		</Index>
 		<Index Name="SecTentRoleMembLoginIdx"
@@ -1743,7 +1857,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="SecTentRoleMemb_xlogin"
 				ShortName="User"
-				Suffix="UserIdx" >
+				Suffix="UserIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="LoginId" IsAscending="true" />
 		</Index>
 	</Table>
@@ -1759,7 +1874,8 @@ limitations under the License.
 			HasAuditColumns="false"
 			PageData="true"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="System"
+			CodeVis="Protected" >
 		<TableCol Name="SecSessionId"
 				Label="Security Session Id"
 				IsNullable="false"
@@ -1784,7 +1900,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="Session_pidx"
 				ShortName="PIdx"
-				Suffix="IdIdx" >
+				Suffix="IdIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecSessionId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="SessionSecUserIdx"
@@ -1792,7 +1909,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="Session_xsecuser"
 				ShortName="SecUsr"
-				Suffix="SecUserIdx" >
+				Suffix="SecUserIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecUserId" IsAscending="true" />
 		</Index>
 		<Index Name="SessionStartIdx"
@@ -1800,7 +1918,8 @@ limitations under the License.
 				IsUnique="true"
 				DbName="Session_xstart"
 				ShortName="Start"
-				Suffix="StartIdx" >
+				Suffix="StartIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecUserId" IsAscending="true" />
 			<IndexCol Name="Start" IsAscending="true" />
 		</Index>
@@ -1809,7 +1928,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="Session_xfnsh"
 				ShortName="Finish"
-				Suffix="FinishIdx" >
+				Suffix="FinishIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecUserId" IsAscending="true" />
 			<IndexCol Name="Finish" IsAscending="true" />
 		</Index>
@@ -1818,7 +1938,8 @@ limitations under the License.
 				IsUnique="false"
 				DbName="Session_xproxy"
 				ShortName="SecProxy"
-				Suffix="SecProxyIdx" >
+				Suffix="SecProxyIdx"
+				CodeVis="Protected" >
 			<IndexCol Name="SecProxyId" IsAscending="true" />
 		</Index>
 	</Table>
@@ -1833,7 +1954,8 @@ limitations under the License.
 			HasHistory="false"
 			HasAuditColumns="false"
 			LoaderBehaviour="Insert"
-			SecScope="System" >
+			SecScope="System"
+			CodeVis="Public" >
 		<Int32Col Name="SingletonId"
 				Label="Singleton"
 				IsNullable="false"
@@ -1851,7 +1973,8 @@ limitations under the License.
 				DbName="syscluster_pk"
 				ShortName="PIdx"
 				Suffix="IdIdx"
-				Label="IdIdx" >
+				Label="IdIdx"
+				CodeVis="Public" >
 			<IndexCol Name="SingletonId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="SysClusterClusterIdx"
@@ -1860,7 +1983,8 @@ limitations under the License.
 				DbName="sysclus_xclus"
 				ShortName="ClusIdx"
 				Suffix="ClusterIdx"
-				Label="Cluster Index" >
+				Label="Cluster Index"
+				CodeVis="Public" >
 			<IndexCol Name="ClusterId" IsAscending="true" />
 		</Index>
 	</Table>
@@ -1879,7 +2003,8 @@ limitations under the License.
 				FromIndex="ClusterIdIdx"
 				ToIndex="Tenant.TenantClusterIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Public" >
 			<RelationCol Name="Id" ToCol="ClusterId" />
 		</Relation>
 		<Relation Name="ClusterSecGroup"
@@ -1890,7 +2015,8 @@ limitations under the License.
 				FromIndex="ClusterIdIdx"
 				ToIndex="SecClusGrp.SecClusGrpClusterIdx"
 				IsRequired="false"
-				IsXsdContainer="false" >
+				IsXsdContainer="false"
+				CodeVis="Protected" >
 			<RelationCol Name="Id" ToCol="ClusterId" />
 		</Relation>
 		<Relation Name="ClusterSecRole"
@@ -1901,7 +2027,8 @@ limitations under the License.
 				FromIndex="ClusterIdIdx"
 				ToIndex="SecClusRole.SecClusRoleClusterIdx"
 				IsRequired="false"
-				IsXsdContainer="false" >
+				IsXsdContainer="false"
+				CodeVis="Protected" >
 			<RelationCol Name="Id" ToCol="ClusterId" />
 		</Relation>
 		<Relation Name="ClusterSysCluster"
@@ -1912,7 +2039,8 @@ limitations under the License.
 				FromIndex="ClusterIdIdx"
 				ToIndex="SysCluster.SysClusterClusterIdx"
 				IsRequired="false"
-				IsXsdContainer="false" >
+				IsXsdContainer="false"
+				CodeVis="Public" >
 			<RelationCol Name="Id" ToCol="ClusterId" />
 		</Relation>
 	</TableAddendum>
@@ -1925,7 +2053,8 @@ limitations under the License.
 				Suffix="Ctry"
 				FromIndex="ISOCcyIdIdx"
 				ToIndex="ISOCtryCcy.ISOCtryCcyCcyIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				CodeVis="Public" >
 			<RelationCol Name="ISOCcyId" ToCol="ISOCcyId" />
 		</Relation>
 	</TableAddendum>
@@ -1939,7 +2068,8 @@ limitations under the License.
 				FromIndex="ISOCtryIdIdx"
 				ToIndex="ISOCtryCcy.ISOCtryCcyCtryIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Public" >
 			<RelationCol Name="ISOCtryId" ToCol="ISOCtryId" />
 		</Relation>
 		<Relation Name="ISOCtryLangs"
@@ -1950,7 +2080,8 @@ limitations under the License.
 				FromIndex="ISOCtryIdIdx"
 				ToIndex="ISOCtryLang.ISOCtryLangCtryIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Public" >
 			<RelationCol Name="ISOCtryId" ToCol="ISOCtryId" />
 		</Relation>
 	</TableAddendum>
@@ -1963,7 +2094,8 @@ limitations under the License.
 				Suffix="Ctry"
 				FromIndex="ISOCtryCcyCtryIdx"
 				ToIndex="ISOCtry.ISOCtryIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Public" >
 			<RelationCol Name="ISOCtryId" ToCol="ISOCtryId" />
 		</Relation>
 		<Relation Name="ISOCtryCcyCcy"
@@ -1973,7 +2105,8 @@ limitations under the License.
 				Suffix="Ccy"
 				FromIndex="ISOCtryCcyCcyIdx"
 				ToIndex="ISOCcy.ISOCcyIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Public" >
 			<RelationCol Name="ISOCcyId" ToCol="ISOCcyId" />
 		</Relation>
 	</TableAddendum>
@@ -1986,7 +2119,8 @@ limitations under the License.
 				Suffix="Ctry"
 				FromIndex="ISOCtryLangCtryIdx"
 				ToIndex="ISOCtry.ISOCtryIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Public" >
 			<RelationCol Name="ISOCtryId" ToCol="ISOCtryId" />
 		</Relation>
 		<Relation Name="ISOCtryLangLang"
@@ -1996,7 +2130,8 @@ limitations under the License.
 				Suffix="Lang"
 				FromIndex="ISOCtryLangLangIdx"
 				ToIndex="ISOLang.ISOLangIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Public" >
 			<RelationCol Name="ISOLangId" ToCol="ISOLangId" />
 		</Relation>
 	</TableAddendum>
@@ -2009,7 +2144,8 @@ limitations under the License.
 				Suffix="Ctry"
 				FromIndex="ISOLangIdIdx"
 				ToIndex="ISOCtryLang.ISOCtryLangLangIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				CodeVis="Public" >
 			<RelationCol Name="ISOLangId" ToCol="ISOLangId" />
 		</Relation>
 	</TableAddendum>
@@ -2023,7 +2159,8 @@ limitations under the License.
 				FromIndex="SecSysGrpIdIdx"
 				ToIndex="SecSysGrpInc.SecSysGrpIncSysGrpIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecSysGrpId" ToCol="SecSysGrpId" />
 		</Relation>
 		<Relation Name="SecSysGrpMembByGrp"
@@ -2034,7 +2171,8 @@ limitations under the License.
 				FromIndex="SecSysGrpIdIdx"
 				ToIndex="SecSysGrpMemb.SecSysGrpMembSysGrpIdx"
 				IsRequired="false"
-				IsXsdContainer="false" >
+				IsXsdContainer="false"
+				CodeVis="Protected" >
 			<RelationCol Name="SecSysGrpId" ToCol="SecSysGrpId" />
 		</Relation>
 		<Relation Name="SecSysGrpImplClusGrp"
@@ -2045,7 +2183,8 @@ limitations under the License.
 				FromIndex="SecSysGrpUNameIdx"
 				ToIndex="SecClusGrp.SecClusGrpNameIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Protected" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecSysGrpImplTentGrp"
@@ -2056,7 +2195,8 @@ limitations under the License.
 				FromIndex="SecSysGrpUNameIdx"
 				ToIndex="SecTentGrp.SecTentGrpNameIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Protected" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecSysGrpImplSysRole"
@@ -2067,7 +2207,8 @@ limitations under the License.
 				FromIndex="SecSysGrpIdIdx"
 				ToIndex="SecSysRole.SecSysRoleIdIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecSysGrpId" ToCol="SecSysRoleId" />
 		</Relation>
 		<Relation Name="SecSysGrpImplClusRole"
@@ -2078,7 +2219,8 @@ limitations under the License.
 				FromIndex="SecSysGrpUNameIdx"
 				ToIndex="SecClusRole.SecClusRoleNameIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Protected" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecSysGrpImplTentRole"
@@ -2089,7 +2231,8 @@ limitations under the License.
 				FromIndex="SecSysGrpUNameIdx"
 				ToIndex="SecTentRole.SecTentRoleNameIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Protected" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecSysGrpBySysGrpInclName"
@@ -2099,7 +2242,8 @@ limitations under the License.
 				Suffix="SysGrpByName"
 				FromIndex="SecSysGrpUNameIdx"
 				ToIndex="SecSysGrpInc.SecSysGrpIncNameIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				CodeVis="Protected" >
 			<RelationCol Name="Name" ToCol="InclName" />
 		</Relation>
 		<Relation Name="SecSysGrpBySysRoleEnableName"
@@ -2109,7 +2253,8 @@ limitations under the License.
 				Suffix="RoleByEnableName"
 				FromIndex="SecSysGrpUNameIdx"
 				ToIndex="SecSysRoleEnables.SecSysRoleEnableNameIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				CodeVis="Protected" >
 			<RelationCol Name="Name" ToCol="EnableName" />
 		</Relation>
 	</TableAddendum>
@@ -2122,7 +2267,8 @@ limitations under the License.
 				Suffix="Group"
 				FromIndex="SecSysGrpIncSysGrpIdx"
 				ToIndex="SecSysGrp.SecSysGrpIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecSysGrpId" ToCol="SecSysGrpId" />
 		</Relation>
 		<Relation Name="SecSysGrpIncSubGroup"
@@ -2132,7 +2278,8 @@ limitations under the License.
 				Suffix="SubGroup"
 				FromIndex="SecSysGrpIncNameIdx"
 				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="InclName" ToCol="Name" />
 		</Relation>
 	</TableAddendum>
@@ -2145,7 +2292,8 @@ limitations under the License.
 				Suffix="Group"
 				FromIndex="SecSysGrpMembSysGrpIdx"
 				ToIndex="SecSysGrp.SecSysGrpIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecSysGrpId" ToCol="SecSysGrpId" />
 		</Relation>
 		<Relation Name="SecSysGrpMembUser"
@@ -2155,7 +2303,8 @@ limitations under the License.
 				Suffix="User"
 				FromIndex="SecSysGrpMembLoginIdx"
 				ToIndex="SecUser.SecUserLoginIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
 	</TableAddendum>
@@ -2168,7 +2317,8 @@ limitations under the License.
 				Suffix="Cluster"
 				FromIndex="SecClusGrpClusterIdx"
 				ToIndex="Cluster.ClusterIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="ClusterId" ToCol="Id" />
 		</Relation>
 		<Relation Name="SecClusGrpRefSysGrp"
@@ -2178,7 +2328,8 @@ limitations under the License.
 				Suffix="SysGrp"
 				FromIndex="SecClusGrpNameIdx"
 				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecClusGrpMembByGrp"
@@ -2189,7 +2340,8 @@ limitations under the License.
 				FromIndex="SecClusGrpIdIdx"
 				ToIndex="SecClusGrpMemb.SecClusGrpMembClusGrpIdx"
 				IsRequired="false"
-				IsXsdContainer="false" >
+				IsXsdContainer="false"
+				CodeVis="Protected" >
 			<RelationCol Name="SecClusGrpId" ToCol="SecClusGrpId" />
 		</Relation>
 	</TableAddendum>
@@ -2206,7 +2358,8 @@ limitations under the License.
 				Suffix="Group"
 				FromIndex="SecClusGrpMembClusGrpIdx"
 				ToIndex="SecClusGrp.SecClusGrpIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecClusGrpId" ToCol="SecClusGrpId" />
 		</Relation>
 		<Relation Name="SecClusGrpMembUser"
@@ -2216,7 +2369,8 @@ limitations under the License.
 				Suffix="User"
 				FromIndex="SecClusGrpMembLoginIdx"
 				ToIndex="SecUser.SecUserLoginIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
 	</TableAddendum>
@@ -2229,7 +2383,8 @@ limitations under the License.
 				Suffix="Cluster"
 				FromIndex="SecClusRoleClusterIdx"
 				ToIndex="Cluster.ClusterIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="ClusterId" ToCol="Id" />
 		</Relation>
 		<Relation Name="SecClusRoleMembSysRol"
@@ -2239,7 +2394,8 @@ limitations under the License.
 				Suffix="SysRole"
 				FromIndex="SecClusRoleNameIdx"
 				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecClusRoleMembByGrp"
@@ -2250,7 +2406,8 @@ limitations under the License.
 				FromIndex="SecClusRoleIdIdx"
 				ToIndex="SecClusRoleMemb.SecClusRoleMembClusRoleIdx"
 				IsRequired="false"
-				IsXsdContainer="false" >
+				IsXsdContainer="false"
+				CodeVis="Protected" >
 			<RelationCol Name="SecClusRoleId" ToCol="SecClusRoleId" />
 		</Relation>
 	</TableAddendum>
@@ -2263,7 +2420,8 @@ limitations under the License.
 				Suffix="Role"
 				FromIndex="SecClusRoleMembClusRoleIdx"
 				ToIndex="SecClusRole.SecClusRoleIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecClusRoleId" ToCol="SecClusRoleId" />
 		</Relation>
 		<Relation Name="SecClusRoleMembUser"
@@ -2273,7 +2431,8 @@ limitations under the License.
 				Suffix="User"
 				FromIndex="SecClusRoleMembLoginIdx"
 				ToIndex="SecUser.SecUserLoginIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
 	</TableAddendum>
@@ -2286,7 +2445,8 @@ limitations under the License.
 				Suffix="Tenant"
 				FromIndex="SecTentGrpTenantIdx"
 				ToIndex="Tenant.TenantIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="TenantId" ToCol="Id" />
 		</Relation>
 		<Relation Name="SecTentGrpRefSysGrp"
@@ -2296,7 +2456,8 @@ limitations under the License.
 				Suffix="SysGrp"
 				FromIndex="SecTentGrpNameIdx"
 				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecTentGrpMembByGrp"
@@ -2307,7 +2468,8 @@ limitations under the License.
 				FromIndex="SecTentGrpIdIdx"
 				ToIndex="SecTentGrpMemb.SecTentGrpMembTentGrpIdx"
 				IsRequired="false"
-				IsXsdContainer="false" >
+				IsXsdContainer="false"
+				CodeVis="Protected" >
 			<RelationCol Name="SecTentGrpId" ToCol="SecTentGrpId" />
 		</Relation>
 	</TableAddendum>
@@ -2320,7 +2482,8 @@ limitations under the License.
 				Suffix="Group"
 				FromIndex="SecTentGrpMembTentGrpIdx"
 				ToIndex="SecTentGrp.SecTentGrpIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecTentGrpId" ToCol="SecTentGrpId" />
 		</Relation>
 		<Relation Name="SecTentGrpMembUser"
@@ -2330,7 +2493,8 @@ limitations under the License.
 				Suffix="User"
 				FromIndex="SecTentGrpMembLoginIdx"
 				ToIndex="SecUser.SecUserLoginIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
 	</TableAddendum>
@@ -2344,7 +2508,8 @@ limitations under the License.
 				FromIndex="SecSysRoleIdIdx"
 				ToIndex="SecSysRoleEnables.SecSysRoleEnablesRoleIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecSysRoleId" ToCol="SecSysRoleId" />
 		</Relation>
 		<Relation Name="SecSysRoleMembByRole"
@@ -2355,7 +2520,8 @@ limitations under the License.
 				FromIndex="SecSysRoleIdIdx"
 				ToIndex="SecSysRoleMemb.SecSysRoleMembSysRoleIdx"
 				IsRequired="false"
-				IsXsdContainer="false" >
+				IsXsdContainer="false"
+				CodeVis="Protected" >
 			<RelationCol Name="SecSysRoleId" ToCol="SecSysRoleId" />
 		</Relation>
 	</TableAddendum>
@@ -2368,7 +2534,8 @@ limitations under the License.
 				Suffix="SysRole"
 				FromIndex="SecSysRoleEnablesRoleIdx"
 				ToIndex="SecSysRole.SecSysRoleIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecSysRoleId" ToCol="SecSysRoleId" />
 		</Relation>
 		<Relation Name="SecSysRoleEnablesGroup"
@@ -2378,7 +2545,8 @@ limitations under the License.
 				Suffix="EnableGroup"
 				FromIndex="SecSysRoleEnableNameIdx"
 				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="EnableName" ToCol="Name" />
 		</Relation>
 	</TableAddendum>
@@ -2391,7 +2559,8 @@ limitations under the License.
 				Suffix="SysRole"
 				FromIndex="SecSysRoleMembSysRoleIdx"
 				ToIndex="SecSysRole.SecSysRoleIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecSysRoleId" ToCol="SecSysRoleId" />
 		</Relation>
 		<Relation Name="SecSysRoleMembUser"
@@ -2401,7 +2570,8 @@ limitations under the License.
 				Suffix="User"
 				FromIndex="SecSysRoleMembLoginIdx"
 				ToIndex="SecUser.SecUserLoginIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
 	</TableAddendum>
@@ -2414,7 +2584,8 @@ limitations under the License.
 				Suffix="Tenant"
 				FromIndex="SecTentRoleTenantIdx"
 				ToIndex="Tenant.TenantIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="TenantId" ToCol="Id" />
 		</Relation>
 		<Relation Name="SecTentRoleSysRole"
@@ -2424,7 +2595,8 @@ limitations under the License.
 				Suffix="SysRole"
 				FromIndex="SecTentRoleNameIdx"
 				ToIndex="SecSysGrp.SecSysGrpUNameIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="Name" ToCol="Name" />
 		</Relation>
 		<Relation Name="SecTentRoleMembByRole"
@@ -2435,7 +2607,8 @@ limitations under the License.
 				FromIndex="SecTentRoleIdIdx"
 				ToIndex="SecTentRoleMemb.SecTentRoleMembTentRoleIdx"
 				IsRequired="false"
-				IsXsdContainer="false" >
+				IsXsdContainer="false"
+				CodeVis="Protected" >
 			<RelationCol Name="SecTentRoleId" ToCol="SecTentRoleId" />
 		</Relation>
 	</TableAddendum>
@@ -2448,7 +2621,8 @@ limitations under the License.
 				Suffix="Role"
 				FromIndex="SecTentRoleMembTentRoleIdx"
 				ToIndex="SecTentRole.SecTentRoleIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecTentRoleId" ToCol="SecTentRoleId" />
 		</Relation>
 		<Relation Name="SecTentRoleMembUser"
@@ -2458,7 +2632,8 @@ limitations under the License.
 				Suffix="User"
 				FromIndex="SecTentRoleMembLoginIdx"
 				ToIndex="SecUser.SecUserLoginIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
 	</TableAddendum>
@@ -2516,7 +2691,8 @@ limitations under the License.
 				FromIndex="SecUserIdIdx"
 				ToIndex="SecUserPassword.SecUserPasswordIdIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecUserId" ToCol="SecUserId" />
 		</Relation>
 		<Relation Name="SecUserEMConfirmation"
@@ -2527,7 +2703,8 @@ limitations under the License.
 				FromIndex="SecUserIdIdx"
 				ToIndex="SecUserEMConf.SecUserEMConfIdIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecUserId" ToCol="SecUserId" />
 		</Relation>
 		<Relation Name="SecUserPasswordReset"
@@ -2538,7 +2715,8 @@ limitations under the License.
 				FromIndex="SecUserIdIdx"
 				ToIndex="SecUserPWReset.SecUserPWResetIdIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecUserId" ToCol="SecUserId" />
 		</Relation>
 		<Relation Name="SecUserSecSysGrpMemb"
@@ -2549,7 +2727,8 @@ limitations under the License.
 				FromIndex="SecUserLoginIdx"
 				ToIndex="SecSysGrpMemb.SecSysGrpMembLoginIdx"
 				IsRequired="false"
-				IsXsdContainer="false" >
+				IsXsdContainer="false"
+				CodeVis="Protected" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
 		<Relation Name="SecUserSecClusGrpMemb"
@@ -2560,7 +2739,8 @@ limitations under the License.
 				FromIndex="SecUserLoginIdx"
 				ToIndex="SecClusGrpMemb.SecClusGrpMembLoginIdx"
 				IsRequired="false"
-				IsXsdContainer="false" >
+				IsXsdContainer="false"
+				CodeVis="Protected" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
 		<Relation Name="SecUserSecTentGrpMemb"
@@ -2571,7 +2751,8 @@ limitations under the License.
 				FromIndex="SecUserLoginIdx"
 				ToIndex="SecTentGrpMemb.SecTentGrpMembLoginIdx"
 				IsRequired="false"
-				IsXsdContainer="false" >
+				IsXsdContainer="false"
+				CodeVis="Protected" >
 			<RelationCol Name="LoginId" ToCol="LoginId" />
 		</Relation>
 	</TableAddendum>
@@ -2584,7 +2765,8 @@ limitations under the License.
 				Suffix="User"
 				FromIndex="SecUserPasswordIdIdx"
 				ToIndex="SecUser.SecUserIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecUserId" ToCol="SecUserId" />
 		</Relation>
 	</TableAddendum>
@@ -2597,7 +2779,8 @@ limitations under the License.
 				Suffix="User"
 				FromIndex="SecUserEMConfIdIdx"
 				ToIndex="SecUser.SecUserIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecUserId" ToCol="SecUserId" />
 		</Relation>
 	</TableAddendum>
@@ -2610,7 +2793,8 @@ limitations under the License.
 				Suffix="User"
 				FromIndex="SecUserPWResetIdIdx"
 				ToIndex="SecUser.SecUserIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Protected" >
 			<RelationCol Name="SecUserId" ToCol="SecUserId" />
 		</Relation>
 	</TableAddendum>
@@ -2623,7 +2807,8 @@ limitations under the License.
 				Suffix="Cluster"
 				FromIndex="SysClusterClusterIdx"
 				ToIndex="Cluster.ClusterIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Public" >
 			<RelationCol Name="ClusterId" ToCol="Id" />
 		</Relation>
 	</TableAddendum>
@@ -2636,7 +2821,8 @@ limitations under the License.
 				Suffix="Cluster"
 				FromIndex="TenantClusterIdx"
 				ToIndex="Cluster.ClusterIdIdx"
-				IsRequired="true" >
+				IsRequired="true"
+				CodeVis="Public" >
 			<RelationCol Name="ClusterId" ToCol="Id" />
 		</Relation>
 		<Relation Name="TenantSecTentGroup"
@@ -2647,7 +2833,8 @@ limitations under the License.
 				FromIndex="TenantIdIdx"
 				ToIndex="SecTentGrp.SecTentGrpTenantIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Protected" >
 			<RelationCol Name="Id" ToCol="TenantId" />
 		</Relation>
 		<Relation Name="TenantSecRole"
@@ -2658,7 +2845,8 @@ limitations under the License.
 				FromIndex="TenantIdIdx"
 				ToIndex="SecTentRole.SecTentRoleTenantIdx"
 				IsRequired="false"
-				IsXsdContainer="true" >
+				IsXsdContainer="true"
+				CodeVis="Protected" >
 			<RelationCol Name="Id" ToCol="TenantId" />
 		</Relation>
 	</TableAddendum>
