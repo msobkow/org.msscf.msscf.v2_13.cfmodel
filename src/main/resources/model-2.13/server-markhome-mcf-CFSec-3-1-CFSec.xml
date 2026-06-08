@@ -126,6 +126,14 @@ limitations under the License.
 			Slice="102"
 			BlockSize="1" />
 
+	<Id32Gen Name="TableInfoIdGen"
+			IsNullable="false"
+			DbName="cfsec_tblinfoidgenseq"
+			MinValue="0"
+			InitValue="0"
+			Slice="103"
+			BlockSize="1" />
+
 	<StringType Name="ISOCtryCode"
 			IsNullable="false"
 			MaxLen="2"
@@ -156,7 +164,7 @@ limitations under the License.
 			DbName="ISOCtryIdGenSeq"
 			MinValue="0"
 			InitValue="0"
-			Slice="103"
+			Slice="104"
 			BlockSize="1" />
 
 	<Id16Gen Name="ISOLangIdGen"
@@ -164,7 +172,7 @@ limitations under the License.
 			DbName="ISOLangIdGenSeq"
 			MinValue="0"
 			InitValue="0"
-			Slice="104"
+			Slice="105"
 			BlockSize="1" />
 
 	<Id16Gen Name="ISOTZoneIdGen"
@@ -172,56 +180,56 @@ limitations under the License.
 			DbName="ISOTZoneIdGenSeq"
 			MinValue="0"
 			InitValue="0"
-			Slice="105"
+			Slice="106"
 			BlockSize="1" />
 
 	<DbKeyHash256Gen Name="SecSessionIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="106"
+			Slice="107"
 			BlockSize="1" />
 
 	<DbKeyHash256Gen Name="SecUserIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="107"
+			Slice="108"
 			BlockSize="1" />
 
 	<DbKeyHash256Gen Name="TenantIdGen"
 			IsNullable="false"
 			DbName="TenantIdGenSeq"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="108"
+			Slice="109"
 			BlockSize="1" />
 
 	<DbKeyHash256Gen Name="SecSysGrpIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="109"
+			Slice="110"
 			BlockSize="1" />
 
 	<DbKeyHash256Gen Name="SecClusGrpIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="110"
+			Slice="111"
 			BlockSize="1" />
 
 	<DbKeyHash256Gen Name="SecClusRoleIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="111"
+			Slice="112"
 			BlockSize="1" />
 
 	<DbKeyHash256Gen Name="SecTentGrpIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="112"
+			Slice="113"
 			BlockSize="1" />
 
 	<DbKeyHash256Gen Name="SecTentRoleIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
-			Slice="113"
+			Slice="114"
 			BlockSize="1" />
 
 	<Table Name="Cluster"
@@ -347,6 +355,113 @@ limitations under the License.
 		if (!permissionGranted &amp;&amp; "system".equals(argTenantName)) {
 			permissionGranted = true;
 		}</IndexTweak>
+		</Index>
+	</Table>
+
+	<Table Name="TableInfo"
+			TableClassCode="a020"
+			DbName="table_info"
+			Label="Table Information"
+			Description="Table Information is collected over time as different applications register their table information."
+			IsInstantiable="true"
+			HasHistory="true"
+			HasAuditColumns="false"
+			LookupIndex="TableInfoTableNameIdx"
+			LoaderBehaviour="Update"
+			SecScope="Global"
+			CodeVis="Public" >
+		<TableCol Name="TableInfoId"
+				IsNullable="false"
+				GenerateId="true"
+				DataType="TableInfoIdGen" />
+		<StringCol Name="SchemaName"
+				IsNullable="false"
+				DbName="sch_name"
+				MaxLen="32"
+				InitValue="" />
+		<StringCol Name="TableName"
+				IsNullable="false"
+				DbName="tbl_name"
+				MaxLen="64"
+				InitValue="" />
+		<Int32Col Name="BackingClassCode"
+				IsNullable="false"
+				DbName="back_clscode"
+				MinValue="0"
+				InitValue="0" />
+		<Int32Col Name="RuntimeClassCode"
+				IsNullable="false"
+				DbName="runtm_clscode"
+				MinValue="0"
+				InitValue="0" />
+		<BoolCol Name="HasHistory"
+				IsNullable="false"
+				DbName="has_hist"
+				InitValue="false" />
+		<BoolCol Name="IsMutable"
+				IsNullable="false"
+				DbName="is_mutable"
+				InitValue="false" />
+		<StringCol Name="SecScopeName"
+				IsNullable="false"
+				DbName="sec_scope_name"
+				MaxLen="32"
+				InitValue="" />
+		<StringCol Name="CodeVis"
+				IsNullable="false"
+				DbName="cd_vis"
+				MaxLen="32"
+				InitValue="" />
+		<PrimaryIndex Name="TableInfoIdIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="tblinfo_pk"
+				ShortName="PIdx"
+				Suffix="IdIdx"
+				Label="Ccy Id Index"
+				CodeVis="Public" >
+			<IndexCol Name="TableInfoId" IsAscending="true" />
+		</PrimaryIndex>
+		<Index Name="TableInfoTableNameIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="tblinfo_xutblname"
+				ShortName="TableNameIdx"
+				Suffix="TableNameIdx"
+				Label="Table Name Index"
+				CodeVis="Public" >
+			<IndexCol Name="TableName" IsAscending="true" />
+		</Index>
+		<Index Name="TableInfoSchemaNameIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="tblinfo_xschname"
+				ShortName="SchemaNameIdx"
+				Suffix="SchemaNameIdx"
+				Label="Schema Name Index"
+				CodeVis="Public" >
+			<IndexCol Name="SchemaName" IsAscending="true" />
+		</Index>
+		<Index Name="TableInfoSchemaBkCodeIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="tblinfo_xuschbackcd"
+				ShortName="SchemaBkCodeIdx"
+				Suffix="SchemaBkCodeIdx"
+				Label="Schema Backing Code Index"
+				CodeVis="Public" >
+			<IndexCol Name="SchemaName" IsAscending="true" />
+			<IndexCol Name="BackingClassCode" IsAscending="true" />
+		</Index>
+		<Index Name="TableInfoSchemaRTCodeIdx"
+				IsDbMapped="true"
+				IsUnique="true"
+				DbName="tblinfo_xuruntmcd"
+				ShortName="SchemaRTCodeIdx"
+				Suffix="SchemaRTCodeIdx"
+				Label="Schema Runtime Code Index"
+				CodeVis="Public" >
+			<IndexCol Name="RuntimeClassCode" IsAscending="true" />
 		</Index>
 	</Table>
 
