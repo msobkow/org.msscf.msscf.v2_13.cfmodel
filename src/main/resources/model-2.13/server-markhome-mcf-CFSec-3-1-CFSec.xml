@@ -384,6 +384,11 @@ limitations under the License.
 				DbName="tbl_name"
 				MaxLen="64"
 				InitValue="" />
+		<StringCol Name="SuperName"
+				IsNullable="true"
+				DbName="sup_name"
+				MaxLen="64"
+				InitValue="" />
 		<Int32Col Name="BackingClassCode"
 				IsNullable="false"
 				DbName="back_clscode"
@@ -431,6 +436,16 @@ limitations under the License.
 				Label="Table Name Index"
 				CodeVis="Public" >
 			<IndexCol Name="TableName" IsAscending="true" />
+		</Index>
+		<Index Name="TableInfoSuperNameIdx"
+				IsDbMapped="true"
+				IsUnique="false"
+				DbName="tblinfo_xsupname"
+				ShortName="SuperNameIdx"
+				Suffix="SuperNameIdx"
+				Label="Super Name Index"
+				CodeVis="Public" >
+			<IndexCol Name="SuperName" IsAscending="true" />
 		</Index>
 		<Index Name="TableInfoSchemaNameIdx"
 				IsDbMapped="true"
@@ -2925,6 +2940,31 @@ limitations under the License.
 				IsRequired="true"
 				CodeVis="Public" >
 			<RelationCol Name="ClusterId" ToCol="Id" />
+		</Relation>
+	</TableAddendum>
+
+	<TableAddendum FromTable="TableInfo">
+		<Relation Name="TableInfoSuperRef"
+				RelationType="Parent"
+				DbName="tblinfo_superref"
+				Label="Superclass Table Reference"
+				Suffix="SuperRef"
+				FromIndex="TableInfoSuperNameIdx"
+				ToIndex="TableInfo.TableInfoTableNameIdx"
+				IsRequired="false"
+				CodeVis="Public" >
+			<RelationCol Name="SuperName" ToCol="TableName" />
+		</Relation>
+		<Relation Name="TableInfoSubRefs"
+				RelationType="Children"
+				DbName="tblinfo_subrefs"
+				Label="Subclass Table References"
+				Suffix="SubRefs"
+				FromIndex="TableInfoTableNameIdx"
+				ToIndex="TableInfo.TableInfoSuperNameIdx"
+				IsRequired="false"
+				CodeVis="Public" >
+			<RelationCol Name="TableName" ToCol="SuperName" />
 		</Relation>
 	</TableAddendum>
 
