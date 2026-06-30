@@ -65,7 +65,8 @@ limitations under the License.
 	<EnumType Name="AuditActionEnum"
 			IsNullable="false"
 			MinValue="0"
-			InitValue="0" >
+			InitValue="0"
+			CodeVis="Public" >
 		<EnumTag Name="Created" EnumCode="0" />
 		<EnumTag Name="Updated" EnumCode="1" />
 		<EnumTag Name="Deleted" EnumCode="2" />
@@ -75,7 +76,8 @@ limitations under the License.
 	<EnumType Name="SecLevelEnum"
 			IsNullable="false"
 			MinValue="0"
-			InitValue="0" >
+			InitValue="0"
+			CodeVis="Public" >
 		<EnumTag Name="System" EnumCode="0" />
 		<EnumTag Name="Global" EnumCode="1" />
 		<EnumTag Name="Cluster" EnumCode="2" />
@@ -88,7 +90,8 @@ limitations under the License.
 	<EnumType Name="SecAccountStatusEnum"
 			IsNullable="false"
 			MinValue="0"
-			InitValue="5" >
+			InitValue="5"
+			CodeVis="Public" >
 		<EnumTag Name="System" EnumCode="0" />
 		<EnumTag Name="VerifyingEmail" EnumCode="1" />
 		<EnumTag Name="CreatingDevKey" EnumCode="2" />
@@ -101,22 +104,26 @@ limitations under the License.
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
 			Slice="101"
-			BlockSize="1" />
+			BlockSize="1"
+			CodeVis="Public" />
 
 	<StringType Name="ISO6391LangCode"
 			IsNullable="false"
 			MaxLen="2"
-			InitValue="" />
+			InitValue=""
+			CodeVis="Public" />
 
 	<StringType Name="ISO6392LangCode"
 			IsNullable="false"
 			MaxLen="3"
-			InitValue="" />
+			InitValue=""
+			CodeVis="Public" />
 
 	<StringType Name="ISOCcyCode"
 			IsNullable="false"
 			MaxLen="3"
-			InitValue="" />
+			InitValue=""
+			CodeVis="Public" />
 
 	<Id16Gen Name="ISOCcyIdGen"
 			IsNullable="false"
@@ -124,7 +131,8 @@ limitations under the License.
 			MinValue="0"
 			InitValue="0"
 			Slice="102"
-			BlockSize="1" />
+			BlockSize="1"
+			CodeVis="Public" />
 
 	<Id32Gen Name="TableInfoIdGen"
 			IsNullable="false"
@@ -132,32 +140,38 @@ limitations under the License.
 			MinValue="0"
 			InitValue="0"
 			Slice="103"
-			BlockSize="1" />
+			BlockSize="1"
+			CodeVis="Public" />
 
 	<StringType Name="ISOCtryCode"
 			IsNullable="false"
 			MaxLen="2"
-			InitValue="" />
+			InitValue=""
+			CodeVis="Public" />
 
 	<StringType Name="ISOCtryCode3"
 			IsNullable="false"
 			MaxLen="3"
-			InitValue="" />
+			InitValue=""
+			CodeVis="Public" />
 
 	<StringType Name="LoginIdType"
 			IsNullable="false"
 			MaxLen="32"
-			InitValue="" />
+			InitValue=""
+			CodeVis="Public" />
 
 	<StringType Name="GroupName"
 			IsNullable="false"
 			MaxLen="64"
-			InitValue="" />
+			InitValue=""
+			CodeVis="Public" />
 
 	<StringType Name="EMailAddrType"
 			IsNullable="false"
 			MaxLen="512"
-			InitValue="" />
+			InitValue=""
+			CodeVis="Public" />
 
 	<Id16Gen Name="ISOCtryIdGen"
 			IsNullable="false"
@@ -165,7 +179,8 @@ limitations under the License.
 			MinValue="0"
 			InitValue="0"
 			Slice="104"
-			BlockSize="1" />
+			BlockSize="1"
+			CodeVis="Public" />
 
 	<Id16Gen Name="ISOLangIdGen"
 			IsNullable="false"
@@ -173,7 +188,8 @@ limitations under the License.
 			MinValue="0"
 			InitValue="0"
 			Slice="105"
-			BlockSize="1" />
+			BlockSize="1"
+			CodeVis="Public" />
 
 	<Id16Gen Name="ISOTZoneIdGen"
 			IsNullable="false"
@@ -181,56 +197,65 @@ limitations under the License.
 			MinValue="0"
 			InitValue="0"
 			Slice="106"
-			BlockSize="1" />
+			BlockSize="1"
+			CodeVis="Public" />
 
 	<DbKeyHash256Gen Name="SecSessionIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
 			Slice="107"
-			BlockSize="1" />
+			BlockSize="1"
+			CodeVis="Public" />
 
 	<DbKeyHash256Gen Name="SecUserIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
 			Slice="108"
-			BlockSize="1" />
+			BlockSize="1"
+			CodeVis="Public" />
 
 	<DbKeyHash256Gen Name="TenantIdGen"
 			IsNullable="false"
 			DbName="TenantIdGenSeq"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
 			Slice="109"
-			BlockSize="1" />
+			BlockSize="1"
+			CodeVis="Public" />
 
 	<DbKeyHash256Gen Name="SecSysGrpIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
 			Slice="110"
-			BlockSize="1" />
+			BlockSize="1"
+			CodeVis="Public" />
 
 	<DbKeyHash256Gen Name="SecClusGrpIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
 			Slice="111"
-			BlockSize="1" />
+			BlockSize="1"
+			CodeVis="Public" />
 
 	<DbKeyHash256Gen Name="SecClusRoleIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
 			Slice="112"
-			BlockSize="1" />
+			BlockSize="1"
+			CodeVis="Public" />
 
 	<DbKeyHash256Gen Name="SecTentGrpIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
 			Slice="113"
-			BlockSize="1" />
+			BlockSize="1"
+			CodeVis="Public" />
 
 	<DbKeyHash256Gen Name="SecTentRoleIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
 			Slice="114"
-			BlockSize="1" />
+			BlockSize="1"
+			CodeVis="Public" />
 
 	<Table Name="Cluster"
 			TableClassCode="a001"
@@ -511,26 +536,31 @@ limitations under the License.
 		<TableCol Name="ISOCcyId"
 				IsNullable="false"
 				GenerateId="true"
-				DataType="ISOCcyIdGen" />
+				DataType="ISOCcyIdGen"
+				CodeVis="Public" />
 		<TableCol Name="ISOCode"
 				IsNullable="false"
 				DbName="iso_code"
-				DataType="ISOCcyCode" />
+				DataType="ISOCcyCode"
+				CodeVis="Public" />
 		<StringCol Name="Name"
 				IsNullable="false"
 				DbName="ccy_name"
 				MaxLen="64"
-				InitValue="" />
+				InitValue=""
+				CodeVis="Public" />
 		<StringCol Name="UnitSymbol"
 				IsNullable="true"
 				DbName="unit_symbol"
-				MaxLen="4" />
+				MaxLen="4"
+				CodeVis="Public" />
 		<Int16Col Name="Precis"
 				IsNullable="false"
 				DbName="precis"
 				MinValue="0"
 				MaxValue="5"
-				InitValue="0" />
+				InitValue="0"
+				CodeVis="Public" />
 		<PrimaryIndex Name="ISOCcyIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
@@ -578,16 +608,19 @@ limitations under the License.
 		<TableCol Name="ISOCtryId"
 				IsNullable="false"
 				GenerateId="true"
-				DataType="ISOCtryIdGen" />
+				DataType="ISOCtryIdGen"
+				CodeVis="Public" />
 		<TableCol Name="ISOCode"
 				IsNullable="false"
 				DbName="iso_code"
-				DataType="ISOCtryCode" />
+				DataType="ISOCtryCode"
+				CodeVis="Public" />
 		<StringCol Name="Name"
 				IsNullable="false"
 				DbName="country_name"
 				MaxLen="64"
-				InitValue="" />
+				InitValue=""
+				CodeVis="Public" />
 		<PrimaryIndex Name="ISOCtryIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
@@ -632,10 +665,12 @@ limitations under the License.
 			CodeVis="Public" >
 		<TableCol Name="ISOCtryId"
 				IsNullable="false"
-				DataType="ISOCtryIdGen" />
+				DataType="ISOCtryIdGen"
+				CodeVis="Public" />
 		<TableCol Name="ISOCcyId"
 				IsNullable="false"
-				DataType="ISOCcyIdGen" />
+				DataType="ISOCcyIdGen"
+				CodeVis="Public" />
 		<PrimaryIndex Name="ISOCtryCcyIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
@@ -681,10 +716,12 @@ limitations under the License.
 			CodeVis="Public" >
 		<TableCol Name="ISOCtryId"
 				IsNullable="false"
-				DataType="ISOCtryIdGen" />
+				DataType="ISOCtryIdGen"
+				CodeVis="Public" />
 		<TableCol Name="ISOLangId"
 				IsNullable="false"
-				DataType="ISOLangIdGen" />
+				DataType="ISOLangIdGen"
+				CodeVis="Public" />
 		<PrimaryIndex Name="ISOCtryLangIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
@@ -733,11 +770,13 @@ limitations under the License.
 		<TableCol Name="ISOLangId"
 				IsNullable="false"
 				GenerateId="true"
-				DataType="ISOLangIdGen" />
+				DataType="ISOLangIdGen"
+				CodeVis="Public" />
 		<TableCol Name="ISO6392Code"
 				IsNullable="false"
 				DbName="iso_code3"
-				DataType="ISO6392LangCode" />
+				DataType="ISO6392LangCode"
+				CodeVis="Public" />
 		<TableCol Name="ISO6391Code"
 				IsNullable="true"
 				DbName="iso_code2"
@@ -796,36 +835,43 @@ limitations under the License.
 				Label="ISO Timezone Id"
 				IsNullable="false"
 				GenerateId="true"
-				DataType="ISOTZoneIdGen" />
+				DataType="ISOTZoneIdGen"
+				CodeVis="Public" />
 		<StringCol Name="Iso8601"
 				Label="ISO8601"
 				IsNullable="false"
 				MaxLen="6"
-				InitValue="" />
+				InitValue=""
+				CodeVis="Public" />
 		<StringCol Name="TZName"
 				Label="Timezone Name"
 				IsNullable="false"
 				MaxLen="64"
-				InitValue="" />
+				InitValue=""
+				CodeVis="Public" />
 		<Int16Col Name="TZHourOffset"
 				Label="Timezone Hour Offset"
 				IsNullable="false"
 				MinValue="-12"
 				MaxValue="12"
-				InitValue="0" />
+				InitValue="0"
+				CodeVis="Public" />
 		<Int16Col Name="TZMinOffset"
 				Label="Timezone Minute Offset"
 				IsNullable="false"
 				MinValue="-59"
 				MaxValue="59"
-				InitValue="0" />
+				InitValue="0"
+				CodeVis="Public" />
 		<StringCol Name="Description"
 				IsNullable="false"
 				MaxLen="128"
-				InitValue="" />
+				InitValue=""
+				CodeVis="Public" />
 		<BoolCol Name="Visible"
 				IsNullable="false"
-				InitValue="true" />
+				InitValue="true"
+				CodeVis="Public" />
 		<PrimaryIndex Name="ISOTZoneIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
@@ -948,7 +994,7 @@ limitations under the License.
 				DbName="SecUser_xemconf"
 				ShortName="EMailAddr"
 				Suffix="EMAddrIdx"
-				CodeVis="Public" >
+				CodeVis="Protected" >
 			<IndexCol Name="EMailAddress" IsAscending="true" />
 		</Index>
 	</Table>
@@ -1669,26 +1715,26 @@ limitations under the License.
 			LookupIndex="SecSysRoleUNameIdx"
 			LoaderBehaviour="Insert"
 			SecScope="System"
-			CodeVis="Protected" >
+			CodeVis="Public" >
 		<TableCol Name="SecSysRoleId"
 				Label="Security System Role Id"
 				IsNullable="false"
 				GenerateId="true"
 				DataType="SecSysGrpIdGen"
-				CodeVis="Protected" />
+				CodeVis="Public" />
 		<TableCol Name="Name"
 				Label="Name"
 				IsNullable="false"
 				DbName="safe_name"
 				DataType="GroupName"
-				CodeVis="Protected" />
+				CodeVis="Public" />
 		<PrimaryIndex Name="SecSysRoleIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
 				DbName="SecSysRole_pidx"
 				ShortName="PIdx"
 				Suffix="IdIdx"
-				CodeVis="Protected" >
+				CodeVis="Public" >
 			<IndexCol Name="SecSysRoleId" IsAscending="true" />
 		</PrimaryIndex>
 		<Index Name="SecSysRoleUNameIdx"
@@ -1697,7 +1743,7 @@ limitations under the License.
 				DbName="SecSysRole_xuname"
 				ShortName="UName"
 				Suffix="UNameIdx"
-				CodeVis="Protected" >
+				CodeVis="Public" >
 			<IndexCol Name="Name" IsAscending="true" />
 		</Index>
 	</Table>
@@ -2101,7 +2147,7 @@ limitations under the License.
 				Label="Security Proxy User Id"
 				IsNullable="true"
 				DataType="SecUserIdGen"
-				CodeVis="Public" />
+				CodeVis="Protected" />
 		<PrimaryIndex Name="SecSessionIdIdx"
 				IsDbMapped="true"
 				IsUnique="true"
@@ -2146,7 +2192,7 @@ limitations under the License.
 				DbName="Session_xproxy"
 				ShortName="SecProxy"
 				Suffix="SecProxyIdx"
-				CodeVis="Public" >
+				CodeVis="Protected" >
 			<IndexCol Name="SecProxyId" IsAscending="true" />
 		</Index>
 	</Table>
@@ -2225,7 +2271,7 @@ limitations under the License.
 				ToIndex="SecClusGrp.SecClusGrpClusterIdx"
 				IsRequired="false"
 				IsXsdContainer="false"
-				CodeVis="Protected" >
+				CodeVis="Public" >
 			<RelationCol Name="Id" ToCol="ClusterId" />
 		</Relation>
 		<Relation Name="ClusterSecRole"
@@ -2417,7 +2463,7 @@ limitations under the License.
 				ToIndex="SecSysRole.SecSysRoleIdIdx"
 				IsRequired="false"
 				IsXsdContainer="true"
-				CodeVis="Protected" >
+				CodeVis="Public" >
 			<RelationCol Name="SecSysGrpId" ToCol="SecSysRoleId" />
 		</Relation>
 		<Relation Name="SecSysGrpImplClusRole"
