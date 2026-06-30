@@ -1,4 +1,4 @@
-# org.msscf.msscf.v2_13.cfkbase
+# org.msscf.msscf.v2_13.cfmodel
 Mark's Code Fractal CFKModel 3.1 Code Fractal Models
 
 Copyright (c) 2016-2026 Mark Stephen Sobkow
