@@ -3954,15 +3954,15 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 			<IndexCol Name="NextRelationId" IsAscending="true" />
 		</Index>
 
-		<CafeObjInterface>
-	I$SchemaName$SubProjectObj getProject();
-	I$SchemaName$TopDomainObj getCompany();
-	I$SchemaName$SchemaDefObj getSchemaDef();
-	I$SchemaName$MinorVersionObj getVersion();
+		<TableTweak Name="CafePubObjInterface">
+	ICFIntPubSubProjectObj getProject();
+	ICFIntPubTopDomainObj getCompany();
+	I$DefSchemaName$PubSchemaDefObj getSchemaDef();
+	ICFIntPubMinorVersionObj getVersion();
 	String getVersionString();
 	String getPackedVersionString();
 	Boolean isColumnInOwnerRelation();
-</CafeObjInterface>
+</TableTweak>
 
 		<CafeObjImplementation>
 	public I$SchemaName$SubProjectObj getProject() {
