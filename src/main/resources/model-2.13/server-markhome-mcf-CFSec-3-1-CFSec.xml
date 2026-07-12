@@ -234,28 +234,28 @@ limitations under the License.
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
 			Slice="111"
 			BlockSize="1"
-			CodeVis="Public" />
+			CodeVis="Protected" />
 
 	<DbKeyHash256Gen Name="SecClusRoleIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
 			Slice="112"
 			BlockSize="1"
-			CodeVis="Public" />
+			CodeVis="Protected" />
 
 	<DbKeyHash256Gen Name="SecTentGrpIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
 			Slice="113"
 			BlockSize="1"
-			CodeVis="Public" />
+			CodeVis="Protected" />
 
 	<DbKeyHash256Gen Name="SecTentRoleIdGen"
 			IsNullable="false"
 			InitValue="0000000000000000000000000000000000000000000000000000000000000000"
 			Slice="114"
 			BlockSize="1"
-			CodeVis="Public" />
+			CodeVis="Protected" />
 
 	<Table Name="Cluster"
 			TableClassCode="a001"
@@ -1010,7 +1010,7 @@ limitations under the License.
 			PageData="false"
 			LoaderBehaviour="Insert"
 			SecScope="System"
-			CodeVis="Protected" >
+			CodeVis="Private" >
 		<TableCol Name="SecUserId"
 				Label="Security User Id"
 				IsNullable="false"
