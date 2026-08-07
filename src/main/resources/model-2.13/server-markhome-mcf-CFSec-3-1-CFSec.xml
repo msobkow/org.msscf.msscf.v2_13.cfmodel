@@ -2894,7 +2894,7 @@ limitations under the License.
 	</TableAddendum>
 
 	<TableAddendum FromTable="SecSession">
-		<!--Relation Name="SecSessionSecUser"
+		<Relation Name="SecSessionSecUser"
 				RelationType="Container"
 				DbName="secsess_secuser"
 				Label="Security User"
@@ -2903,21 +2903,21 @@ limitations under the License.
 				ToIndex="SecUser.SecUserIdIdx"
 				IsRequired="true">
 			<RelationCol Name="SecUserId" ToCol="SecUserId" />
-		</Relation-->
-		<!--Relation Name="SecSessionProxy"
+		</Relation>
+		<Relation Name="SecSessionProxy"
 				RelationType="Parent"
 				DbName="secsess_proxy"
 				Label="Security Proxy User"
 				Suffix="SecProxy"
 				FromIndex="SessionSecProxyIdx"
 				ToIndex="SecUser.SecUserIdIdx"
-				IsRequired="true" >
+				IsRequired="true">
 			<RelationCol Name="SecProxyId" ToCol="SecUserId" />
-		</Relation-->
+		</Relation>
 	</TableAddendum>
 
 	<TableAddendum FromTable="SecUser">
-		<!--Relation Name="SecUserSecSession"
+		<Relation Name="SecUserSecSession"
 				RelationType="Components"
 				DbName="secuser_secsess"
 				Label="Security Session"
@@ -2927,17 +2927,18 @@ limitations under the License.
 				IsRequired="false"
 				IsXsdContainer="true" >
 			<RelationCol Name="SecUserId" ToCol="SecUserId" />
-		</Relation-->
-		<!--Relation Name="SecUserSecProxySession"
+		</Relation>
+		<Relation Name="SecUserSecProxySession"
 				RelationType="Children"
 				DbName="secuser_secproxysess"
 				Label="Security Proxy Session"
 				Suffix="SecProxy"
 				FromIndex="SecUserIdIdx"
 				ToIndex="SecSession.SessionSecProxyIdx"
-				IsRequired="false" >
+				IsRequired="false"
+				IsXsdContainer="false" >
 			<RelationCol Name="SecUserId" ToCol="SecProxyId" />
-		</Relation -->
+		</Relation>
 		<Relation Name="SecUserPass"
 				RelationType="Components"
 				DbName="secuser_refpassword"
@@ -2972,6 +2973,18 @@ limitations under the License.
 				IsRequired="false"
 				IsXsdContainer="true"
 				CodeVis="Protected" >
+			<RelationCol Name="SecUserId" ToCol="SecUserId" />
+		</Relation>
+		<Relation Name="SecUserPasswordHistory"
+				RelationType="Children"
+				DbName="secuser_passwordhist"
+				Label="Password History Entries"
+				Suffix="PWHistory"
+				FromIndex="SecUserIdIdx"
+				ToIndex="SecUserPWHistory.SecUserPWHistUserIdx"
+				IsRequired="false"
+				IsXsdContainer="false"
+				CodeVis="Private" >
 			<RelationCol Name="SecUserId" ToCol="SecUserId" />
 		</Relation>
 		<Relation Name="SecUserSecSysGrpMemb"
