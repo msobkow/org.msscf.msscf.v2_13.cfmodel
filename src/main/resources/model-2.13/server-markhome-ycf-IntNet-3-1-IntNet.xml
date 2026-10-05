@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
- *	Mark's Code Fractal CFInt 3.1 Internet Essentials
+ *	Yorkton Code Fractal IntNet 3.1 Internet Essentials
  *
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *
- *	This file is part of Mark's Code Fractal CFInt.
+ *	This file is part of Yorkton Code Fractal IntNet.
  *
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -19,23 +19,23 @@
  *	limitations under the License.
  *-->
 <MSSBam
-		xmlns="http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
+		xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xmlns:xs="http://www.w3.org/2001/XMLSchema"
-		xsi:schemaLocation="http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
-		Name="CFInt"
+		xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
+		Name="IntNet"
 		Revision="3.1"
-		Description="Mark's Code Fractal CFInt - Internet Essentials"
-		ProjectRoot="server.markhome.mcf.CFInt.3.1" >
+		Description="Yorkton Code Fractal IntNet - Internet Essentials"
+		ProjectRoot="server.markhome.ycf.IntNet.3.1" >
 	<Tld Name="server" >
 		<TopDomain Name="markhome" >
-			<TopProject Name="mcf" >
-				<SubProject Name="CFInt" >
+			<TopProject Name="ycf" >
+				<SubProject Name="IntNet" >
 					<MajorVersion Name="3" >
 						<MinorVersion Name="1" >
-<SchemaDef Name="CFInt"
-		DbName="CFInt31"
-		Description="Mark's Code Fractal Internet Essentials"
+<SchemaDef Name="IntNet"
+		DbName="IntNet31"
+		Description="Yorkton Code Fractal Internet Essentials"
 		CopyrightHolder="Mark Stephen Sobkow"
 		CopyrightPeriod="2016-2026"
 		AuthorEMail="mark.sobkow@gmail.com"
@@ -43,9 +43,9 @@
 		PublishURI="https://msobkow.github.io/index.html#cfint31"
 		CommonLicenseName="NormalApacheV2" CommonLicenseCode="ApacheV2" >
 			<CommonLicense>
-Mark's Code Fractal 3.1 CFInt - Internet Essentials
+Yorkton Code Fractal 3.1 IntNet - Internet Essentials
 
-This file is part of Mark's Code Fractal CFInt.
+This file is part of Yorkton Code Fractal IntNet.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -60,9 +60,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 </CommonLicense>
 
-	<SchemaRef Name="CFSec"
-			RefModelName="server-markhome-mcf-CFSec-3-1-CFSec"
-			IncludeRoot="server.markhome.mcf.CFSec.3.1.CFSec" />
+	<SchemaRef Name="Secure"
+			RefModelName="server-markhome-ycf-Secure-3-1-Secure"
+			IncludeRoot="server.markhome.ycf.Secure.3.1.Secure" />
 
 	<StringType Name="DomNameType"
 			IsNullable="false"

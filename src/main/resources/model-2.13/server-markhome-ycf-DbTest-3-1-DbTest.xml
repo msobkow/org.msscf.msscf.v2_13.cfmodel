@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
- *	Mark's Code Fractal CFDbTst 3.1 Database Test Framework
+ *	Yorkton Code Fractal CFDbTst 3.1 Database Test Framework
  *
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *
- *	This file is part of Mark's Code Fractal CFDbTst.
+ *	This file is part of Yorkton Code Fractal CFDbTst.
  *
- *	Mark's Code Fractal CFDbTst is available under dual commercial license from
+ *	Yorkton Code Fractal CFDbTst is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU Library General Public License,
  *	Version 3 or later.
  *
- *	Mark's Code Fractal CFDbTst is free software: you can redistribute it and/or
+ *	Yorkton Code Fractal CFDbTst is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU Library General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *
- *	Mark's Code Fractal CFDbTst is distributed in the hope that it will be useful,
+ *	Yorkton Code Fractal CFDbTst is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU Library General Public License for more details.
  *
  *	You should have received a copy of the GNU Library General Public License
- *	along with Mark's Code Fractal CFDbTst.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+ *	along with Yorkton Code Fractal CFDbTst.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
  *
  *	If you wish to modify and use this code without publishing your changes in order to
  *	tie it to proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  *-->
 <MSSBam
-		xmlns="http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
+		xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xmlns:xs="http://www.w3.org/2001/XMLSchema"
-		xsi:schemaLocation="http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
+		xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
 		Name="CFDbTst"
 		Revision="3.1"
-		Description="Mark's Code Fractal CFDbTst - Database Test Framework"
-		ProjectRoot="server.markhome.mcf.CFDbTst.3.1" >
+		Description="Yorkton Code Fractal CFDbTst - Database Test Framework"
+		ProjectRoot="server.markhome.ycf.CFDbTst.3.1" >
 	<Tld Name="server" >
 		<TopDomain Name="markhome" >
-			<TopProject Name="mcf" >
+			<TopProject Name="ycf" >
 				<SubProject Name="CFDbTst" >
 					<MajorVersion Name="3" >
 						<MinorVersion Name="1" >
 <SchemaDef Name="CFDbTst"
 		DbName="CFDbTst31"
-		Description="Mark's Code Fractal Database Test Framework"
+		Description="Yorkton Code Fractal Database Test Framework"
 		CopyrightHolder="Mark Stephen Sobkow"
 		CopyrightPeriod="2016-2026"
 		AuthorEMail="mark.sobkow@gmail.com"
@@ -52,39 +52,39 @@
 		PublishURI="https://msobkow.github.io/index.html#cfdbtst31"
 		CommonLicenseName="Dual GPLv3/Commercial" CommonLicenseCode="DualGPLv3" >
 			<CommonLicense>
-Mark's Code Fractal 3.1 CFDbTst - Database Test Framework
+Yorkton Code Fractal 3.1 CFDbTst - Database Test Framework
 
-This file is part of Mark's Code Fractal CFDbTst.
+This file is part of Yorkton Code Fractal CFDbTst.
 
-Mark's Code Fractal CFDbTst is available under dual commercial license from
+Yorkton Code Fractal CFDbTst is available under dual commercial license from
 Mark Stephen Sobkow, or under the terms of the GNU Library General Public License,
 Version 3 or later.
 
-Mark's Code Fractal CFDbTst is free software: you can redistribute it and/or
+Yorkton Code Fractal CFDbTst is free software: you can redistribute it and/or
 modify it under the terms of the GNU Library General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-Mark's Code Fractal CFDbTst is distributed in the hope that it will be useful,
+Yorkton Code Fractal CFDbTst is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU Library General Public License
-along with Mark's Code Fractal CFDbTst.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+along with Yorkton Code Fractal CFDbTst.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
 
 If you wish to modify and use this code without publishing your changes in order to
 tie it to proprietary code, please contact Mark Stephen Sobkow
 for a commercial license at mark.sobkow@gmail.com
 </CommonLicense>
 
-	<SchemaRef Name="CFSec"
-			RefModelName="server-markhome-mcf-CFSec-3-1-CFSec"
-			IncludeRoot="server.markhome.mcf.CFSec.3.1.CFSec" />
+	<SchemaRef Name="Secure"
+			RefModelName="server-markhome-ycf-Secure-3-1-Secure"
+			IncludeRoot="server.markhome.ycf.Secure.3.1.Secure" />
 
-	<SchemaRef Name="CFInt"
-			RefModelName="server-markhome-mcf-CFInt-3-1-CFInt"
-			IncludeRoot="server.markhome.mcf.CFInt.3.1.CFInt" />
+	<SchemaRef Name="IntNet"
+			RefModelName="server-markhome-ycf-IntNet-3-1-IntNet"
+			IncludeRoot="server.markhome.ycf.IntNet.3.1.IntNet" />
 
 	<StringType Name="DescriptionType"
 			IsNullable="false"

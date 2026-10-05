@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
- *	Mark's Code Fractal CFCore 3.1 Synthesis Core
+ *	Yorkton Code Fractal CFCore 3.1 Synthesis Core
  *
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *
- *	This file is part of Mark's Code Fractal CFCore.
+ *	This file is part of Yorkton Code Fractal CFCore.
  *
- *	Mark's Code Fractal CFCore is available under dual commercial license from
+ *	Yorkton Code Fractal CFCore is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *
@@ -20,41 +20,41 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *
- *	Mark's Code Fractal CFCore is free software: you can redistribute it and/or
+ *	Yorkton Code Fractal CFCore is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *
- *	Mark's Code Fractal CFCore is distributed in the hope that it will be useful,
+ *	Yorkton Code Fractal CFCore is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFCore.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+ *	along with Yorkton Code Fractal CFCore.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
  *
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  *-->
 <MSSBam
-		xmlns="http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
+		xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xmlns:xs="http://www.w3.org/2001/XMLSchema"
-		xsi:schemaLocation="http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
+		xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
 		Name="CFBam"
 		Revision="3.1"
-		Description="Mark's Code Fractal CFCore - Synthesis Core"
-		ProjectRoot="server.markhome.mcf.CFCore.3.1" >
+		Description="Yorkton Code Fractal CFCore - Synthesis Core"
+		ProjectRoot="server.markhome.ycf.CFCore.3.1" >
 	<Tld Name="server" >
 		<TopDomain Name="markhome" >
-			<TopProject Name="mcf" >
+			<TopProject Name="ycf" >
 				<SubProject Name="CFCore" >
 					<MajorVersion Name="3" >
 						<MinorVersion Name="1" >
 <SchemaDef Name="CFGenKb"
 		DbName="CFGenKb31"
-		Description="Mark's Code Fractal Generation Knowledge Base"
+		Description="Yorkton Code Fractal Generation Knowledge Base"
 		CopyrightHolder="Mark Stephen Sobkow"
 		CopyrightPeriod="2016-2026"
 		AuthorEMail="mark.sobkow@gmail.com"
@@ -62,13 +62,13 @@
 		PublishURI="https://msobkow.github.io/index.html#cfcore31"
 		CommonLicenseName="Dual GPLv3/Commercial" CommonLicenseCode="DualGPLv3" >
 			<CommonLicense>
-Mark's Code Fractal CFCore 3.1 Synthesis Core
+Yorkton Code Fractal CFCore 3.1 Synthesis Core
 
 Copyright 2016-2026 Mark Stephen Sobkow
 
-This file is part of Mark's Code Fractal CFCore.
+This file is part of Yorkton Code Fractal CFCore.
 
-Mark's Code Fractal CFCore is available under dual commercial license from
+Yorkton Code Fractal CFCore is available under dual commercial license from
 Mark Stephen Sobkow, or under the terms of the GNU General Public License,
 Version 3 or later with classpath and static linking exceptions.
 
@@ -82,18 +82,18 @@ to use. Mark Sobkow specifically rejects the infectious nature of the GPLv3, and
 considers the mere act of including GPLv3 modules in an executable to be perfectly
 reasonable given tools like modern Java's single-jar deployment options.
 
-Mark's Code Fractal CFCore is free software: you can redistribute it and/or
+Yorkton Code Fractal CFCore is free software: you can redistribute it and/or
 modify it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-Mark's Code Fractal CFCore is distributed in the hope that it will be useful,
+Yorkton Code Fractal CFCore is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with Mark's Code Fractal CFCore.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+along with Yorkton Code Fractal CFCore.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
 
 If you wish to modify and use this code without publishing your changes,
 or integrate it with proprietary code, please contact Mark Stephen Sobkow

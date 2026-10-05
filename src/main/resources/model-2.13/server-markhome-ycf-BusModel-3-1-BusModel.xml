@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
- *	Mark's Code Fractal CFBam 3.1 Business Application Model
+ *	Yorkton Code Fractal BusModel 3.1 Business Application Model
  *
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *
- *	This file is part of Mark's Code Fractal CFBam.
+ *	This file is part of Yorkton Code Fractal BusModel.
  *
- *	Mark's Code Fractal CFBam is available under dual commercial license from
+ *	Yorkton Code Fractal BusModel is available under dual commercial license from
  *	Mark Stephen Sobkow, or under the terms of the GNU General Public License,
  *	Version 3 or later with classpath and static linking exceptions.
  *
@@ -20,41 +20,41 @@
  *	considers the mere act of including GPLv3 modules in an executable to be perfectly
  *	reasonable given tools like modern Java's single-jar deployment options.
  *
- *	Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+ *	Yorkton Code Fractal BusModel is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published by
  *	the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *
- *	Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+ *	Yorkton Code Fractal BusModel is distributed in the hope that it will be useful,
  *	but WITHOUT ANY WARRANTY; without even the implied warranty of
  *	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *	GNU General Public License for more details.
  *
  *	You should have received a copy of the GNU General Public License
- *	along with Mark's Code Fractal CFBam.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+ *	along with Yorkton Code Fractal BusModel.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
  *
  *	If you wish to modify and use this code without publishing your changes,
  *	or integrate it with proprietary code, please contact Mark Stephen Sobkow
  *	for a commercial license at mark.sobkow@gmail.com
  *-->
 <MSSBam
-		xmlns="http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
+		xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xmlns:xs="http://www.w3.org/2001/XMLSchema"
-		xsi:schemaLocation="http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
-		Name="CFBam"
+		xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
+		Name="BusModel"
 		Revision="3.1"
-		Description="Mark's Code Fractal CFBam - Business Application Model"
-		ProjectRoot="server.markhome.mcf.CFBam.3.1" >
+		Description="Yorkton Code Fractal BusModel - Business Application Model"
+		ProjectRoot="server.markhome.ycf.BusModel.3.1" >
 	<Tld Name="server" >
 		<TopDomain Name="markhome" >
-			<TopProject Name="mcf" >
-				<SubProject Name="CFBam" >
+			<TopProject Name="ycf" >
+				<SubProject Name="BusModel" >
 					<MajorVersion Name="3" >
 						<MinorVersion Name="1" >
-<SchemaDef Name="CFBam"
-		DbName="CFBam31"
-		Description="Mark's Code Fractal Business Application Model"
+<SchemaDef Name="BusModel"
+		DbName="BusModel31"
+		Description="Yorkton Code Fractal Business Application Model"
 		CopyrightHolder="Mark Stephen Sobkow"
 		CopyrightPeriod="2016-2026"
 		AuthorEMail="mark.sobkow@gmail.com"
@@ -62,13 +62,13 @@
 		PublishURI="https://msobkow.github.io/index.html#cfbam31"
 		CommonLicenseName="Dual GPLv3/Commercial" CommonLicenseCode="DualGPLv3" >
 			<CommonLicense>
-Mark's Code Fractal CFBam 3.1 Business Application Model
+Yorkton Code Fractal BusModel 3.1 Business Application Model
 
 Copyright 2016-2026 Mark Stephen Sobkow
 
-This file is part of Mark's Code Fractal CFBam.
+This file is part of Yorkton Code Fractal BusModel.
 
-Mark's Code Fractal CFBam is available under dual commercial license from
+Yorkton Code Fractal BusModel is available under dual commercial license from
 Mark Stephen Sobkow, or under the terms of the GNU General Public License,
 Version 3 or later with classpath and static linking exceptions.
 
@@ -82,30 +82,30 @@ to use. Mark Sobkow specifically rejects the infectious nature of the GPLv3, and
 considers the mere act of including GPLv3 modules in an executable to be perfectly
 reasonable given tools like modern Java's single-jar deployment options.
 
-Mark's Code Fractal CFBam is free software: you can redistribute it and/or
+Yorkton Code Fractal BusModel is free software: you can redistribute it and/or
 modify it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-Mark's Code Fractal CFBam is distributed in the hope that it will be useful,
+Yorkton Code Fractal BusModel is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with Mark's Code Fractal CFBam.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+along with Yorkton Code Fractal BusModel.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
 
 If you wish to modify and use this code without publishing your changes,
 or integrate it with proprietary code, please contact Mark Stephen Sobkow
 for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
-	<SchemaRef Name="CFSec"
-			RefModelName="server-markhome-mcf-CFSec-3-1-CFSec"
-			IncludeRoot="server.markhome.mcf.CFSec.3.1.CFSec" />
+	<SchemaRef Name="Secure"
+			RefModelName="server-markhome-ycf-Secure-3-1-Secure"
+			IncludeRoot="server.markhome.ycf.Secure.3.1.Secure" />
 
-	<SchemaRef Name="CFInt"
-			RefModelName="server-markhome-mcf-CFInt-3-1-CFInt"
-			IncludeRoot="server.markhome.mcf.CFInt.3.1.CFInt" />
+	<SchemaRef Name="IntNet"
+			RefModelName="server-markhome-ycf-IntNet-3-1-IntNet"
+			IncludeRoot="server.markhome.ycf.IntNet.3.1.IntNet" />
 
 	<DbKeyHash256Gen Name="ChainIdGen"
 			IsNullable="false"
@@ -3955,10 +3955,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		</Index>
 
 		<TableTweak Name="CafePubObjInterface">
-	ICFIntPubSubProjectObj getProject();
-	ICFIntPubTopDomainObj getCompany();
+	IIntNetPubSubProjectObj getProject();
+	IIntNetPubTopDomainObj getCompany();
 	I$DefSchemaName$PubSchemaDefObj getSchemaDef();
-	ICFIntPubMinorVersionObj getVersion();
+	IIntNetPubMinorVersionObj getVersion();
 	String getVersionString();
 	String getPackedVersionString();
 	Boolean isColumnInOwnerRelation();
@@ -4439,10 +4439,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		<CPlusObjImplementation>
 	$CPlusDefNamespace$::I$DefSchemaName$SubProjectObj* $SchemaName$$TableName$Obj::getProject() {
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntSubProjectBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetSubProjectBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$SubProjectObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -4451,10 +4451,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	$CPlusDefNamespace$::I$DefSchemaName$TopDomainObj* $SchemaName$$TableName$Obj::getCompany() {
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntTopDomainBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetTopDomainBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$TopDomainObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -4466,7 +4466,7 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 			if( curDef-&gt;implementsClassCode( $CPlusDefNamespace$::$DefSchemaName$SchemaDefBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$SchemaDefObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -4475,22 +4475,22 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj* $SchemaName$$TableName$Obj::getVersion() {
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntSubProjectBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetSubProjectBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTopProjectBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTopProjectBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTopDomainBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTopDomainBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -4499,10 +4499,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	std::string $SchemaName$$TableName$Obj::getVersionStringForVersion( cflib::ICFLibAnyObj* value ) {
 		std::string ret;
-		if( value-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+		if( value-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 			ret = dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( value )-&gt;getRequiredName();
 		}
-		else if( value-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+		else if( value-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 			ret = dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( value )-&gt;getRequiredName();
 		}
 		return( ret );
@@ -4513,20 +4513,20 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		cflib::ICFLibAnyObj* curDef = getVersion();
 		std::vector&lt;std::string&gt; invertedNodeNames;
 		while( curDef != NULL ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( curDef ) ) );
 			}
 			scopeDef = curDef-&gt;getObjScope();
 			if( scopeDef == NULL ) {
 				curDef = NULL;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
 			else {
@@ -4551,20 +4551,20 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		cflib::ICFLibAnyObj* curDef = getVersion();
 		std::vector&lt;std::string&gt; invertedNodeNames;
 		while( curDef != NULL ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( curDef ) ) );
 			}
 			scopeDef = curDef-&gt;getObjScope();
 			if( scopeDef == NULL ) {
 				curDef = NULL;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
 			else {
@@ -4663,10 +4663,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		<CPlusEditObjImplementation>
 	$CPlusDefNamespace$::I$DefSchemaName$SubProjectObj* $SchemaName$$TableName$EditObj::getProject() {
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntSubProjectBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetSubProjectBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$SubProjectObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -4675,10 +4675,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	$CPlusDefNamespace$::I$DefSchemaName$TopDomainObj* $SchemaName$$TableName$EditObj::getCompany() {
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntTopDomainBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetTopDomainBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$TopDomainObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -4690,7 +4690,7 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 			if( curDef-&gt;implementsClassCode( $CPlusDefNamespace$::$DefSchemaName$SchemaDefBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$SchemaDefObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -4699,22 +4699,22 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj* $SchemaName$$TableName$EditObj::getVersion() {
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntSubProjectBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetSubProjectBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTopProjectBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTopProjectBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTopDomainBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTopDomainBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -4723,10 +4723,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	std::string $SchemaName$$TableName$EditObj::getVersionStringForVersion( cflib::ICFLibAnyObj* value ) {
 		std::string ret;
-		if( value-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+		if( value-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 			ret = dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( value )-&gt;getRequiredName();
 		}
-		else if( value-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+		else if( value-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 			ret = dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( value )-&gt;getRequiredName();
 		}
 		return( ret );
@@ -4737,20 +4737,20 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		cflib::ICFLibAnyObj* curDef = getVersion();
 		std::vector&lt;std::string&gt; invertedNodeNames;
 		while( curDef != NULL ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( curDef ) ) );
 			}
 			scopeDef = curDef-&gt;getObjScope();
 			if( scopeDef == NULL ) {
 				curDef = NULL;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
 			else {
@@ -4775,20 +4775,20 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		cflib::ICFLibAnyObj* curDef = getVersion();
 		std::vector&lt;std::string&gt; invertedNodeNames;
 		while( curDef != NULL ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( curDef ) ) );
 			}
 			scopeDef = curDef-&gt;getObjScope();
 			if( scopeDef == NULL ) {
 				curDef = NULL;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
 			else {
@@ -7762,10 +7762,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		<CPlusObjImplementation>
 	$CPlusDefNamespace$::I$DefSchemaName$SubProjectObj* $CPlusNamespace$::$SchemaName$$TableName$Obj::getProject(){
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntSubProjectBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetSubProjectBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$SubProjectObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -7774,10 +7774,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	$CPlusDefNamespace$::I$DefSchemaName$TopDomainObj* $CPlusNamespace$::$SchemaName$$TableName$Obj::getCompany(){
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntTopDomainBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetTopDomainBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$TopDomainObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -7789,7 +7789,7 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 			if( curDef-&gt;implementsClassCode( $CPlusDefNamespace$::$DefSchemaName$SchemaDefBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$SchemaDefObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -7798,22 +7798,22 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj* $CPlusNamespace$::$SchemaName$$TableName$Obj::getVersion(){
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntSubProjectBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetSubProjectBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTopProjectBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTopProjectBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTopDomainBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTopDomainBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -7822,10 +7822,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	std::string $CPlusNamespace$::$SchemaName$$TableName$Obj::getVersionStringForVersion( cflib::ICFLibAnyObj* value ) {
 		std::string ret;
-		if( value-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+		if( value-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 			ret = dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( value )-&gt;getRequiredName();
 		}
-		else if( value-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+		else if( value-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 			ret = dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( value )-&gt;getRequiredName();
 		}
 		return( ret );
@@ -7836,20 +7836,20 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		cflib::ICFLibAnyObj* curDef = getVersion();
 		std::vector&lt;std::string&gt; invertedNodeNames;
 		while (curDef != NULL) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( curDef ) ) );
 			}
 			scopeDef = curDef-&gt;getObjScope();
 			if( scopeDef == NULL) {
 				curDef = NULL;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
 			else {
@@ -7874,20 +7874,20 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		cflib::ICFLibAnyObj* curDef = getVersion();
 		std::vector&lt;std::string&gt; invertedNodeNames;
 		while (curDef != NULL) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( curDef ) ) );
 			}
 			scopeDef = curDef-&gt;getObjScope();
 			if( scopeDef == NULL) {
 				curDef = NULL;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
 			else {
@@ -7988,10 +7988,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		<CPlusEditObjImplementation>
 	$CPlusDefNamespace$::I$DefSchemaName$SubProjectObj* $CPlusNamespace$::$SchemaName$$TableName$EditObj::getProject(){
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntSubProjectBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetSubProjectBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$SubProjectObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -8000,10 +8000,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	$CPlusDefNamespace$::I$DefSchemaName$TopDomainObj* $CPlusNamespace$::$SchemaName$$TableName$EditObj::getCompany(){
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntTopDomainBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetTopDomainBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$TopDomainObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -8015,7 +8015,7 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 			if( curDef-&gt;implementsClassCode( $CPlusDefNamespace$::$DefSchemaName$SchemaDefBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$SchemaDefObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -8024,22 +8024,22 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj* $CPlusNamespace$::$SchemaName$$TableName$EditObj::getVersion(){
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntSubProjectBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetSubProjectBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTopProjectBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTopProjectBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTopDomainBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTopDomainBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -8048,10 +8048,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	std::string $CPlusNamespace$::$SchemaName$$TableName$EditObj::getVersionStringForVersion( cflib::ICFLibAnyObj* value ) {
 		std::string ret;
-		if( value-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+		if( value-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 			ret = dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( value )-&gt;getRequiredName();
 		}
-		else if( value-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+		else if( value-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 			ret = dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( value )-&gt;getRequiredName();
 		}
 		return( ret );
@@ -8062,20 +8062,20 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		cflib::ICFLibAnyObj* curDef = getVersion();
 		std::vector&lt;std::string&gt; invertedNodeNames;
 		while (curDef != NULL) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( curDef ) ) );
 			}
 			scopeDef = curDef-&gt;getObjScope();
 			if( scopeDef == NULL) {
 				curDef = NULL;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
 			else {
@@ -8100,20 +8100,20 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		cflib::ICFLibAnyObj* curDef = getVersion();
 		std::vector&lt;std::string&gt; invertedNodeNames;
 		while (curDef != NULL) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( curDef ) ) );
 			}
 			scopeDef = curDef-&gt;getObjScope();
 			if( scopeDef == NULL) {
 				curDef = NULL;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
 			else {
@@ -8878,10 +8878,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		<CPlusObjImplementation>
 	$CPlusDefNamespace$::I$DefSchemaName$SubProjectObj* $SchemaName$RelationColObj::getProject() {
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntSubProjectBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetSubProjectBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$SubProjectObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -8890,10 +8890,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	$CPlusDefNamespace$::I$DefSchemaName$TopDomainObj* $SchemaName$RelationColObj::getCompany() {
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntTopDomainBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetTopDomainBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$TopDomainObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -8905,7 +8905,7 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 			if( curDef-&gt;implementsClassCode( $CPlusDefNamespace$::$DefSchemaName$SchemaDefBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$SchemaDefObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -8914,22 +8914,22 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj* $SchemaName$RelationColObj::getVersion() {
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntSubProjectBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetSubProjectBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTopProjectBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTopProjectBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTopDomainBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTopDomainBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -8938,10 +8938,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	std::string $SchemaName$RelationColObj::getVersionStringForVersion( cflib::ICFLibAnyObj* value ) {
 		std::string ret;
-		if( value-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+		if( value-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 			ret = dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( value )-&gt;getRequiredName();
 		}
-		else if( value-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+		else if( value-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 			ret = dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( value )-&gt;getRequiredName();
 		}
 		return( ret );
@@ -8952,20 +8952,20 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		cflib::ICFLibAnyObj* curDef = getVersion();
 		std::vector&lt;std::string&gt; invertedNodeNames;
 		while( curDef != NULL ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( curDef ) ) );
 			}
 			scopeDef = curDef-&gt;getObjScope();
 			if( scopeDef == NULL ) {
 				curDef = NULL;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
 			else {
@@ -8990,20 +8990,20 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		cflib::ICFLibAnyObj* curDef = getVersion();
 		std::vector&lt;std::string&gt; invertedNodeNames;
 		while( curDef != NULL ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( curDef ) ) );
 			}
 			scopeDef = curDef-&gt;getObjScope();
 			if( scopeDef == NULL ) {
 				curDef = NULL;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
 			else {
@@ -9102,10 +9102,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		<CPlusEditObjImplementation>
 	$CPlusDefNamespace$::I$DefSchemaName$SubProjectObj* $SchemaName$RelationColEditObj::getProject() {
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntSubProjectBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetSubProjectBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$SubProjectObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -9114,10 +9114,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	$CPlusDefNamespace$::I$DefSchemaName$TopDomainObj* $SchemaName$RelationColEditObj::getCompany() {
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntTopDomainBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetTopDomainBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$TopDomainObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -9129,7 +9129,7 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 			if( curDef-&gt;implementsClassCode( $CPlusDefNamespace$::$DefSchemaName$SchemaDefBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$SchemaDefObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -9138,22 +9138,22 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj* $SchemaName$RelationColEditObj::getVersion() {
 		for( cflib::ICFLibAnyObj* curDef = this; curDef != NULL; curDef = curDef-&gt;getObjScope() ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				return( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntSubProjectBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetSubProjectBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTopProjectBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTopProjectBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTopDomainBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTopDomainBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntTldBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetTldBuff::CLASS_CODE ) ) {
 				return( NULL );
 			}
 		}
@@ -9162,10 +9162,10 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 
 	std::string $SchemaName$RelationColEditObj::getVersionStringForVersion( cflib::ICFLibAnyObj* value ) {
 		std::string ret;
-		if( value-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+		if( value-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 			ret = dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( value )-&gt;getRequiredName();
 		}
-		else if( value-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+		else if( value-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 			ret = dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( value )-&gt;getRequiredName();
 		}
 		return( ret );
@@ -9176,20 +9176,20 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		cflib::ICFLibAnyObj* curDef = getVersion();
 		std::vector&lt;std::string&gt; invertedNodeNames;
 		while( curDef != NULL ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( curDef ) ) );
 			}
 			scopeDef = curDef-&gt;getObjScope();
 			if( scopeDef == NULL ) {
 				curDef = NULL;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
 			else {
@@ -9214,20 +9214,20 @@ for a commercial license at mark.sobkow@gmail.com</CommonLicense>
 		cflib::ICFLibAnyObj* curDef = getVersion();
 		std::vector&lt;std::string&gt; invertedNodeNames;
 		while( curDef != NULL ) {
-			if( curDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			if( curDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MinorVersionObj*&gt;( curDef ) ) );
 			}
-			else if( curDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( curDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				invertedNodeNames.push_back( getVersionStringForVersion( dynamic_cast&lt;$CPlusDefNamespace$::I$DefSchemaName$MajorVersionObj*&gt;( curDef ) ) );
 			}
 			scopeDef = curDef-&gt;getObjScope();
 			if( scopeDef == NULL ) {
 				curDef = NULL;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMinorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMinorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
-			else if( scopeDef-&gt;implementsClassCode( cfint::CFIntMajorVersionBuff::CLASS_CODE ) ) {
+			else if( scopeDef-&gt;implementsClassCode( cfint::IntNetMajorVersionBuff::CLASS_CODE ) ) {
 				curDef = scopeDef;
 			}
 			else {

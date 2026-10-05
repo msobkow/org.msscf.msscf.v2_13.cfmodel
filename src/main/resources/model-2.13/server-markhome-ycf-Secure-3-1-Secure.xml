@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
- *	Mark's Code Fractal CFSec 3.1 Security Services
+ *	Yorkton Code Fractal Secure 3.1 Security Services
  *
  *	Copyright 2016-2026 Mark Stephen Sobkow
  *
- *	This file is part of Mark's Code Fractal CFSec.
+ *	This file is part of Yorkton Code Fractal Secure.
  *
  *	Licensed under the Apache License, Version 2.0 (the "License");
  *	you may not use this file except in compliance with the License.
@@ -19,23 +19,23 @@
  *	limitations under the License.
  *-->
 <MSSBam
-		xmlns="http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
+		xmlns="http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xmlns:xs="http://www.w3.org/2001/XMLSchema"
-		xsi:schemaLocation="http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd http://mcf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
-		Name="CFSec"
+		xsi:schemaLocation="http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd http://ycf.markhome.server/msscf/2.0.13/xsd/mssbam-2.13.xsd"
+		Name="Secure"
 		Revision="3.1"
-		Description="Mark's Code Fractal CFSec - Security Services"
-		ProjectRoot="server.markhome.mcf.CFSec.3.1" >
+		Description="Yorkton Code Fractal Secure - Security Services"
+		ProjectRoot="server.markhome.ycf.Secure.3.1" >
 	<Tld Name="server" >
 		<TopDomain Name="markhome" >
-			<TopProject Name="mcf" >
-				<SubProject Name="CFSec" >
+			<TopProject Name="ycf" >
+				<SubProject Name="Secure" >
 					<MajorVersion Name="3" >
 						<MinorVersion Name="1" >
-<SchemaDef Name="CFSec"
-		DbName="CFSec31"
-		Description="Mark's Code Fractal Security Services"
+<SchemaDef Name="Secure"
+		DbName="Secure31"
+		Description="Yorkton Code Fractal Security Services"
 		CopyrightHolder="Mark Stephen Sobkow"
 		CopyrightPeriod="2016-2026"
 		AuthorEMail="mark.sobkow@gmail.com"
@@ -43,11 +43,11 @@
 		PublishURI="https://msobkow.github.io/index.html#cfsec31"
 		CommonLicenseName="NormalApacheV2" CommonLicenseCode="ApacheV2" >
 			<CommonLicense>
-Mark's Code Fractal 3.1 CFSec - Security Services
+Yorkton Code Fractal 3.1 Secure - Security Services
 
 Copyright (c) 2016-2026 Mark Stephen Sobkow mark.sobkow@gmail.com
 
-These files are part of Mark's Code Fractal CFSec.
+These files are part of Yorkton Code Fractal Secure.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -262,7 +262,7 @@ limitations under the License.
 			DbName="clus"
 			ShortName="Clus"
 			Label="Cluster"
-			Description="A Cluster is an Mark's Code Fractal installation"
+			Description="A Cluster is an Yorkton Code Fractal installation"
 			IsInstantiable="true"
 			HasHistory="true"
 			HasAuditColumns="true"
@@ -2202,7 +2202,7 @@ limitations under the License.
 			DbName="sysclus"
 			ShortName="SysClus"
 			Label="Cluster"
-			Description="A Cluster is an Mark's Code Fractal installation"
+			Description="A Cluster is an Yorkton Code Fractal installation"
 			IsInstantiable="true"
 			HasHistory="false"
 			HasAuditColumns="false"
@@ -2245,11 +2245,11 @@ limitations under the License.
 	</Table>
 
 	<SchemaTweak name="JpaSchemaServiceCustomServices">
-		// Customized schematweak [CFSec::$SchemaName$].JpaSchemaServiceCustomServices</SchemaTweak>
+		// Customized schematweak [Secure::$SchemaName$].JpaSchemaServiceCustomServices</SchemaTweak>
 
 	<TableAddendum FromTable="Cluster">
 		<TableTweak Name="JpaTableServiceCustomServices">
-		// Customized tabletweak [CFSec::$SchemaName$].[Cluster::$TableName$].JpaTableServiceCustomServices</TableTweak>
+		// Customized tabletweak [Secure::$SchemaName$].[Cluster::$TableName$].JpaTableServiceCustomServices</TableTweak>
 		<Relation Name="ClusterTenant"
 				RelationType="Components"
 				DbName="clus_tenant"
